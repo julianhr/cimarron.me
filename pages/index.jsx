@@ -1,4 +1,7 @@
-import React from 'react'
+/* @jsx jsx */
+import 'sanitize.css'
+import { jsx } from '@emotion/core'
+
 import HtmlHead from '../library/components/HtmlHead'
 
 
@@ -6,7 +9,7 @@ export default () => {
   return (
     <>
       <HtmlHead />
-      Testing App
+      <p css={{color: 'salmon'}}>Testing App</p>
     </>
   )
 }
