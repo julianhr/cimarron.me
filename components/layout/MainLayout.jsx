@@ -4,8 +4,10 @@ import { css, jsx } from '@emotion/core'
 import { Global } from '@emotion/core'
 import styled from '@emotion/styled'
 
-import HtmlHead from './HtmlHead'
 import globalStyles from '../../library/styles/global-styles'
+import { Row, responsive } from '../../library/'
+import HtmlHead from './HtmlHead'
+import TopNav from '../top_nav/TopNav'
 
 
 const Root = styled.main`
@@ -21,7 +23,13 @@ function MainLayout(props) {
       <HtmlHead />
       <Global styles={globalStyles} />
       <Root>
-        {props.children}
+        <Row
+          as='main'
+          style={{ maxWidth: responsive.breaks.lg }}
+        >
+          <TopNav />
+          {props.children}
+        </Row>
       </Root>
     </>
   )
