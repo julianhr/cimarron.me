@@ -1,5 +1,7 @@
 import Head from 'next/head'
 
+import config from '../../config'
+
 
 function HtmlHead() {
   return (
@@ -7,7 +9,7 @@ function HtmlHead() {
       <meta charSet="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <meta httpEquiv="X-UA-Compatible" content="ie=edge" />
-      <title>Julian Hernandez - Personal Site</title>
+      <title>{config.author.name} - Personal Site</title>
     </Head>
   )
 }

@@ -2,14 +2,13 @@
 import 'sanitize.css'
 import { jsx } from '@emotion/core'
 
-import HtmlHead from '../library/components/HtmlHead'
+import MainLayout from '../components/layout/MainLayout'
 
 
 export default () => {
   return (
-    <>
-      <HtmlHead />
-      <p css={{color: 'salmon'}}>Testing App</p>
-    </>
+    <MainLayout>
+      This is a test
+    </MainLayout>
   )
 }
