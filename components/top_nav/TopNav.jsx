@@ -14,8 +14,7 @@ const RootHeader = styled.header`
 
 const menuItems = [
   { url: '/', label: 'Home' },
-  { url: '/playground', label: 'Playground' },
-  { url: '/about', label: 'About' },
+  { url: '/labs', label: 'Labs' },
 ]
 
 class AppNav extends React.PureComponent {
