@@ -19,8 +19,19 @@
   },
   "homepage": "https://github.com/julianhr/cimarron#readme",
   "dependencies": {
+    "@emotion/core": "^10.0.7",
+    "@emotion/styled": "^10.0.7",
+    "@zeit/next-css": "^1.0.1",
     "next": "^8.0.1",
     "react": "^16.8.2",
-    "react-dom": "^16.8.2"
+    "react-dom": "^16.8.2",
+    "sanitize.css": "^8.0.0"
+  },
+  "devDependencies": {
+    "babel-plugin-emotion": "^10.0.7"
+  },
+  "babel": {
+    "presets": ["next/babel"],
+    "plugins": ["babel-plugin-emotion"]
   }
 }
