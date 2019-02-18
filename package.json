@@ -1,0 +1,26 @@
+{
+  "name": "cimarron-me",
+  "version": "0.1.0",
+  "description": "Julian Hernandez - Personal Site",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/julianhr/cimarron.git"
+  },
+  "author": "Julian Hernandez",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/julianhr/cimarron/issues"
+  },
+  "homepage": "https://github.com/julianhr/cimarron#readme",
+  "dependencies": {
+    "next": "^8.0.1",
+    "react": "^16.8.2",
+    "react-dom": "^16.8.2"
+  }
+}
