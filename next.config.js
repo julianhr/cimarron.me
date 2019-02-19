@@ -1,12 +1,26 @@
 const withCSS = require('@zeit/next-css')
 
-module.exports = (nextConfig={}) => {
-  return withCSS({...nextConfig, ...{
-    webpack(config, options) {
-      const { dev, isServer } = options
-      const { cssModules, cssLoaderOptions, postcssLoaderOptions } = nextConfig
+module.exports = withCSS({
+  webpack(config, options) {
+    const { dev } = options
 
-      return config
+    if (dev) {
+      config.module.rules.push(...[
+        // eslint
+        {
+          test: /\.(js|jsx)$/,
+          exclude: /node_modules/,
+          enforce: 'pre',
+          loader: 'eslint-loader',
+          options: {
+            emitWarning: Boolean(dev)
+          }
+        }
+      ])
+    } else {
+      config.devtool = 'source-map'
     }
-  }})
-}
+
+    return config
+  }
+})

@@ -7,7 +7,7 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "export": "next export -o dist"
+    "export": "next build && next export -o dist"
   },
   "repository": {
     "type": "git",
@@ -29,10 +29,30 @@
     "sanitize.css": "^8.0.0"
   },
   "devDependencies": {
-    "babel-plugin-emotion": "^10.0.7"
+    "babel-eslint": "^10.0.1",
+    "babel-plugin-emotion": "^10.0.7",
+    "eslint": "^5.14.1",
+    "eslint-loader": "^2.1.2",
+    "eslint-plugin-react": "^7.12.4"
   },
   "babel": {
     "presets": ["next/babel"],
     "plugins": ["babel-plugin-emotion"]
+  },
+  "eslintConfig": {
+    "settings": {
+      "react": {
+        "version": "detect"
+      }
+    },
+    "extends": [
+      "eslint:recommended",
+      "plugin:react/recommended"
+    ],
+    "parser": "babel-eslint",
+    "plugins": ["react"],
+    "rules": {
+      "semi": ["error", "never"]
+    }
   }
 }
