@@ -2,6 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
 
+import TopNav from './components/TopNav'
+
 
 const Container = styled.div`
   display: grid;
@@ -18,6 +20,7 @@ function App() {
   return (
     <Container>
       <Main>
+        <TopNav />
         Testing App
       </Main>
     </Container>

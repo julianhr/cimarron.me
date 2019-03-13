@@ -1,11 +1,7 @@
-/* @jsx jsx */
 import React from 'react'
 import PropTypes from 'prop-types'
-import Link from 'next/link'
-import { jsx } from '@emotion/core'
+import { Link } from 'react-router-dom'
 import styled from '@emotion/styled'
-
-import { colors } from '../../library'
 
 
 const Root = styled.div`
@@ -15,8 +11,8 @@ const Root = styled.div`
 `
 
 const styles = {
-  link: {
-    color: `${colors.TEXT}`,
+  link: (theme) => ({
+    color: `${theme.colors.text}`,
     textDecoration: 'none',
     margin: '0 10px',
     padding: '0 6px 4px',
@@ -30,16 +26,17 @@ const styles = {
     transitionProperty: 'border-bottom-color',
     transitionDuration: '75ms',
     transitionTimingFunction: 'linear',
-  }
+  })
 }
 
 function MenuItem(props) {
   return (
     <Root>
       <Link
-        href={props.url}
+        css={theme => styles.link(theme)}
+        to={props.url}
       >
-        <a css={styles.link}>{props.label}</a>
+        {props.label}
       </Link>
     </Root>
   )
