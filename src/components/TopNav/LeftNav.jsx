@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
 
-import config from '../../config'
+import config from '~/config'
 
 
 const Root = styled.div`

@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { css } from '@emotion/core'
 import styled from '@emotion/styled'
 
 import MenuItem from './MenuItem'
@@ -12,15 +11,16 @@ const Root = styled.div`
 `
 
 function RightNav(props) {
-  const renderMenuItems = menuItems => {
-    return menuItems.map(item => (
-        <MenuItem
-          key={item.url}
-          url={item.url}
-          label={item.label}
-        />
+
+  const renderMenuItems = menuItems => (
+    menuItems.map((item, i) => (
+      <MenuItem
+        key={i}
+        url={item.url}
+        label={item.label}
+      />
     ))
-  }
+  )
 
   return (
     <Root>
