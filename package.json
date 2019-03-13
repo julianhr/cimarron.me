@@ -1,58 +1,64 @@
 {
-  "name": "cimarron-me",
-  "version": "0.1.0",
+  "name": "cimarron.me",
+  "version": "1.0.0",
   "description": "Julian Hernandez - Personal Site",
   "main": "index.js",
-  "scripts": {
-    "dev": "next",
-    "build": "next build",
-    "start": "next start",
-    "export": "next build && next export -o dist"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/julianhr/cimarron.git"
-  },
+  "homepage": "https://github.com/julianhr/cimarron-me",
   "author": "Julian Hernandez",
-  "license": "UNLICENSED",
-  "bugs": {
-    "url": "https://github.com/julianhr/cimarron/issues"
+  "license": "Apache-2.0",
+  "scripts": {
+    "build": "webpack --mode production",
+    "start": "webpack-dev-server --mode development --progress --open"
   },
-  "homepage": "https://github.com/julianhr/cimarron#readme",
   "dependencies": {
-    "@emotion/core": "^10.0.7",
-    "@emotion/styled": "^10.0.7",
-    "@zeit/next-css": "^1.0.1",
-    "next": "^8.0.1",
-    "react": "^16.8.2",
-    "react-dom": "^16.8.2",
+    "@emotion/core": "^10.0.9",
+    "@emotion/styled": "^10.0.9",
+    "emotion-theming": "^10.0.7",
+    "react": "^16.8.3",
+    "react-dom": "^16.8.3",
+    "react-redux": "^6.0.1",
+    "react-router-dom": "^4.3.1",
+    "redux-starter-kit": "^0.4.3",
     "sanitize.css": "^8.0.0"
   },
   "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.3.4",
+    "@babel/plugin-proposal-class-properties": "^7.3.4",
+    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
+    "@babel/polyfill": "^7.2.5",
+    "@babel/preset-env": "^7.3.4",
+    "@babel/preset-react": "^7.0.0",
+    "@emotion/babel-preset-css-prop": "^10.0.7",
     "babel-eslint": "^10.0.1",
-    "babel-plugin-emotion": "^10.0.7",
-    "eslint": "^5.14.1",
-    "eslint-loader": "^2.1.2",
-    "eslint-plugin-react": "^7.12.4"
-  },
-  "babel": {
-    "presets": ["next/babel"],
-    "plugins": ["babel-plugin-emotion"]
+    "babel-loader": "^8.0.5",
+    "css-loader": "^2.1.0",
+    "eslint": "^5.15.1",
+    "eslint-plugin-react": "^7.12.4",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^3.2.0",
+    "markdown-loader": "^5.0.0",
+    "style-loader": "^0.23.1",
+    "webpack": "^4.29.5",
+    "webpack-cli": "^3.2.3",
+    "webpack-dev-server": "^3.2.1"
   },
   "eslintConfig": {
-    "settings": {
-      "react": {
-        "version": "detect"
-      }
+    "env": {
+      "amd": true,
+      "browser": true,
+      "node": true
     },
     "extends": [
       "eslint:recommended",
       "plugin:react/recommended"
     ],
     "parser": "babel-eslint",
-    "plugins": ["react"],
     "rules": {
-      "semi": ["error", "never"]
+      "semi": [
+        "error",
+        "never"
+      ]
     }
   }
 }
