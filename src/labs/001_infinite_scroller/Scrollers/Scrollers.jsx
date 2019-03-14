@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
 import { connect } from 'react-redux'
 
-import { buildUrl } from '~/utils'
+import { urlBuilder } from '~/utils'
 import ScrollerStatus from './ScrollerStatus'
 import ScrollerSentinelIntObs from './ScrollerSentinelIntObs'
 import ScrollerContainerHeights from './ScrollerContainerHeights'
@@ -32,9 +32,9 @@ const Contour = styled.div`
 
 function Scrollers({ scrollerType, recordsPerFetch }) {
   const fetchCards = () => {
-    const baseUrl = 'http://localhost:5000/infinite-scroller/'
+    const path = '/infinite-scroller'
     const query = { paragraphs: 2, entries: recordsPerFetch }
-    const url = buildUrl(baseUrl, query)
+    const url = urlBuilder(path, query)
 
     return fetch(url)
       .then(res => {
