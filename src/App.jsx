@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
+import { Switch, Route } from 'react-router-dom'
 
-import TopNav from './components/TopNav'
-import LabShowcase from './components/LabShowcase'
+import TopNav from './components/TopNav/TopNav'
+import LabRoutes from './components/LabRoutes/LabRoutes'
 
 
 const Container = styled.div`
@@ -17,15 +18,17 @@ const Main = styled.main`
   grid-area: main;
 `
 
-function App() {
-  return (
-    <Container>
-      <Main>
-        <TopNav />
-        <LabShowcase />
-      </Main>
-    </Container>
-  )
+class App extends React.Component {
+  render() {
+    return (
+      <Container>
+        <Main>
+          <TopNav />
+          <LabRoutes pathname={location.pathname} />
+        </Main>
+      </Container>
+    )
+  }
 }
 
 export default App

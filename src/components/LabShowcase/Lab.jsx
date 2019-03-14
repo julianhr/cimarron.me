@@ -39,7 +39,7 @@ const Tech = styled.div`
   padding: 2px 7px;
 `
 
-function Lab({ title, stack }) {
+function Lab({ title, stack, urlPath }) {
   const getTechStyle = (index) => {
     const hue = (330 + index * 30) % 360
     const sat = 60
@@ -60,7 +60,7 @@ function Lab({ title, stack }) {
 
   return (
     <StyledLink
-      to='#'
+      to={urlPath}
     >
       <Article>
         <h3>{title}</h3>
@@ -75,6 +75,7 @@ function Lab({ title, stack }) {
 Lab.propTypes = {
   title: PropTypes.string,
   stack: PropTypes.arrayOf(PropTypes.string),
+  urlPath: PropTypes.string,
 }
 
 export default Lab
