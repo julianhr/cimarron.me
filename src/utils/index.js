@@ -11,7 +11,7 @@ export function urlBuilder(basePath, query={}, basePort, api='api.flask') {
   const urlBase = `${host}:${port}/${path}`
   const urlQuery = Object.entries(query).map(([key, val]) => `${key}=${val}`).join('&')
 
-  return `${urlBase}?${urlQuery}`
+  return `${urlBase}/?${urlQuery}`
 }
 
 export function clamp(value, min, max) {

@@ -1,7 +1,9 @@
-# Directories
+# DIRECTORIES
 /.next
 /dist
 /node_modules
 
-# Files
+# FILES
 .DS_Store
+# for Netfily
+!dist/_redirects
