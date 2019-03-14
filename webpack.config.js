@@ -1,5 +1,4 @@
 const path = require('path')
-const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 // open Markdown links in new tab
@@ -18,6 +17,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'index_bundle.js',
+    publicPath: '/',
   },
   devtool: 'inline-source-map',
   module: {
@@ -59,12 +59,9 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: './src/index.html',
-      filename: './index.html',
     }),
-    new webpack.HotModuleReplacementPlugin(),
   ],
   devServer: {
-    contentBase: path.join(__dirname, 'dist'),
     historyApiFallback: true,
     hot: true,
     port: 3000,

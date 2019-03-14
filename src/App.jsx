@@ -1,7 +1,6 @@
-import React, { Suspense } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
-import { Switch, Route } from 'react-router-dom'
 
 import TopNav from './components/TopNav/TopNav'
 import LabRoutes from './components/LabRoutes/LabRoutes'
