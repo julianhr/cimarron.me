@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
 
 import TopNav from './components/TopNav'
+import LabShowcase from './components/LabShowcase'
 
 
 const Container = styled.div`
@@ -21,7 +22,7 @@ function App() {
     <Container>
       <Main>
         <TopNav />
-        Testing App
+        <LabShowcase />
       </Main>
     </Container>
   )
