@@ -47,6 +47,18 @@ module.exports = {
             options: { renderer: mdRenderer }
           }
         ],
+      },
+      {
+        test: /\.(bmp|png|jpg|gif)$/i,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 10000,
+            }
+          }
+        ]
+
       }
     ]
   },

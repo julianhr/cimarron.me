@@ -26,6 +26,7 @@ devDependencies:
   html-webpack-plugin: 3.2.0
   markdown-loader: 5.0.0
   style-loader: 0.23.1
+  url-loader: 1.1.2
   webpack: 4.29.6
   webpack-cli: 3.2.3
   webpack-dev-server: 3.2.1
@@ -5703,6 +5704,18 @@ packages:
     dev: true
     resolution:
       integrity: sha1-2pN/emLiH+wf0Y1Js1wpNQZ6bHI=
+  /url-loader/1.1.2:
+    dependencies:
+      loader-utils: 1.2.3
+      mime: 2.4.0
+      schema-utils: 1.0.0
+    dev: true
+    engines:
+      node: '>= 6.9.0'
+    peerDependencies:
+      webpack: ^3.0.0 || ^4.0.0
+    resolution:
+      integrity: sha512-dXHkKmw8FhPqu8asTc1puBfe3TehOCo2+RmOOev5suNCIYBcT626kxiWg1NBVkwc4rO8BGa7gP70W7VXuqHrjg==
   /url-parse/1.4.4:
     dependencies:
       querystringify: 2.1.0
@@ -6078,6 +6091,7 @@ specifiers:
   redux-starter-kit: ^0.4.3
   sanitize.css: ^8.0.0
   style-loader: ^0.23.1
+  url-loader: ^1.1.2
   webpack: ^4.29.5
   webpack-cli: ^3.2.3
   webpack-dev-server: ^3.2.1
