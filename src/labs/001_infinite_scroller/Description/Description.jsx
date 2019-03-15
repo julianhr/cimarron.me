@@ -6,6 +6,7 @@ import { connect } from 'react-redux'
 import mdScrollerIntObs from './scroller_int_obs.md'
 import mdScrollerContainerHeights from './scroller_container_height.md'
 import mdScrolerSentinelClientRect from './scroller_sentinel_client_rect.md'
+import GithubLogo from '~/components/library/GithubLogo'
 
 
 const Root = styled.section`
@@ -40,13 +41,16 @@ class Description extends React.PureComponent {
   }
 
   render() {
+    const githubUrl = "https://github.com/julianhr/cimarron-me/tree/master/src/labs/001_infinite_scroller"
+
     return (
       <Root>
         <div
           dangerouslySetInnerHTML={{ __html: this.getDescription() }}
         />
         <P>
-          View on <a href="https://github.com/julianhr/lab-infinite-scroll" target='_blank' rel='noopener noreferrer'>Github</a>
+          View on 
+          <GithubLogo url={githubUrl} />
         </P>
       </Root>
     )

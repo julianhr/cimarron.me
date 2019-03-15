@@ -27,7 +27,7 @@ const Root = styled.section`
 
 const Contour = styled.div`
   max-width: 600px;
-  border: 2px solid #dcdcdc;
+  border: 2px solid #acacac;
 `
 
 function Scrollers({ scrollerType, recordsPerFetch }) {

@@ -7,12 +7,11 @@ const Root = styled.article`
   width: 100%;
   border-radius: 10px;
   margin-bottom: 10px;
-  padding: 20px 25px;
+  padding: 20px 25px 10px;
 `
 
-const H2 = styled.h1`
-  font-size: 18px;
-  font-weight: 600;
+const H3 = styled.h3`
+  color: ${props => props.theme.colors.text};
   padding-bottom: 10px;
 `
 
@@ -22,10 +21,9 @@ const P = styled.p`
 
 const Img = styled.img`
   float: left;
-  width: 200px;
-  height: 120px;
+  width: 180px;
+  height: 100px;
   padding-right: 40px;
-  padding-bottom: 10px;
 
   @media (max-width: 580px) {
     width: 140px;
@@ -49,7 +47,7 @@ function Card({ title, imgUrl, description, forwardedRef, position }) {
       }}
     >
       <Img src={imgUrl} />
-      <H2>{`${position}. ${title}`}</H2>
+      <H3>{`${position}. ${title}`}</H3>
       {pElDescription}
     </Root>
   )

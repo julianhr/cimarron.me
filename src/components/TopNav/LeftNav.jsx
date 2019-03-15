@@ -11,6 +11,7 @@ const Root = styled.div`
 `
 
 const H3 = styled.h3`
+  color: ${props => props.theme.colors.text};
   font-size: 24px;
   font-weight: 400;
 `
