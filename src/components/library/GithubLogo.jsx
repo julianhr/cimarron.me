@@ -7,23 +7,26 @@ import githubLogoPng from '~/assets/img/github_logo.png'
 
 const Img = styled.img`
   width: 60px;
-  padding-left: 5px;
 `
 
 function GithubLogo({ url, styles }) {
   return (
-    <a
-      href={url} 
-      target='_blank'
-      rel='noopener noreferrer'
-      css={styles.a}
+    <span
+      css={styles.span}
     >
-      <Img
-        src={githubLogoPng}
-        alt='GitHub'
-        css={styles.img}
-      />
-    </a>
+      <a
+        href={url} 
+        target='_blank'
+        rel='noopener noreferrer'
+        css={styles.a}
+      >
+        <Img
+          src={githubLogoPng}
+          alt='GitHub'
+          css={styles.img}
+        />
+      </a>
+    </span>
   )
 }
 

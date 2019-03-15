@@ -21,7 +21,7 @@ const Root = styled.section`
 `
 
 const P = styled.p`
-  padding-top: 40px;
+  padding-top: 20px;
 `
 
 class Description extends React.PureComponent {
@@ -49,8 +49,7 @@ class Description extends React.PureComponent {
           dangerouslySetInnerHTML={{ __html: this.getDescription() }}
         />
         <P>
-          View on 
-          <GithubLogo url={githubUrl} />
+          source on <GithubLogo url={githubUrl} styles={{ img: { marginTop: -4 } }} />
         </P>
       </Root>
     )
