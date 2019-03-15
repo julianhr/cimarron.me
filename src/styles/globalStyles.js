@@ -35,7 +35,7 @@ const globalStyles = css`
   }
 
   h4 {
-    line-height: 1.7em;
+    line-height: 1.3em;
     font-size: 18;
   }
 

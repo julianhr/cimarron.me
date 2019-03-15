@@ -33,7 +33,7 @@ const Contour = styled.div`
 function Scrollers({ scrollerType, recordsPerFetch }) {
   const fetchCards = () => {
     const path = '/infinite-scroller'
-    const query = { paragraphs: 2, entries: recordsPerFetch }
+    const query = { paragraphs: 1, entries: recordsPerFetch }
     const url = urlBuilder(path, query)
 
     return fetch(url)

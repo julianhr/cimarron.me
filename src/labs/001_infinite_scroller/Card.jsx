@@ -8,9 +8,10 @@ const Root = styled.article`
   border-radius: 10px;
   margin-bottom: 10px;
   padding: 20px 25px 10px;
+  min-height: 140px;
 `
 
-const H3 = styled.h3`
+const H4 = styled.h4`
   color: ${props => props.theme.colors.text};
   padding-bottom: 10px;
 `
@@ -23,13 +24,11 @@ const Img = styled.img`
   float: left;
   width: 180px;
   height: 100px;
-  padding-right: 40px;
+  padding-right: 30px;
+  padding-bottom: 4px;
 
-  @media (max-width: 580px) {
-    width: 140px;
-    height: 90px;
-    padding-right: 20px;
-    padding-bottom: 5px;
+  ${props => props.theme.queries.upTo('xs')} {
+    display: none;
   }
 `
 
@@ -47,7 +46,7 @@ function Card({ title, imgUrl, description, forwardedRef, position }) {
       }}
     >
       <Img src={imgUrl} />
-      <H3>{`${position}. ${title}`}</H3>
+      <H4>{`${position}. ${title}`}</H4>
       {pElDescription}
     </Root>
   )
