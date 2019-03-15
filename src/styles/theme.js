@@ -1,28 +1,29 @@
-const colors = {
+export const colors = {
   text: '#3D3D3D',
   primary: {
     dark: '#AB164D',
   },
   code: '#D90000',
+  heightlight: '#FFD342',
   field: {
     background: '#F0F0F0',
   },
 }
 
-const breaks = {
+export const breaks = {
   xs: 0,
   sm: 420,
   md: 900,
   lg: 1200,
 }
 
-const breakBump = {
+export const breakBump = {
   xs: 'sm',
   sm: 'md',
   md: 'lg',
 }
 
-const queries = {
+export const queries = {
   xs: `@media (max-width: ${breaks.sm - 1}px)`,
   sm: `@media (min-width: ${breaks.sm}px) and (max-width: ${breaks.md - 1}px)`,
   md: `@media (min-width: ${breaks.md}px) and (max-width: ${breaks.lg - 1}px)`,
