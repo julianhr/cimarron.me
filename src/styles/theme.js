@@ -1,8 +1,9 @@
 const colors = {
   text: '#3D3D3D',
   primary: {
-    strong: '#E10D75'
+    dark: '#AB164D',
   },
+  code: '#D90000',
   field: {
     background: '#F0F0F0',
   },
