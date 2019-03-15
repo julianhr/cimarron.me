@@ -9,6 +9,10 @@ const Root = styled.nav`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  ${props => props.theme.queries.from('md')} {
+    padding-top: 30px;
+  }
 `
 
 const H2 = styled.h2`

@@ -16,6 +16,7 @@ const Root = styled.section`
   ${props => props.theme.queries.from('md')} {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    padding: 60px 10px 10px;
   }
 `
 
