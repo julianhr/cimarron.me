@@ -9,32 +9,27 @@ import Scrollers from './Scrollers/Scrollers'
 
 
 const Root = styled.section`
-  /* grid */
-  display: grid;
-  grid:
-    "a1" auto
-    "b1" auto
-    "c1" auto
-    / auto;
-  /* else */
   width: 100%;
   max-width: ${props => props.theme.breaks.lg}px;
   padding: 40px 10px 10px;
 
   ${props => props.theme.queries.from('md')} {
-    grid:
-      15vh
-      80vh
-      / 40% 60%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
   }
+`
+
+const RowA1 = styled.div`
 `
 
 function Index() {
   return (
     <Provider store={infiniteScollerStore}>
       <Root>
-        <PageNav />
-        <Description />
+        <RowA1>
+          <PageNav />
+          <Description />
+        </RowA1>
         <Scrollers />
       </Root>
     </Provider>

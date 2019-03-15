@@ -8,7 +8,7 @@ import { setEntryCount, setIsFetching } from '../actions/rootActions'
 
 
 const Root = styled.div`
-  height: 80vh;
+  height: 100%;
   padding: 10px 10px 0;
   background: #e8e8e8;
   overflow-y: scroll;

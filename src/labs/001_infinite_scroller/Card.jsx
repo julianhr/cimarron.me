@@ -21,14 +21,15 @@ const P = styled.p`
 `
 
 const Img = styled.img`
-  float: left;
-  width: 180px;
-  height: 100px;
-  padding-right: 30px;
-  padding-bottom: 4px;
+  display: none;
 
-  ${props => props.theme.queries.upTo('xs')} {
-    display: none;
+  @media (min-width: 520px) {
+    display: inherit;
+    float: left;
+    width: 180px;
+    height: 100px;
+    padding-right: 30px;
+    padding-bottom: 4px;
   }
 `
 

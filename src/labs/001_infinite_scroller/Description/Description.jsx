@@ -10,13 +10,11 @@ import GithubLogo from '~/components/library/GithubLogo'
 
 
 const Root = styled.section`
-  grid-area: b1;
   padding: 0 30px 20px;
   width: 100%;
 
   ${props => props.theme.queries.from('md')} {
-    grid-row: 2 / span 1;
-    grid-column: 1 / span 1
+    padding: 40px 30px 20px;
   }
 `
 
