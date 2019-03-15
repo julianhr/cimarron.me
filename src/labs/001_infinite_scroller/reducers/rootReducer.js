@@ -8,7 +8,7 @@ const INITIAL_STATE = {
     // editable
     entryCount: 0,
     isFetching: false,
-    scrollerType: 'intersectionObserver',
+    scrollerType: getInitScrollerType(),
 }
 
 export default createReducer(INITIAL_STATE, {
@@ -22,3 +22,11 @@ export default createReducer(INITIAL_STATE, {
         return { ...state, isFetching: payload }
     },
 })
+
+function getInitScrollerType() {
+    if (window.IntersectionObserver) {
+        return 'intersectionObserver'
+    } else {
+        return 'containerScrollHeights'
+    }
+}
