@@ -26,6 +26,7 @@ const Root = styled.section`
 `
 
 const Contour = styled.div`
+  width: 100%;
   max-width: 600px;
   border: 2px solid #acacac;
   height: 100%;
@@ -44,7 +45,7 @@ function Scrollers({ scrollerType, recordsPerFetch }) {
         else { throw Error('Fetch error') }
       })
       .catch(error => {
-        console.error('Fetch error:', error)
+        throw error
       })
   }
 

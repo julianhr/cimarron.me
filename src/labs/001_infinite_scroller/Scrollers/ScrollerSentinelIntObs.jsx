@@ -11,7 +11,18 @@ const Root = styled.div`
   height: 100%;
   padding: 10px 10px 0;
   background: #e8e8e8;
-  overflow-y: scroll;
+  overflow-y: auto;
+`
+
+const Loading = styled.div`
+  background: #eee;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  padding: 40px;
 `
 
 class ScrollerSentinelIntObs extends React.PureComponent {
@@ -19,12 +30,14 @@ class ScrollerSentinelIntObs extends React.PureComponent {
     cardFetcher: PropTypes.func,
     isFetching: PropTypes.bool,
     sentinelPosition: PropTypes.number,
+    entryCount: PropTypes.number,
     setEntryCount: PropTypes.func,
     setIsFetching: PropTypes.func,
   }
 
   state = {
-    cards: []
+    cards: [],
+    loadingMessage: 'Loading...',
   }
 
   refSentinel = React.createRef()
@@ -58,6 +71,7 @@ class ScrollerSentinelIntObs extends React.PureComponent {
         this.props.setIsFetching(false)
       })
       .catch(error => {
+        this.setState({ loadingMessage: error.toString() })
         this.props.setIsFetching(false)
         console.error('Fetch error:', error)
       })
@@ -96,17 +110,29 @@ class ScrollerSentinelIntObs extends React.PureComponent {
     }
   }
 
+  renderCardResult() {
+    if (this.state.cards.length === 0) {
+      return (
+        <Loading>
+          {this.state.loadingMessage}
+        </Loading>
+      )
+    } else {
+      return this.state.cards
+    }
+  }
+
   render() {
     return (
       <Root>
-        {this.state.cards}
+        {this.renderCardResult()}
       </Root>
     )
   }
 }
 
-const mapStateToProps = ({ sentinelPosition, isFetching }) => (
-  { sentinelPosition, isFetching }
+const mapStateToProps = ({ sentinelPosition, isFetching, entryCount }) => (
+  { sentinelPosition, isFetching, entryCount }
 )
 
 const mapDispatchToProps = { setEntryCount, setIsFetching }
