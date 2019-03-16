@@ -1,3 +1,3 @@
 A [sentinel](https://en.wikipedia.org/wiki/Sentinel_value) is used to [trigger fetch updates](https://developers.google.com/web/updates/2016/04/intersectionobserver) using the [Intersection Observer API](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API).
 
-The sentinel element is the pink card. When it becomes visible a fetch request is sent for 8 more records. Each record is turned to a new `Card` component. The previous sentinel is [unobserved](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/unobserve) and the a new `Card` is made sentinel. In this case, the 6th record.
+The sentinel element is the pink card. When it becomes visible a fetch request is sent for 8 more records. Each record is turned to a new `Card` component. The previous sentinel is [unobserved](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/unobserve) and a new `Card` is made sentinel. In this case, the 6th one.

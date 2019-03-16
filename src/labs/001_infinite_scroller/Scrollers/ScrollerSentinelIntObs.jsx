@@ -36,21 +36,37 @@ class ScrollerSentinelIntObs extends React.PureComponent {
   }
 
   state = {
+    isSupported: false,
     cards: [],
-    loadingMessage: 'Loading...',
+    loading: {
+      status: 'loading',
+      error: null,
+    },
   }
 
   refSentinel = React.createRef()
-  observer = new IntersectionObserver(this.handleIntObs())
+  observer = null
 
   componentDidMount() {
-    this.fetchCards()
+    if (this.isSupported()) {
+      this.observer = new IntersectionObserver(this.handleIntObs())
+      this.setState({ isSupported: true })
+      this.fetchCards()
+    } else {
+      this.setState({ isSupported: false, })
+    }
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (this.state.cards.length > prevState.cards.length) {
+    const { isSupported, cards } = this.state
+
+    if (isSupported && cards.length > prevState.cards.length) {
       this.observer.observe(this.refSentinel.current)
     }
+  }
+
+  isSupported() {
+    return 'IntersectionObserver' in window
   }
 
   fetchCards() {
@@ -66,12 +82,12 @@ class ScrollerSentinelIntObs extends React.PureComponent {
         }
 
         this.appendNewCards(cards, data, currCards.length)
-        this.setState({ cards })
+        this.setState({ cards, loading: { status: 'success', error: null } })
         this.props.setEntryCount(cards.length)
         this.props.setIsFetching(false)
       })
       .catch(error => {
-        this.setState({ loadingMessage: error.toString() })
+        this.setState({ loading: { status: 'error', error: error.toString() } })
         this.props.setIsFetching(false)
         console.error('Fetch error:', error)
       })
@@ -110,11 +126,35 @@ class ScrollerSentinelIntObs extends React.PureComponent {
     }
   }
 
+  renderLoadingMsg() {
+    if (!this.state.isSupported) {
+      return (
+        <div>
+          <p>This browser doesn't support the Intersection Observer. </p>
+          <a
+            href='https://caniuse.com/#feat=intersectionobserver'
+            target='_blank'
+            rel='noopener noreferrer'
+          >
+            Check compatibility
+          </a> 
+        </div>
+      )
+    }
+
+    switch(this.state.loading.status) {
+      case 'loading':
+        return 'Loading...'
+      case 'error':
+        return this.state.loading.error
+    }
+  }
+
   renderCardResult() {
     if (this.state.cards.length === 0) {
       return (
         <Loading>
-          {this.state.loadingMessage}
+          {this.renderLoadingMsg()}
         </Loading>
       )
     } else {

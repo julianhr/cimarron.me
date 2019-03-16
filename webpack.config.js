@@ -8,7 +8,7 @@ const mdRenderer = new marked.Renderer()
 const mdRendererLink = mdRenderer.link
 mdRenderer.link = (href, title, text) => {
     const html = mdRendererLink.call(mdRenderer, href, title, text)
-    return html.replace(/^<a /, '<a target="_blank" rel="nofollow noopener" ')
+    return html.replace(/^<a /, '<a target="_blank" rel="noopener noreferrer" ')
 }
 
 
