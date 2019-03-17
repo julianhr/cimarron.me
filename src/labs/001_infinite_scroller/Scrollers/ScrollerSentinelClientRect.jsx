@@ -32,6 +32,7 @@ class ScrollerSentinelClientRect extends React.PureComponent {
   refSentinel = React.createRef()
 
   componentDidMount() {
+    this.props.setEntryCount(0)
     this.fetchCards()
   }
 

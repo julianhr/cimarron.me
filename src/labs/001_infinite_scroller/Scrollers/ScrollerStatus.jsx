@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
 import { connect } from 'react-redux'
 
-import { colors } from '../../../styles/theme'
+import { colors } from '~/styles/theme'
 
 
 const Root = styled.div`
@@ -19,7 +19,6 @@ const Span = styled.span`
 class ScrollerStatus extends React.PureComponent {
   static propTypes = {
     entryCount: PropTypes.number,
-    isFetching: PropTypes.bool,
   }
 
   state = {
@@ -28,7 +27,9 @@ class ScrollerStatus extends React.PureComponent {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (prevProps.entryCount < this.props.entryCount) {
+    if (this.props.entryCount === 0 && this.state.fetchCount > 0) {
+      this.setState({ fetchCount: 0, spanStyle: {} })
+    } else if (prevProps.entryCount < this.props.entryCount) {
       this.setState({ fetchCount: this.state.fetchCount + 1 },
         () => { this.countFlash() }
       )
@@ -36,7 +37,7 @@ class ScrollerStatus extends React.PureComponent {
   }
 
   countFlash() {
-    if (this.state.fetchCount <= 1) { return }
+    if (this.state.fetchCount < 2) { return }
 
     const buffer = 30
 
@@ -52,11 +53,9 @@ class ScrollerStatus extends React.PureComponent {
   }
 
   renderStatus() {
-    const { entryCount, isFetching } = this.props
+    const { entryCount } = this.props
 
-    if (entryCount === 0 && isFetching) {
-      return 'Loading...'
-    } else if (entryCount > 0) {
+    if (entryCount > 0) {
       return (
         <div>
           Records: 
@@ -80,6 +79,6 @@ class ScrollerStatus extends React.PureComponent {
 
 }
 
-const mapStateToProps = ({ entryCount, isFetching }) => ({ entryCount, isFetching })
+const mapStateToProps = ({ entryCount }) => ({ entryCount })
 
 export default connect(mapStateToProps)(ScrollerStatus)

@@ -37,6 +37,8 @@ class ScrollerSentinelIntObs extends React.PureComponent {
   observer = null
 
   componentDidMount() {
+    this.props.setEntryCount(0)
+
     if (this.isSupported()) {
       this.observer = new IntersectionObserver(this.handleIntObs())
       this.setState({ isSupported: true })

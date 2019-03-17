@@ -28,6 +28,7 @@ class ScrollerContainerHeights extends React.PureComponent {
   }
 
   componentDidMount() {
+    this.props.setEntryCount(0)
     this.fetchCards()
   }
 
