@@ -3,8 +3,9 @@ import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
 import { connect } from 'react-redux'
 
+import { setIsFetching, setEntryCount } from '../actions/rootActions'
 import Card from '../Card'
-import { setEntryCount, setIsFetching } from '../actions/rootActions'
+import FetchStatus from './FetchStatus'
 
 
 const Root = styled.div`
@@ -35,7 +36,6 @@ class ScrollerContainerHeights extends React.PureComponent {
     const { cards } = this.state
 
     if (!isFetching && this.canFetchCards(event.target) && cards.length < 200) {
-      this.props.setIsFetching(true)
       this.fetchCards()
     }
   }
@@ -46,21 +46,26 @@ class ScrollerContainerHeights extends React.PureComponent {
     return scrollHeight - scrollTop < clientHeight + buffer
   }
 
-  fetchCards() {
-    this.props.cardFetcher()
-      .then(data => {
-        const { cards: currCards } = this.state
-        const cards = [...currCards]
+  async fetchCards() {
+    const { cardFetcher, setIsFetching } = this.props
+    let data
+    setIsFetching(true)
 
-        this.appendNewCards(cards, data, currCards.length)
-        this.setState({ cards })
-        this.props.setEntryCount(cards.length)
-        this.props.setIsFetching(false)
-      })
-      .catch(error => {
-        this.props.setIsFetching(false)
-        console.error('Fetch error:', error)
-      })
+    try {
+      data = await cardFetcher(this)
+      if (!data) { return }
+    } catch (error) {
+      this.setState({ fetch: { status: 'error', error: error.toString() } })
+      return
+    }
+
+    const { cards: currCards } = this.state
+    const cards = [...currCards]
+
+    this.appendNewCards(cards, data, currCards.length)
+    this.props.setEntryCount(cards.length)
+    this.setState({ cards, fetch: null })
+    setIsFetching(false)
   }
 
   appendNewCards(cards, data, lastKey) {
@@ -71,18 +76,30 @@ class ScrollerContainerHeights extends React.PureComponent {
     })
   }
 
+  renderCardResult() {
+    const fetchStatus = (this.state.fetch || {}).status
+
+    if (fetchStatus === 'loading') {
+      return <FetchStatus>Loading...</FetchStatus>
+    } else if (fetchStatus === 'error') {
+      return <FetchStatus>{this.state.fetch.error.toString()}</FetchStatus>
+    } else {
+      return this.state.cards
+    }
+  }
+
   render() {
     return (
       <Root
         onScroll={this.handleOnScroll}
       >
-        {this.state.cards}
+        {this.renderCardResult()}
       </Root>
     )
   }
 }
 
 const mapStateToProps = ({ isFetching }) => ({ isFetching })
-const mapDispatchToProps = { setEntryCount, setIsFetching }
+const mapDispatchToProps = { setIsFetching, setEntryCount }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ScrollerContainerHeights)

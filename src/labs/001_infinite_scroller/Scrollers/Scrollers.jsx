@@ -33,23 +33,27 @@ const Contour = styled.div`
   overflow: hidden;
 `
 
-function Scrollers({ scrollerType, recordsPerFetch }) {
-  const fetchCards = () => {
+function Scrollers({ recordsPerFetch, scrollerType }) {
+  const fetchCards = async () => {
     const path = '/infinite-scroller'
     const query = { paragraphs: 1, entries: recordsPerFetch }
     const url = urlBuilder(path, query)
+    const res = await fetch(url)
 
-    return fetch(url)
-      .then(res => {
-        if (res.ok) { return res.json() }
-        else { throw Error('Fetch error') }
-      })
-      .catch(error => {
-        throw error
-      })
+    try {
+      if (res.ok) {
+        const json = await res.json()
+        return json
+      } else {
+        throw Error('There was an error with the fetch request.')
+      }
+    } catch (error) {
+      console.log('testing error', error)
+      throw error
+    }
   }
 
-  const renderScroller = () => {
+  const renderChildren = () => {
     switch (scrollerType) {
       case 'intersectionObserver':
         return <ScrollerSentinelIntObs cardFetcher={fetchCards} />
@@ -64,19 +68,20 @@ function Scrollers({ scrollerType, recordsPerFetch }) {
     <Root>
       <ScrollerStatus />
       <Contour>
-        {renderScroller()}
+        {renderChildren()}
       </Contour>
     </Root>
   )
 }
 
 Scrollers.propTypes = {
-  scrollerType: PropTypes.string,
+  entryCount: PropTypes.number,
   recordsPerFetch: PropTypes.number,
+  scrollerType: PropTypes.string,
 }
 
-const mapStateToProps = ({ recordsPerFetch, scrollerType }) => (
-  { scrollerType, recordsPerFetch }
+const mapStateToProps = ({ recordsPerFetch, scrollerType, entryCount }) => (
+  { recordsPerFetch, scrollerType, entryCount }
 )
 
 export default connect(mapStateToProps)(Scrollers)

@@ -3,8 +3,9 @@ import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
 import { connect } from 'react-redux'
 
+import { setIsFetching, setEntryCount } from '../actions/rootActions'
 import Card from '../Card'
-import { setEntryCount, setIsFetching } from '../actions/rootActions'
+import FetchStatus from './FetchStatus'
 
 
 const Root = styled.div`
@@ -14,31 +15,19 @@ const Root = styled.div`
   overflow-y: auto;
 `
 
-const Loading = styled.div`
-  background: #eee;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 20px;
-  padding: 40px;
-`
-
 class ScrollerSentinelIntObs extends React.PureComponent {
   static propTypes = {
     cardFetcher: PropTypes.func,
     isFetching: PropTypes.bool,
     sentinelPosition: PropTypes.number,
-    entryCount: PropTypes.number,
     setEntryCount: PropTypes.func,
     setIsFetching: PropTypes.func,
   }
 
   state = {
-    isSupported: false,
+    isSupported: true,
     cards: [],
-    loading: {
+    fetch: {
       status: 'loading',
       error: null,
     },
@@ -69,28 +58,30 @@ class ScrollerSentinelIntObs extends React.PureComponent {
     return 'IntersectionObserver' in window
   }
 
-  fetchCards() {
-    const { cardFetcher } = this.props
+  async fetchCards() {
+    const { cardFetcher, setIsFetching } = this.props
+    let data
+    setIsFetching(true)
 
-    cardFetcher()
-      .then(data => {
-        const { cards: currCards } = this.state
-        const cards = [...currCards]
+    try {
+      data = await cardFetcher(this)
+      if (!data) { return }
+    } catch (error) {
+      this.setState({ fetch: { status: 'error', error: error.toString() } })
+      return
+    }
 
-        if (this.refSentinel.current) {
-          this.observer.unobserve(this.refSentinel.current)
-        }
+    const { cards: currCards } = this.state
+    const cards = [...currCards]
 
-        this.appendNewCards(cards, data, currCards.length)
-        this.setState({ cards, loading: { status: 'success', error: null } })
-        this.props.setEntryCount(cards.length)
-        this.props.setIsFetching(false)
-      })
-      .catch(error => {
-        this.setState({ loading: { status: 'error', error: error.toString() } })
-        this.props.setIsFetching(false)
-        console.error('Fetch error:', error)
-      })
+    if (this.refSentinel.current) {
+      this.observer.unobserve(this.refSentinel.current)
+    }
+
+    this.appendNewCards(cards, data, currCards.length)
+    this.props.setEntryCount(cards.length)
+    this.setState({ cards, fetch: null })
+    setIsFetching(false)
   }
 
   appendNewCards(cards, data, lastKey) {
@@ -106,7 +97,7 @@ class ScrollerSentinelIntObs extends React.PureComponent {
         props.forwardedRef = this.refSentinel
       }
 
-      cards.push( <CardComponent key={lastKey+i} {...props} /> )
+      cards.push(<CardComponent key={lastKey+i} {...props} />)
     })
   }
 
@@ -119,44 +110,34 @@ class ScrollerSentinelIntObs extends React.PureComponent {
         const { cards } = parent.state
 
         if (entry.isIntersecting && !isFetching && cards.length < 200) {
-          parent.props.setIsFetching(true)
           parent.fetchCards()
         }
       })
     }
   }
 
-  renderLoadingMsg() {
+  renderCardResult() {
+    const fetchStatus = (this.state.fetch || {}).status
+
     if (!this.state.isSupported) {
       return (
-        <div>
-          <p>This browser doesn't support the Intersection Observer. </p>
-          <a
-            href='https://caniuse.com/#feat=intersectionobserver'
-            target='_blank'
-            rel='noopener noreferrer'
-          >
-            Check compatibility
-          </a> 
-        </div>
+        <FetchStatus>
+          <>
+            <p>This browser doesn't support the Intersection Observer. </p>
+            <a
+              href='https://caniuse.com/#feat=intersectionobserver'
+              target='_blank'
+              rel='noopener noreferrer'
+            >
+              Check compatibility
+            </a> 
+          </>
+        </FetchStatus>
       )
-    }
-
-    switch(this.state.loading.status) {
-      case 'loading':
-        return 'Loading...'
-      case 'error':
-        return this.state.loading.error
-    }
-  }
-
-  renderCardResult() {
-    if (this.state.cards.length === 0) {
-      return (
-        <Loading>
-          {this.renderLoadingMsg()}
-        </Loading>
-      )
+    } else if (fetchStatus === 'loading') {
+      return <FetchStatus>Loading...</FetchStatus>
+    } else if (fetchStatus === 'error' && this.state.cards.length === 0) {
+      return <FetchStatus>{this.state.fetch.error.toString()}</FetchStatus>
     } else {
       return this.state.cards
     }
@@ -171,10 +152,10 @@ class ScrollerSentinelIntObs extends React.PureComponent {
   }
 }
 
-const mapStateToProps = ({ sentinelPosition, isFetching, entryCount }) => (
-  { sentinelPosition, isFetching, entryCount }
+const mapStateToProps = ({ sentinelPosition, isFetching }) => (
+  { sentinelPosition, isFetching }
 )
 
-const mapDispatchToProps = { setEntryCount, setIsFetching }
+const mapDispatchToProps = { setIsFetching, setEntryCount }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ScrollerSentinelIntObs)

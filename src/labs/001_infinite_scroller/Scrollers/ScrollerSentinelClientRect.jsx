@@ -3,8 +3,9 @@ import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
 import { connect } from 'react-redux'
 
+import { setIsFetching, setEntryCount } from '../actions/rootActions'
 import Card from '../Card'
-import { setEntryCount, setIsFetching } from '../actions/rootActions'
+import FetchStatus from './FetchStatus'
 
 
 const Root = styled.div`
@@ -34,23 +35,38 @@ class ScrollerSentinelClientRect extends React.PureComponent {
     this.fetchCards()
   }
 
-  fetchCards() {
-    const { cardFetcher } = this.props
+  handleOnScroll = (event) => {
+    const { isFetching } = this.props
+    const { cards } = this.state
+    const { top: sentinelTop } = this.refSentinel.current.getBoundingClientRect()
+    const { clientHeight: rootClientHeight } = this.refRoot.current
+    const isSentinelVisible = sentinelTop <= rootClientHeight
 
-    cardFetcher()
-      .then(data => {
-        const { cards: currCards } = this.state
-        const cards = [...currCards]
+    if (!isFetching && isSentinelVisible && cards.length < 200) {
+      this.fetchCards()
+    }
+  }
 
-        this.appendNewCards(cards, data, currCards.length)
-        this.setState({ cards })
-        this.props.setEntryCount(cards.length)
-        this.props.setIsFetching(false)
-      })
-      .catch(error => {
-        this.props.setIsFetching(false)
-        console.error('Fetch error:', error)
-      })
+  async fetchCards() {
+    const { cardFetcher, setIsFetching } = this.props
+    let data
+    setIsFetching(true)
+
+    try {
+      data = await cardFetcher(this)
+      if (!data) { return }
+    } catch (error) {
+      this.setState({ fetch: { status: 'error', error: error.toString() } })
+      return
+    }
+
+    const { cards: currCards } = this.state
+    const cards = [...currCards]
+
+    this.appendNewCards(cards, data, currCards.length)
+    this.props.setEntryCount(cards.length)
+    this.setState({ cards, fetch: null })
+    setIsFetching(false)
   }
 
   appendNewCards(cards, data, lastKey) {
@@ -70,16 +86,15 @@ class ScrollerSentinelClientRect extends React.PureComponent {
     })
   }
 
-  handleOnScroll = (event) => {
-    const { isFetching } = this.props
-    const { cards } = this.state
-    const { top: sentinelTop } = this.refSentinel.current.getBoundingClientRect()
-    const { clientHeight: rootClientHeight } = this.refRoot.current
-    const isSentinelVisible = sentinelTop <= rootClientHeight
+  renderCardResult() {
+    const fetchStatus = (this.state.fetch || {}).status
 
-    if (!isFetching && isSentinelVisible && cards.length < 200) {
-      this.props.setIsFetching(true)
-      this.fetchCards()
+    if (fetchStatus === 'loading') {
+      return <FetchStatus>Loading...</FetchStatus>
+    } else if (fetchStatus === 'error') {
+      return <FetchStatus>{this.state.fetch.error.toString()}</FetchStatus>
+    } else {
+      return this.state.cards
     }
   }
 
@@ -89,7 +104,7 @@ class ScrollerSentinelClientRect extends React.PureComponent {
         ref={this.refRoot}
         onScroll={this.handleOnScroll}
       >
-        {this.state.cards}
+        {this.renderCardResult()}
       </Root>
     )
   }
@@ -99,6 +114,6 @@ const mapStateToProps = ({ sentinelPosition, isFetching }) => (
   { sentinelPosition, isFetching }
 )
 
-const mapDispatchToProps = { setEntryCount, setIsFetching }
+const mapDispatchToProps = { setIsFetching, setEntryCount }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ScrollerSentinelClientRect)
