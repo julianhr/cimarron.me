@@ -24,7 +24,11 @@ class ScrollerContainerHeights extends React.PureComponent {
   }
 
   state = {
-    cards: []
+    cards: [],
+    fetch: {
+      status: 'loading',
+      error: null,
+    },
   }
 
   componentDidMount() {

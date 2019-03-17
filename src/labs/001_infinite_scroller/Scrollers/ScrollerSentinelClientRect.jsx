@@ -25,7 +25,11 @@ class ScrollerSentinelClientRect extends React.PureComponent {
   }
 
   state = {
-    cards: []
+    cards: [],
+    fetch: {
+      status: 'loading',
+      error: null,
+    },
   }
 
   refRoot = React.createRef()
