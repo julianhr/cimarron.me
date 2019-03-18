@@ -17,15 +17,25 @@ const StyledLink = styled(Link)`
   text-decoration: none;
   color: unset;
   background: #ededed;
-  padding: 5px 8px;
+  padding: 5px 12px 12px;
+  will-change: box-shadow;
+  transition: box-shadow 30ms ease-in;
+
+  :hover {
+    box-shadow: 2px 2px 6px #bbb;
+  }
 `
 
 const Article = styled.article`
   ${baseArticle}
   padding: 10px 15px;
   width: 100%;
-  height: 200px;
+  height: 220px;
   align-items: center;
+`
+
+const Img = styled.img`
+  padding-bottom: 20px;
 `
 
 const TechRoot = styled.section`
@@ -39,7 +49,7 @@ const Tech = styled.div`
   padding: 2px 7px;
 `
 
-function Lab({ title, stack, urlPath }) {
+function Lab({ title, stack, urlPath, filePath }) {
   const getTechStyle = (index) => {
     const hue = (330 + index * 30) % 360
     const sat = 60
@@ -63,6 +73,9 @@ function Lab({ title, stack, urlPath }) {
       to={urlPath}
     >
       <Article>
+        <Img
+          src={require(`~/${filePath}/thumbnail.png`)}
+        />
         <h3>{title}</h3>
       </Article>
       <TechRoot>
@@ -73,8 +86,9 @@ function Lab({ title, stack, urlPath }) {
 }
 
 Lab.propTypes = {
-  title: PropTypes.string,
+  filePath: PropTypes.string,
   stack: PropTypes.arrayOf(PropTypes.string),
+  title: PropTypes.string,
   urlPath: PropTypes.string,
 }
 

@@ -4,7 +4,7 @@ import { Switch, Route } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 import labs from '~/labs/labsData'
-import LabShowcase from '../LabShowcase'
+import LabShowcase from '../LabShowcase/LabShowcase'
 
 
 function LabRoutes({ labs }) {
@@ -12,7 +12,7 @@ function LabRoutes({ labs }) {
     labs.map(lab => (
       <Route
         key={lab.urlPath}
-        path={lab.urlPath}
+        path={`/${lab.urlPath}`}
         component={lab.component}
       />
     ))

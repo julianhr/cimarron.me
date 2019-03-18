@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
 
-import githubLogoPng from '~/assets/img/github_logo.png'
+import srcGithubLogo from '~/assets/img/github_logo.png'
 
 
 const Img = styled.img`
@@ -21,7 +21,7 @@ function GithubLogo({ url, styles }) {
         css={styles.a}
       >
         <Img
-          src={githubLogoPng}
+          src={srcGithubLogo}
           alt='GitHub'
           css={styles.img}
         />
