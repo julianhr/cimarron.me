@@ -1,4 +1,5 @@
 dependencies:
+  '@babel/polyfill': 7.2.5
   '@emotion/core': 10.0.9
   '@emotion/styled': 10.0.9
   emotion-theming: 10.0.9
@@ -13,12 +14,12 @@ devDependencies:
   '@babel/core': 7.3.4
   '@babel/plugin-proposal-class-properties': 7.3.4
   '@babel/plugin-syntax-dynamic-import': 7.2.0
-  '@babel/polyfill': 7.2.5
   '@babel/preset-env': 7.3.4
   '@babel/preset-react': 7.0.0
   '@emotion/babel-preset-css-prop': 10.0.9
   babel-eslint: 10.0.1
   babel-loader: 8.0.5
+  babel-plugin-emotion: 10.0.9
   css-loader: 2.1.1
   eslint: 5.15.1
   eslint-plugin-react: 7.12.4
@@ -665,7 +666,7 @@ packages:
     dependencies:
       core-js: 2.6.5
       regenerator-runtime: 0.12.1
-    dev: true
+    dev: false
     resolution:
       integrity: sha512-8Y/t3MWThtMLYr0YNC/Q76tqN1w30+b0uQMeFUYauG2UGTR19zyUtFrAzT23zNtBxPp+LbE5E/nwV/q/r3y6ug==
   /@babel/preset-env/7.3.4:
@@ -1791,7 +1792,7 @@ packages:
     resolution:
       integrity: sha1-Z29us8OZl8LuGsOpJP1hJHSPV40=
   /core-js/2.6.5:
-    dev: true
+    dev: false
     resolution:
       integrity: sha512-klh/kDpwX8hryYL14M9w/xei6vrv6sE8gTHDG7/T/+SEovB/G4ejwcfE/CBzO6Edsu+OETZMZ3wcX/EjUkrl5A==
   /core-util-is/1.0.2:
@@ -2997,7 +2998,7 @@ packages:
       he: 1.2.0
       param-case: 2.1.1
       relateurl: 0.2.7
-      uglify-js: 3.4.9
+      uglify-js: 3.4.10
     dev: true
     engines:
       node: '>=4'
@@ -4792,6 +4793,7 @@ packages:
     resolution:
       integrity: sha512-1G6jJVDWrt0rK99kBjvEtziZNCICAuvIPkSiUFIQxVP06RCVpq3dmDo2oi6ABpYaDYaTRr67BEhL8r1wgEZZKg==
   /regenerator-runtime/0.12.1:
+    dev: false
     resolution:
       integrity: sha512-odxIc1/vDlo4iZcfXqRYFj0vpXFNoGdKMAUieAlFYO6m/nl5e9KR/beGf41z4a1FI+aQgtjhuaSlDxQ0hmkrHg==
   /regenerator-transform/0.13.4:
@@ -5610,16 +5612,16 @@ packages:
     dev: true
     resolution:
       integrity: sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
-  /uglify-js/3.4.9:
+  /uglify-js/3.4.10:
     dependencies:
-      commander: 2.17.1
+      commander: 2.19.0
       source-map: 0.6.1
     dev: true
     engines:
       node: '>=0.8.0'
     hasBin: true
     resolution:
-      integrity: sha512-8CJsbKOtEbnJsTyv6LE6m6ZKniqMiFWmm9sRbopbkGs3gMPPfd3Fh8iIA4Ykv5MgaTbqHr4BaoGLJLZNhsrW1Q==
+      integrity: sha512-Y2VsbPVs0FIshJztycsO2SfPk7/KAF/T72qzv9u5EpQ4kB2hQoHlhNQTsNyy6ul7lQtqJN/AoWeS23OzEiEFxw==
   /unchanged/2.1.0:
     dependencies:
       curriable: 1.2.5
@@ -6089,6 +6091,7 @@ specifiers:
   '@emotion/styled': ^10.0.9
   babel-eslint: ^10.0.1
   babel-loader: ^8.0.5
+  babel-plugin-emotion: ^10.0.9
   css-loader: ^2.1.0
   emotion-theming: ^10.0.7
   eslint: ^5.15.1

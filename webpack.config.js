@@ -13,7 +13,7 @@ mdRenderer.link = (href, title, text) => {
 
 
 module.exports = {
-  entry: ['@babel/polyfill', './src/Root.jsx'],
+  entry: ['./src/Root.jsx'],
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'index_bundle.js',
@@ -27,10 +27,20 @@ module.exports = {
         include: path.resolve(__dirname, 'src'),
         loader: 'babel-loader',
         options: {
-          presets: ['@babel/env', '@babel/react', '@emotion/css-prop'],
+          presets: [
+            [
+              '@babel/env',
+              {
+                useBuiltIns: 'usage'
+              }
+            ],
+            '@babel/react',
+            '@emotion/css-prop'
+          ],
           plugins: [
-            "@babel/proposal-class-properties",
-            "@babel/syntax-dynamic-import"
+            'emotion',
+            '@babel/proposal-class-properties',
+            '@babel/syntax-dynamic-import',
           ],
         }
       },
