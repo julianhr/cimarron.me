@@ -7,7 +7,7 @@
   "author": "Julian Hernandez",
   "license": "Apache-2.0",
   "scripts": {
-    "build": "webpack --mode production",
+    "build": "webpack --mode production --progress --profile",
     "start": "webpack-dev-server --mode development --progress --profile"
   },
   "dependencies": {

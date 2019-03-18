@@ -12,81 +12,83 @@ mdRenderer.link = (href, title, text) => {
 }
 
 
-module.exports = {
-  entry: ['./src/Root.jsx'],
-  output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: 'index_bundle.js',
-    publicPath: '/',
-  },
-  devtool: 'inline-source-map',
-  module: {
-    rules: [
-      {
-        test: /\.(js|jsx)$/,
-        include: path.resolve(__dirname, 'src'),
-        loader: 'babel-loader',
-        options: {
-          presets: [
-            [
-              '@babel/env',
-              {
-                useBuiltIns: 'usage'
-              }
+module.exports = (mode) => {
+  return {
+    entry: ['./src/Root.jsx'],
+    output: {
+      path: path.resolve(__dirname, 'dist'),
+      filename: 'index_bundle.js',
+      publicPath: '/',
+    },
+    devtool: 'inline-source-map',
+    module: {
+      rules: [
+        {
+          test: /\.(js|jsx)$/,
+          include: path.resolve(__dirname, 'src'),
+          loader: 'babel-loader',
+          options: {
+            presets: [
+              [
+                '@babel/env',
+                {
+                  useBuiltIns: 'usage'
+                }
+              ],
+              '@babel/react',
+              '@emotion/css-prop'
             ],
-            '@babel/react',
-            '@emotion/css-prop'
-          ],
-          plugins: [
-            'emotion',
-            '@babel/proposal-class-properties',
-            '@babel/syntax-dynamic-import',
-          ],
-        }
-      },
-      {
-        test: /\.css$/,
-        use: ['style-loader', 'css-loader'],
-      },
-      {
-        test: /\.md$/,
-        use: [
-          'html-loader',
-          {
-            loader: 'markdown-loader',
-            options: { renderer: mdRenderer }
+            plugins: [
+              'emotion',
+              '@babel/proposal-class-properties',
+              '@babel/syntax-dynamic-import',
+            ],
           }
-        ],
-      },
-      {
-        test: /\.(bmp|png|jpg|gif)$/i,
-        use: [
-          {
-            loader: 'url-loader',
-            options: {
-              limit: 10000,
+        },
+        {
+          test: /\.css$/,
+          use: ['style-loader', 'css-loader'],
+        },
+        {
+          test: /\.md$/,
+          use: [
+            'html-loader',
+            {
+              loader: 'markdown-loader',
+              options: { renderer: mdRenderer }
             }
-          }
-        ]
-
+          ],
+        },
+        {
+          test: /\.(bmp|png|jpg|gif)$/i,
+          use: [
+            {
+              loader: 'url-loader',
+              options: {
+                limit: 10000,
+              }
+            }
+          ]
+  
+        }
+      ]
+    },
+    resolve: {
+      extensions: ['*', '.js', '.jsx'],
+      alias: {
+        '~': path.resolve(__dirname, 'src')
       }
-    ]
-  },
-  resolve: {
-    extensions: ['*', '.js', '.jsx'],
-    alias: {
-      '~': path.resolve(__dirname, 'src')
-    }
-  },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: './src/index.html',
-    }),
-  ],
-  devServer: {
-    historyApiFallback: true,
-    hot: true,
-    port: 3000,
-    // open: true,
-  },
+    },
+    plugins: [
+      new HtmlWebpackPlugin({
+        template: './src/index.html',
+      }),
+    ],
+    devServer: {
+      historyApiFallback: true,
+      hot: true,
+      port: 3000,
+      // open: true,
+    },
+  }
 }
