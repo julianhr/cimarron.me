@@ -22,7 +22,7 @@ const StyledLink = styled(Link)`
   transition: box-shadow 30ms ease-in;
 
   :hover {
-    box-shadow: 2px 2px 6px #bbb;
+    box-shadow: 1px 1px 6px #bbb;
   }
 `
 

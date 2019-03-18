@@ -7,6 +7,7 @@ import Lab from './Lab'
 
 
 const Root = styled.section`
+  padding: 80px 0 0;
 `
 
 class LabShowcase extends React.PureComponent {

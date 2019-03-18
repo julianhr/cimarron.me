@@ -8,7 +8,7 @@ import RightNav from './RightNav'
 const RootHeader = styled.header`
   display: flex;
   justify-content: space-between;
-  padding: 5px 20px;
+  padding: 5px 20px 30px;
   width: 100%;
 `
 
