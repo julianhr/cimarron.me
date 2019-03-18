@@ -1,5 +1,6 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const CleanWebpackPlugin = require('clean-webpack-plugin')
 
 // open Markdown links in new tab
 // https://github.com/markedjs/marked/issues/655
@@ -12,12 +13,14 @@ mdRenderer.link = (href, title, text) => {
 }
 
 
-module.exports = (mode) => {
+module.exports = (env, argv) => {
   return {
-    entry: ['./src/Root.jsx'],
+    entry: {
+      index: './src/Root.jsx',
+    },
     output: {
       path: path.resolve(__dirname, 'dist'),
-      filename: 'index_bundle.js',
+      filename: '[name].[hash].bundle.js',
       publicPath: '/',
     },
     devtool: 'inline-source-map',
@@ -80,6 +83,7 @@ module.exports = (mode) => {
       }
     },
     plugins: [
+      new CleanWebpackPlugin(),
       new HtmlWebpackPlugin({
         template: './src/index.html',
       }),
@@ -88,6 +92,7 @@ module.exports = (mode) => {
       historyApiFallback: true,
       hot: true,
       port: 3000,
+      stats: 'normal',
       // open: true,
     },
   }

@@ -7,3 +7,4 @@
 .DS_Store
 # for Netfily
 !dist/_redirects
+stats.json
