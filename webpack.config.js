@@ -68,6 +68,7 @@ module.exports = (env, argv) => {
               loader: 'url-loader',
               options: {
                 limit: 10000,
+                name: '[name].[contenthash:8].[ext]',
               }
             }
           ]
@@ -76,7 +77,7 @@ module.exports = (env, argv) => {
       ]
     },
     plugins: [
-      new webpack.HashedModuleIdsPlugin(), // so file hashes won't change unexpectedly
+      new webpack.HashedModuleIdsPlugin(), // consistent file hashes based content
       new CleanWebpackPlugin(),
       new CopyPlugin([{ from: 'public', to: '.' }]),
       new DuplicatesPlugin(),
@@ -91,36 +92,14 @@ module.exports = (env, argv) => {
       }
     },
     optimization: {
-      /*
-      many ideas taken from
-      https://hackernoon.com/the-100-correct-way-to-split-your-chunks-with-webpack-f8a9df5b7758
-      */
       runtimeChunk: 'single',
       splitChunks: {
-        maxInitialRequests: Infinity,
-        minSize: 0,
         cacheGroups: {
-          default: false,
-          vendors: false,
+          splitChunks: 'all',
           vendor: {
             test: /node_modules/,
-            chunks: 'all',
-            name(module) {
-              // get package name and group file under it
-              const npmRegEx = /node_modules\/([^/]+)(\/|$)/
-              const packageName = module.context.match(npmRegEx)[1]
-              // npm package names are URL-safe, but some servers don't like @ symbols
-              return `npm.${packageName.replace('@', '')}`
-            },
+            name: 'npm',
             priority: 20,
-          },
-          common: {
-            name: 'common',
-            minChunks: 2,
-            chunks: 'async',
-            priority: 10,
-            reuseExistingChunk: true,
-            enforce: true
           },
         },
       },
@@ -128,7 +107,7 @@ module.exports = (env, argv) => {
     output: {
       path: path.resolve(__dirname, 'dist'),
       filename: '[name].js',
-      chunkFilename: '[name].[contenthash].js',
+      chunkFilename: '[name].[contenthash:8].js',
       publicPath: '/',
     },
     devtool: 'inline-source-map',

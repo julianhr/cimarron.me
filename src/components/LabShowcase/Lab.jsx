@@ -49,7 +49,7 @@ const Tech = styled.div`
   padding: 2px 7px;
 `
 
-function Lab({ title, stack, urlPath, filePath }) {
+function Lab({ title, stack, urlPath, thumbnailSrc }) {
   const getTechStyle = (index) => {
     const hue = (330 + index * 30) % 360
     const sat = 60
@@ -74,7 +74,7 @@ function Lab({ title, stack, urlPath, filePath }) {
     >
       <Article>
         <Img
-          src={require(`~/${filePath}/thumbnail.png`)}
+          src={thumbnailSrc}
         />
         <h3>{title}</h3>
       </Article>
@@ -86,7 +86,7 @@ function Lab({ title, stack, urlPath, filePath }) {
 }
 
 Lab.propTypes = {
-  filePath: PropTypes.string,
+  thumbnailSrc: PropTypes.string,
   stack: PropTypes.arrayOf(PropTypes.string),
   title: PropTypes.string,
   urlPath: PropTypes.string,

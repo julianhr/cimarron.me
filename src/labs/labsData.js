@@ -1,14 +1,13 @@
 import React from 'react'
-
-import InfiniteScroller from '~/labs/001_infinite_scroller'
+import { lazyLoad } from '~/utils'
 
 
 export default [
   {
     title: 'Infinite Scroller',
-    component: InfiniteScroller,
+    component: React.lazy(() => import(/* webpackChunkName: "InfiniteScroller" */ '~/labs/001_InfiniteScroller')),
     urlPath: 'labs/infinite-scroller',
-    filePath: 'labs/001_infinite_scroller',
+    thumbnailSrc: require('../labs/001_InfiniteScroller/thumbnail.png'),
     stack: 'React.js Javascript'.split(' '),
     createdAt: '2019-03',
   }
