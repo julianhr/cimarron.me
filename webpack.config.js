@@ -1,5 +1,6 @@
 const path = require('path')
 const webpack = require('webpack')
+const CopyPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const { DuplicatesPlugin } = require("inspectpack/plugin")
@@ -77,6 +78,7 @@ module.exports = (env, argv) => {
     plugins: [
       new webpack.HashedModuleIdsPlugin(), // so file hashes won't change unexpectedly
       new CleanWebpackPlugin(),
+      new CopyPlugin([{ from: 'public', to: '.' }]),
       new DuplicatesPlugin(),
       new HtmlWebpackPlugin({
         template: './src/index.html',
