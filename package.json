@@ -18,7 +18,7 @@
     "react": "^16.8.3",
     "react-dom": "^16.8.3",
     "react-redux": "^6.0.1",
-    "react-router-dom": "^4.3.1",
+    "react-router-dom": "^5.0.0",
     "redux-starter-kit": "^0.4.3",
     "sanitize.css": "^8.0.0"
   },
