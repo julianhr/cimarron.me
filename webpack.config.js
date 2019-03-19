@@ -2,6 +2,7 @@ const path = require('path')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
+const { DuplicatesPlugin } = require("inspectpack/plugin")
 
 // open Markdown links in new tab
 // https://github.com/markedjs/marked/issues/655
@@ -20,7 +21,6 @@ module.exports = (env, argv) => {
   return {
     entry: {
       main: './src/Root.jsx',
-      // InfiniteScroler: './src/labs/001_infinite_scroller/index.js',
     },
     module: {
       rules: [
@@ -77,6 +77,7 @@ module.exports = (env, argv) => {
     plugins: [
       new webpack.HashedModuleIdsPlugin(), // so file hashes won't change unexpectedly
       new CleanWebpackPlugin(),
+      new DuplicatesPlugin(),
       new HtmlWebpackPlugin({
         template: './src/index.html',
       }),
@@ -94,7 +95,6 @@ module.exports = (env, argv) => {
       */
       runtimeChunk: 'single',
       splitChunks: {
-        chunks: 'all',
         maxInitialRequests: Infinity,
         minSize: 0,
         cacheGroups: {
@@ -102,6 +102,7 @@ module.exports = (env, argv) => {
           vendors: false,
           vendor: {
             test: /node_modules/,
+            chunks: 'all',
             name(module) {
               // get package name and group file under it
               const pnpmSignature = '.registry.npmjs.org'
@@ -113,13 +114,23 @@ module.exports = (env, argv) => {
               // npm package names are URL-safe, but some servers don't like @ symbols
               return `npm.${packageName.replace('@', '')}`
             },
+            priority: 20,
+          },
+          common: {
+            name: 'common',
+            minChunks: 2,
+            chunks: 'async',
+            priority: 10,
+            reuseExistingChunk: true,
+            enforce: true
           },
         },
       },
     },
     output: {
       path: path.resolve(__dirname, 'dist'),
-      filename: isProd ? '[name].[contenthash].js' : '[name].js',
+      filename: '[name].js',
+      chunkFilename: '[name].[contenthash].js',
       publicPath: '/',
     },
     devtool: 'inline-source-map',
