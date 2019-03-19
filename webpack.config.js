@@ -107,12 +107,8 @@ module.exports = (env, argv) => {
             chunks: 'all',
             name(module) {
               // get package name and group file under it
-              const pnpmSignature = '.registry.npmjs.org'
-              const pnpmRegEx = /\.registry\.npmjs\.org\/([^/]+)\//
-              const npmRegEx = /node_modules\/([^/]+)\//
-              const npmPackageNameRegex =
-                module.context.includes(pnpmSignature) ? pnpmRegEx : npmRegEx
-              const packageName = module.context.match(npmPackageNameRegex)[1]
+              const npmRegEx = /node_modules\/([^/]+)(\/|$)/
+              const packageName = module.context.match(npmRegEx)[1]
               // npm package names are URL-safe, but some servers don't like @ symbols
               return `npm.${packageName.replace('@', '')}`
             },
