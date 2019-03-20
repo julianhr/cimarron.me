@@ -95,11 +95,10 @@ module.exports = (env, argv) => {
       runtimeChunk: 'single',
       splitChunks: {
         cacheGroups: {
-          splitChunks: 'all',
           vendor: {
             test: /node_modules/,
             name: 'npm',
-            priority: 20,
+            chunks: 'all',
           },
         },
       },
