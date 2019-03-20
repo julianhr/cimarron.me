@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 
 import labs from '~/labs/labsData'
 import LabShowcase from '../LabShowcase/LabShowcase'
+import Loading from '../Loading/Loading'
 
 
 function LabRoutes({ labs }) {
@@ -19,7 +20,7 @@ function LabRoutes({ labs }) {
   )
 
   return (
-    <Suspense fallback={<div>...loading</div>}>
+    <Suspense fallback={<Loading />}>
       <Switch>
         <Route exact path='/' component={LabShowcase} />
         {getRoutes()}
