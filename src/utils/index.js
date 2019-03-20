@@ -6,7 +6,7 @@ export function urlBuilder(basePath, query={}, basePort, api='api.flask') {
   basePath = basePath.trim()
   const isProduction = process.env.NODE_ENV === 'production'
   const host = isProduction ? `https://${api}.cimarron.me` : 'http://localhost'
-  const port = basePort === undefined ? (isProduction ? '80' : '5000') : basePort
+  const port = basePort === undefined ? (isProduction ? '443' : '5000') : basePort
   const path = basePath.length > 0 && basePath[0] === '/' ? basePath.slice(1) : basePath
   const urlBase = `${host}:${port}/${path}`
   const urlQuery = Object.entries(query).map(([key, val]) => `${key}=${val}`).join('&')
