@@ -10,34 +10,28 @@ const Root = styled.div`
   align-items: center;
 `
 
-const styles = {
-  link: (theme) => ({
-    color: `${theme.colors.text}`,
-    textDecoration: 'none',
-    margin: '0 10px',
-    padding: '0 6px 4px',
-    borderBottomWidth: 2,
-    borderBottomStyle: 'solid',
-    borderBottomColor: 'transparent',
-    ':hover': {
-      borderBottomColor: '#e10d75',
-      transitionDuration: '140ms',
-    },
-    transitionProperty: 'border-bottom-color',
-    transitionDuration: '75ms',
-    transitionTimingFunction: 'linear',
-  })
-}
+const StyledLink = styled(Link)`
+    color: ${props => props.theme.colors.text};
+    text-decoration: none;
+    margin: 0 10px;
+    padding: 0 6px 4px;
+    border-bottom: 2px solid transparent;
+    transition: border-bottom-color 75ms linear;
+
+    :hover {
+      border-bottom-color: #e10d75;
+      transition-duration: 140ms;
+    }
+`
 
 function MenuItem(props) {
   return (
     <Root>
-      <Link
-        css={theme => styles.link(theme)}
+      <StyledLink
         to={props.url}
       >
         {props.label}
-      </Link>
+      </StyledLink>
     </Root>
   )
 }
