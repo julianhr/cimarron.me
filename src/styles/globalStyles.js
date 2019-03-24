@@ -7,7 +7,7 @@ const globalStyles = css`
     lineHeight 1.3em;
   }
 
-  p, h1, h2, h3, h4, h5, h6 {
+  p, h1, h2, h3, h4, h5, h6, figure {
     margin: 0;
   }
 
@@ -46,7 +46,7 @@ const globalStyles = css`
   h6 {
     font-size: 8;
   }
-  
+
   code {
     color: ${theme.colors.code};
     font-size: 14;

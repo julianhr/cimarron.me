@@ -4,6 +4,8 @@ import styled from '@emotion/styled'
 import { css } from '@emotion/core'
 import { Link } from 'react-router-dom'
 
+import ImageLoader from '../library/ImageLoader'
+
 
 const baseArticle = css`
   border-radius: 5px;
@@ -32,10 +34,6 @@ const Article = styled.article`
   width: 100%;
   height: 220px;
   align-items: center;
-`
-
-const Img = styled.img`
-  padding-bottom: 20px;
 `
 
 const TechRoot = styled.section`
@@ -73,8 +71,11 @@ function Lab({ title, stack, urlPath, thumbnailSrc }) {
       to={urlPath}
     >
       <Article>
-        <Img
-          src={thumbnailSrc}
+        <ImageLoader
+          imgSrc={thumbnailSrc}
+          maxWidth={200}
+          maxHeight={120}
+          styles={{ root: { marginBottom: 20 } }}
         />
         <h3>{title}</h3>
       </Article>
