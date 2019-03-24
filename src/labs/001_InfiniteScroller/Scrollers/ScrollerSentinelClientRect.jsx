@@ -44,8 +44,8 @@ class ScrollerSentinelClientRect extends React.PureComponent {
     const { isFetching } = this.props
     const { cards } = this.state
     const { top: sentinelTop } = this.refSentinel.current.getBoundingClientRect()
-    const { clientHeight: rootClientHeight } = this.refRoot.current
-    const isSentinelVisible = sentinelTop <= rootClientHeight
+    const { bottom: rootBottom } = this.refRoot.current.getBoundingClientRect()
+    const isSentinelVisible = sentinelTop <= rootBottom
 
     if (!isFetching && isSentinelVisible && cards.length < 200) {
       this.fetchCards()
