@@ -39,7 +39,7 @@ class Description extends React.PureComponent {
   }
 
   render() {
-    const githubUrl = "https://github.com/julianhr/cimarron-me/tree/master/src/labs/001_infinite_scroller"
+    const githubUrl = "https://github.com/julianhr/cimarron.me/tree/master/src/labs/001_InfiniteScroller"
 
     return (
       <Root>

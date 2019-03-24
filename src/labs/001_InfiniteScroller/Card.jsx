@@ -2,6 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
 
+import ImageLoader from '~/components/library/ImageLoader'
+
 
 const Root = styled.article`
   width: 100%;
@@ -20,18 +22,17 @@ const P = styled.p`
   padding-top: 5px;
 `
 
-const Img = styled.img`
-  display: none;
-
-  @media (min-width: 520px) {
-    display: inherit;
-    float: left;
-    width: 180px;
-    height: 100px;
-    padding-right: 30px;
-    padding-bottom: 4px;
+const imgStyle = {
+  display: 'none',
+  '@media (min-width: 520px)': {
+    display: 'inherit',
+    float: 'left',
+    width: 180,
+    height: 100,
+    paddingRight: 30,
+    paddingBottom: 4,
   }
-`
+}
 
 function Card({ title, imgUrl, description, forwardedRef, position }) {
   const pElDescription = description.map((desc, i) =>
@@ -46,7 +47,12 @@ function Card({ title, imgUrl, description, forwardedRef, position }) {
         border: forwardedRef ? '1px solid #a07f99' : null,
       }}
     >
-      <Img src={imgUrl} />
+      <ImageLoader
+        maxWidth={150}
+        maxHeight={100}
+        imgSrc={imgUrl}
+        styles={{ root: imgStyle }}
+      />
       <H4>{`${position}. ${title}`}</H4>
       {pElDescription}
     </Root>
