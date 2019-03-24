@@ -5,6 +5,7 @@ export const colors = {
   },
   code: '#D90000',
   heightlight: '#FFD342',
+  background: '#FFF',
   field: {
     background: '#F0F0F0',
   },
