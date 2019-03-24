@@ -27,10 +27,10 @@ const imgStyle = {
   '@media (min-width: 520px)': {
     display: 'inherit',
     float: 'left',
-    width: 180,
+    width: 150,
     height: 100,
-    paddingRight: 30,
-    paddingBottom: 4,
+    marginRight: 30,
+    marginBottom: 10,
   }
 }
 
