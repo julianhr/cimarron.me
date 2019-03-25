@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
 import { connect } from 'react-redux'
+import { throttle } from 'lodash-es'
 
 import { setIsFetching, setEntryCount } from '../actions/rootActions'
 import Card from '../Card'
@@ -40,7 +41,7 @@ class ScrollerSentinelClientRect extends React.PureComponent {
     this.fetchCards()
   }
 
-  handleOnScroll = (event) => {
+  handleOnScroll(event) {
     const { isFetching } = this.props
     const { cards } = this.state
     const { top: sentinelTop } = this.refSentinel.current.getBoundingClientRect()
@@ -107,7 +108,7 @@ class ScrollerSentinelClientRect extends React.PureComponent {
     return (
       <Root
         ref={this.refRoot}
-        onScroll={this.handleOnScroll}
+        onScroll={throttle(this.handleOnScroll, 200, { leading: false }).bind(this)}
       >
         {this.renderCardResult()}
       </Root>

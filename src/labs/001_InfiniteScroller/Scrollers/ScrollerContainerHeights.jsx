@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
 import { connect } from 'react-redux'
+import { throttle } from 'lodash-es'
 
 import { setIsFetching, setEntryCount } from '../actions/rootActions'
 import Card from '../Card'
@@ -31,16 +32,19 @@ class ScrollerContainerHeights extends React.PureComponent {
     },
   }
 
+  refRoot = React.createRef()
+
   componentDidMount() {
     this.props.setEntryCount(0)
     this.fetchCards()
   }
 
-  handleOnScroll = (event) => {
+  handleOnScroll(event) {
+    event.persist()
     const { isFetching } = this.props
     const { cards } = this.state
 
-    if (!isFetching && this.canFetchCards(event.target) && cards.length < 200) {
+    if (!isFetching && this.canFetchCards(this.refRoot.current) && cards.length < 200) {
       this.fetchCards()
     }
   }
@@ -96,7 +100,8 @@ class ScrollerContainerHeights extends React.PureComponent {
   render() {
     return (
       <Root
-        onScroll={this.handleOnScroll}
+        ref={this.refRoot}
+        onScroll={throttle(this.handleOnScroll, 150, { leading: false }).bind(this)}
       >
         {this.renderCardResult()}
       </Root>
