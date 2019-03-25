@@ -4,6 +4,7 @@ const CopyPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const { DuplicatesPlugin } = require("inspectpack/plugin")
+const LodashModuleReplacementPlugin = require('lodash-webpack-plugin')
 
 // open Markdown links in new tab
 // https://github.com/markedjs/marked/issues/655
@@ -34,7 +35,8 @@ module.exports = (env, argv) => {
               [
                 '@babel/env',
                 {
-                  useBuiltIns: 'usage'
+                  useBuiltIns: 'usage',
+                  corejs: 3,
                 }
               ],
               '@babel/react',
@@ -42,6 +44,7 @@ module.exports = (env, argv) => {
             ],
             plugins: [
               'emotion',
+              'lodash',
               '@babel/proposal-class-properties',
               '@babel/syntax-dynamic-import',
             ],
@@ -78,12 +81,13 @@ module.exports = (env, argv) => {
     },
     plugins: [
       new webpack.HashedModuleIdsPlugin(), // consistent file hashes based content
+      new LodashModuleReplacementPlugin,
       new CleanWebpackPlugin(),
-      new CopyPlugin([{ from: 'public', to: '.' }]),
-      new DuplicatesPlugin(),
       new HtmlWebpackPlugin({
         template: './src/index.html',
       }),
+      new CopyPlugin([{ from: 'public', to: '.' }]),
+      new DuplicatesPlugin(),
     ],
     resolve: {
       extensions: ['*', '.js', '.jsx'],
