@@ -34,17 +34,17 @@ const spanBase = css`
 
 const Dot1 = styled.span`
   ${spanBase}
-  animation: ${bounceDot} 2000ms ease-in 0s infinite;
+  animation: ${bounceDot} 1400ms ease-in 0s infinite;
 `
 
 const Dot2 = styled.span`
   ${spanBase}
-  animation: ${bounceDot} 2000ms ease-in 400ms infinite;
+  animation: ${bounceDot} 1400ms ease-in 280ms infinite;
 `
 
 const Dot3 = styled.span`
   ${spanBase}
-  animation: ${bounceDot} 2000ms ease-in 800ms infinite;
+  animation: ${bounceDot} 1400ms ease-in 560ms infinite;
 `
 
 function Loading() {
