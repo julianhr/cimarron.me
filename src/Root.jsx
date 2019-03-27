@@ -25,4 +25,8 @@ function Root() {
   )
 }
 
-ReactDOM.render(<Root />, document.getElementById('root'))
+if (process.env['NODE_ENV'] !== 'test') {
+  ReactDOM.render(<Root />, document.getElementById('root'))
+}
+
+export default Root

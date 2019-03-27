@@ -30,28 +30,6 @@ module.exports = (env, argv) => {
           test: /\.(js|jsx)$/,
           include: path.resolve(__dirname, 'src'),
           loader: 'babel-loader',
-          options: {
-            presets: [
-              [
-                '@babel/env',
-                {
-                  useBuiltIns: 'usage',
-                  corejs: 3,
-                  targets: {
-                    node: 'current',
-                  },
-                }
-              ],
-              '@babel/react',
-              '@emotion/css-prop'
-            ],
-            plugins: [
-              'emotion',
-              'lodash',
-              '@babel/proposal-class-properties',
-              '@babel/syntax-dynamic-import',
-            ],
-          }
         },
         {
           test: /\.css$/,
