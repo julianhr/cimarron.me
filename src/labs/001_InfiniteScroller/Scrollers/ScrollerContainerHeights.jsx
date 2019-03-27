@@ -40,7 +40,6 @@ class ScrollerContainerHeights extends React.PureComponent {
   }
 
   handleOnScroll(event) {
-    event.persist()
     const { isFetching } = this.props
     const { cards } = this.state
 

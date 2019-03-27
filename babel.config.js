@@ -8,9 +8,6 @@ module.exports = function (api) {
         {
           useBuiltIns: 'usage',
           corejs: 3,
-          targets: {
-            node: 'current',
-          },
         }
       ],
       '@babel/react',
