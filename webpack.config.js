@@ -37,6 +37,9 @@ module.exports = (env, argv) => {
                 {
                   useBuiltIns: 'usage',
                   corejs: 3,
+                  targets: {
+                    node: 'current',
+                  },
                 }
               ],
               '@babel/react',
@@ -80,7 +83,7 @@ module.exports = (env, argv) => {
       ]
     },
     plugins: [
-      new webpack.HashedModuleIdsPlugin(), // consistent file hashes based content
+      new webpack.HashedModuleIdsPlugin(), // consistent file hashes based on their content
       new LodashModuleReplacementPlugin,
       new CleanWebpackPlugin(),
       new HtmlWebpackPlugin({
