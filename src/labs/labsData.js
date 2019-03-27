@@ -1,5 +1,4 @@
 import React from 'react'
-import { lazyLoad } from '~/utils'
 
 
 export default [
