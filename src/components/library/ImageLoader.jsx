@@ -26,13 +26,18 @@ class ImageLoader extends React.PureComponent {
     styles: {},
   }
 
+  constructor() {
+    super()
+    this.handleOnLoad = this.handleOnLoad.bind(this)
+  }
+
   state = {
     isImgLoaded: false,
   }
 
   refImg = React.createRef()
 
-  handleOnLoad = () => {
+  handleOnLoad() {
     this.setState({ isImgLoaded: true })
   }
 
