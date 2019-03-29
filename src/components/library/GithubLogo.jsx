@@ -31,7 +31,7 @@ function GithubLogo({ url, styles }) {
 }
 
 GithubLogo.propTypes = {
-  url: PropTypes.string,
+  url: PropTypes.string.isRequired,
   styles: PropTypes.object,
 }
 
