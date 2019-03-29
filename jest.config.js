@@ -19,6 +19,7 @@ module.exports = {
 
   // Indicates whether the coverage information should be collected while executing the test
   // collectCoverage: false,
+  collectCoverage: true,
 
   // An array of glob patterns indicating a set of files for which coverage information should be collected
   // collectCoverageFrom: null,
@@ -30,6 +31,11 @@ module.exports = {
   // coveragePathIgnorePatterns: [
   //   "/node_modules/"
   // ],
+  coveragePathIgnorePatterns: [
+    "/node_modules/",
+    "/__fixtures__/",
+    "/__mocks__/",
+  ],
 
   // A list of reporter names that Jest uses when writing coverage reports
   // coverageReporters: [
@@ -78,11 +84,9 @@ module.exports = {
   // A map from regular expressions to module names that allow to stub out resources with a single module
   // moduleNameMapper: {},
   moduleNameMapper: {
-    "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/jest/__mocks__/fileMock.js",
-    "\\.(css|less)$": "<rootDir>/jest/__mocks__/styleMock.js",
+    "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/src/__tests__/__mocks__/fileMock.js",
+    "\\.(css|less)$": "<rootDir>/src/__tests__/__mocks__/styleMock.js",
     "^~(.*)$": "<rootDir>/src$1",
-    // "^react(.*)$": "<rootDir>/vendor/react-master$1",
-    // "^config$": "<rootDir>/configs/app-config.js",
   },
 
   // An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader
@@ -123,6 +127,7 @@ module.exports = {
   // roots: [
   //   "<rootDir>"
   // ],
+  roots: ['<rootDir>/src'],
 
   // Allows you to use a custom runner instead of Jest's default test runner
   // runner: "jest-runner",
@@ -132,10 +137,13 @@ module.exports = {
 
   // A list of paths to modules that run some code to configure or set up the testing framework before each test
   // setupFilesAfterEnv: [],
+  setupFilesAfterEnv: [
+    '<rootDir>/configs/enzymeConfig.js',
+    '<rootDir>/configs/enzymeSerializersConfig.js',
+  ],
 
   // A list of paths to snapshot serializer modules Jest should use for snapshot testing
   // snapshotSerializers: [],
-  snapshotSerializers: ['jest-emotion'],
 
   // The test environment that will be used for testing
   // testEnvironment: "jsdom",
@@ -152,6 +160,7 @@ module.exports = {
   //   "**/__tests__/**/*.[jt]s?(x)",
   //   "**/?(*.)+(spec|test).[tj]s?(x)"
   // ],
+  testMatch: ["**/__tests__/**/*\\.(test|spec)\\.js"],
 
   // An array of regexp pattern strings that are matched against all test paths, matched tests are skipped
   // testPathIgnorePatterns: [

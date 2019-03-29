@@ -9,7 +9,8 @@
   "scripts": {
     "build": "webpack --mode production --profile",
     "start": "webpack-dev-server --mode development --profile",
-    "test": "jest"
+    "test": "jest",
+    "test:dev": "jest --verbose --watch"
   },
   "husky": {
     "hooks": {
@@ -46,6 +47,9 @@
     "clean-webpack-plugin": "^2.0.1",
     "copy-webpack-plugin": "^5.0.2",
     "css-loader": "^2.1.0",
+    "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16": "^1.11.2",
+    "enzyme-to-json": "^3.3.5",
     "eslint": "^5.15.1",
     "eslint-plugin-react": "^7.12.4",
     "file-loader": "^3.0.1",
@@ -77,8 +81,9 @@
     "env": {
       "amd": true,
       "browser": true,
-      "node": true,
-      "es6": true
+      "es6": true,
+      "jest": true,
+      "node": true
     },
     "extends": [
       "eslint:recommended",
@@ -86,10 +91,8 @@
     ],
     "parser": "babel-eslint",
     "rules": {
-      "semi": [
-        "error",
-        "never"
-      ]
+      "semi": ["error", "never"],
+      "react/display-name": false
     }
   }
 }
