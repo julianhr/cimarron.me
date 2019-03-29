@@ -22,7 +22,7 @@ module.exports = (env, argv) => {
 
   return {
     entry: {
-      main: './src/Root.jsx',
+      main: './src/index.js',
     },
     module: {
       rules: [

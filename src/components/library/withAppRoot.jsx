@@ -1,32 +1,26 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import { BrowserRouter } from 'react-router-dom'
 import { ThemeProvider } from 'emotion-theming'
 import { Global } from '@emotion/core'
 import 'sanitize.css'
 
-import appStore from './reducers/'
-import globalStyles from './styles/globalStyles'
-import theme from './styles/theme'
-import App from './App'
+import appStore from '~/reducers'
+import globalStyles from '~/styles/globalStyles'
+import theme from '~/styles/theme'
 
 
-function Root() {
-  return (
+function withAppRoot(WrappedComponent, props={}) {
+  return () => (
     <Provider store={appStore}>
       <BrowserRouter>
         <ThemeProvider theme={theme}>
           <Global styles={globalStyles} />
-          <App />
+          <WrappedComponent {...props} />
         </ThemeProvider>
       </BrowserRouter>
     </Provider>
   )
 }
 
-if (process.env['NODE_ENV'] !== 'test') {
-  ReactDOM.render(<Root />, document.getElementById('root'))
-}
-
-export default Root
+export default withAppRoot

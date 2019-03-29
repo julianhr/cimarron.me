@@ -1,9 +1,9 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
 
 import TopNav from './components/TopNav/TopNav'
 import LabRoutes from './components/LabRoutes/LabRoutes'
+import withAppRoot from './components/library/withAppRoot'
 
 
 const Container = styled.div`
@@ -30,4 +30,4 @@ class App extends React.Component {
   }
 }
 
-export default App
+export default withAppRoot(App)
