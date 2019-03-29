@@ -7,5 +7,7 @@
 			"path": "/Users/julian/Repos/portfolio/flask_api"
 		}
 	],
-	"settings": {}
+	"settings": {
+		"jest.debugMode": true
+	}
 }

@@ -1,0 +1,68 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GithubLogo matches snapshot with all props 1`] = `
+.emotion-4 {
+  color: orange;
+}
+
+.emotion-3 {
+  color: red;
+}
+
+.emotion-2 {
+  color: green;
+}
+
+.emotion-0 {
+  width: 60px;
+  color: green;
+}
+
+<span
+  className="emotion-4"
+>
+  <a
+    className="emotion-3"
+    href="http://test.com"
+    rel="noopener noreferrer"
+    target="_blank"
+  >
+    <Img
+      alt="GitHub"
+      className="emotion-2"
+      src="test-file-stub"
+    >
+      <img
+        alt="GitHub"
+        className="emotion-0 emotion-1"
+        src="test-file-stub"
+      />
+    </Img>
+  </a>
+</span>
+`;
+
+exports[`GithubLogo matches snapshot without styles prop 1`] = `
+.emotion-0 {
+  width: 60px;
+}
+
+<span>
+  <a
+    href="http://test.com"
+    rel="noopener noreferrer"
+    target="_blank"
+  >
+    <Img
+      alt="GitHub"
+      src="test-file-stub"
+    >
+      <img
+        alt="GitHub"
+        className="emotion-0 emotion-1"
+        src="test-file-stub"
+      />
+    </Img>
+  </a>
+</span>
+`;

@@ -1,0 +1,139 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ImageLoader matches snapshot after image src is loaded 1`] = `
+Array [
+  <ForwardRef(render)
+    styles={
+      Object {
+        "map": "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImdsb2JhbFN0eWxlcy5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFHd0IiLCJmaWxlIjoiZ2xvYmFsU3R5bGVzLmpzIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgY3NzIH0gZnJvbSAnQGVtb3Rpb24vY29yZSdcbmltcG9ydCB0aGVtZSBmcm9tICcuL3RoZW1lJ1xuXG5jb25zdCBnbG9iYWxTdHlsZXMgPSBjc3NgXG4gIGJvZHkge1xuICAgIGNvbG9yOiAke3RoZW1lLmNvbG9ycy50ZXh0fSxcbiAgICBsaW5lSGVpZ2h0IDEuM2VtO1xuICB9XG5cbiAgcCwgaDEsIGgyLCBoMywgaDQsIGg1LCBoNiwgZmlndXJlIHtcbiAgICBtYXJnaW46IDA7XG4gIH1cblxuICBoMSwgaDIsIGgzLCBoNCwgaDUsIGg2IHtcbiAgICBjb2xvcjogJHt0aGVtZS5jb2xvcnMucHJpbWFyeS5kYXJrfTtcbiAgfVxuXG4gIHAge1xuICAgIHBhZGRpbmc6IC44ZW0gMDtcbiAgfVxuXG4gIGgxIHtcbiAgICBmb250LXNpemU6IDQ0O1xuICB9XG5cbiAgaDIge1xuICAgIGxpbmUtaGVpZ2h0OiAyZW07XG4gICAgZm9udC1zaXplOiAzNDtcbiAgICBmb250LXdlaWdodDogNTAwO1xuICB9XG5cbiAgaDMge1xuICAgIGZvbnQtc2l6ZTogMjQ7XG4gICAgZm9udC13ZWlnaHQ6IDYwMDtcbiAgfVxuXG4gIGg0IHtcbiAgICBsaW5lLWhlaWdodDogMS4zZW07XG4gICAgZm9udC1zaXplOiAxODtcbiAgfVxuXG4gIGg1IHtcbiAgICBmb250LXNpemU6IDEyO1xuICB9XG5cbiAgaDYge1xuICAgIGZvbnQtc2l6ZTogODtcbiAgfVxuXG4gIGNvZGUge1xuICAgIGNvbG9yOiAke3RoZW1lLmNvbG9ycy5jb2RlfTtcbiAgICBmb250LXNpemU6IDE0O1xuICB9XG5gXG5cbmV4cG9ydCBkZWZhdWx0IGdsb2JhbFN0eWxlc1xuIl19 */",
+        "name": "1e2xhh9-globalStyles-globalStyles",
+        "next": undefined,
+        "styles": "body{color:#3D3D3D,lineHeight 1.3em;}p,h1,h2,h3,h4,h5,h6,figure{margin:0;}h1,h2,h3,h4,h5,h6{color:#AB164D;}p{padding:.8em 0;}h1{font-size:44;}h2{line-height:2em;font-size:34;font-weight:500;}h3{font-size:24;font-weight:600;}h4{line-height:1.3em;font-size:18;}h5{font-size:12;}h6{font-size:8;}code{color:#D90000;font-size:14;}label:globalStyles;label:globalStyles;",
+      }
+    }
+  />,
+  .emotion-5 {
+  color: green;
+  width: 200px;
+  height: 100px;
+}
+
+.emotion-3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background: #FFF;
+  color: green;
+  width: 200px;
+  height: 100px;
+}
+
+.emotion-2 {
+  color: yellow;
+  opacity: 1;
+  width: 0;
+  height: 0;
+}
+
+.emotion-0 {
+  opacity: 0;
+  -webkit-transition: opacity 100ms linear;
+  transition: opacity 100ms linear;
+  color: yellow;
+  opacity: 1;
+  width: 0;
+  height: 0;
+}
+
+<Root
+    className="emotion-5"
+  >
+    <figure
+      className="emotion-3 emotion-4"
+    >
+      <Img
+        className="emotion-2"
+        onLoad={[Function]}
+        src="data:image/webp;base64,UklGRlQBAABXRUJQVlA4IEgBAABQCACdASoeABsAPtFco0yoJSMiMBgIAQAaCWwAuzlBfgGnO3BOALUBuQHUAbxt+2ZGxJRCYtBpYkvKE4agKG/XsXzkJxoCkLfy2JgA/v6UMx3P58mCrRxyi2inrTWQtl778n/xgSpf89/Y/+P6MxQ7ElzA7wlfu8XgcKi2XGDX7X/3TJ+Lc2FN9UflwEHsNaDGFm+cp3PSYB0z6nyEc0tkHRfee/M3RlRP686V8jhfSqeGU40Y9cP0betUGiyL6fX4UCGklWdvBvmBYV2/lpyWAvTXYmHBUTOgmRf4mZ8OSrwbxLSnL7H9xwwSzwHcz5vC2vjXJyn7j2hIrhfmENec/2zV6jbNPlXZFZofyE2n8lhCvjL/wDWARF1g0qxg4v8KzSYrKPR0mH4EXAsrO8U81v8+RaHKdg40DXgwNHEX3mNcn7aigAAA"
+      >
+        <img
+          className="emotion-0 emotion-1"
+          onLoad={[Function]}
+          src="data:image/webp;base64,UklGRlQBAABXRUJQVlA4IEgBAABQCACdASoeABsAPtFco0yoJSMiMBgIAQAaCWwAuzlBfgGnO3BOALUBuQHUAbxt+2ZGxJRCYtBpYkvKE4agKG/XsXzkJxoCkLfy2JgA/v6UMx3P58mCrRxyi2inrTWQtl778n/xgSpf89/Y/+P6MxQ7ElzA7wlfu8XgcKi2XGDX7X/3TJ+Lc2FN9UflwEHsNaDGFm+cp3PSYB0z6nyEc0tkHRfee/M3RlRP686V8jhfSqeGU40Y9cP0betUGiyL6fX4UCGklWdvBvmBYV2/lpyWAvTXYmHBUTOgmRf4mZ8OSrwbxLSnL7H9xwwSzwHcz5vC2vjXJyn7j2hIrhfmENec/2zV6jbNPlXZFZofyE2n8lhCvjL/wDWARF1g0qxg4v8KzSYrKPR0mH4EXAsrO8U81v8+RaHKdg40DXgwNHEX3mNcn7aigAAA"
+        />
+      </Img>
+    </figure>
+  </Root>,
+]
+`;
+
+exports[`ImageLoader matches snapshot with all props 1`] = `
+.emotion-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background: #FFF;
+  color: green;
+  width: 200px;
+  height: 100px;
+}
+
+.emotion-0 {
+  opacity: 0;
+  -webkit-transition: opacity 100ms linear;
+  transition: opacity 100ms linear;
+  color: yellow;
+  will-change: opacity;
+}
+
+<figure
+  class="emotion-2 emotion-3"
+>
+  <img
+    class="emotion-0 emotion-1"
+    src="data:image/webp;base64,UklGRlQBAABXRUJQVlA4IEgBAABQCACdASoeABsAPtFco0yoJSMiMBgIAQAaCWwAuzlBfgGnO3BOALUBuQHUAbxt+2ZGxJRCYtBpYkvKE4agKG/XsXzkJxoCkLfy2JgA/v6UMx3P58mCrRxyi2inrTWQtl778n/xgSpf89/Y/+P6MxQ7ElzA7wlfu8XgcKi2XGDX7X/3TJ+Lc2FN9UflwEHsNaDGFm+cp3PSYB0z6nyEc0tkHRfee/M3RlRP686V8jhfSqeGU40Y9cP0betUGiyL6fX4UCGklWdvBvmBYV2/lpyWAvTXYmHBUTOgmRf4mZ8OSrwbxLSnL7H9xwwSzwHcz5vC2vjXJyn7j2hIrhfmENec/2zV6jbNPlXZFZofyE2n8lhCvjL/wDWARF1g0qxg4v8KzSYrKPR0mH4EXAsrO8U81v8+RaHKdg40DXgwNHEX3mNcn7aigAAA"
+  />
+</figure>
+`;
+
+exports[`ImageLoader matches snapshot with no styles 1`] = `
+.emotion-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background: #FFF;
+  width: 200px;
+  height: 100px;
+}
+
+.emotion-0 {
+  opacity: 0;
+  -webkit-transition: opacity 100ms linear;
+  transition: opacity 100ms linear;
+  will-change: opacity;
+}
+
+<figure
+  class="emotion-2 emotion-3"
+>
+  <img
+    class="emotion-0 emotion-1"
+    src="data:image/webp;base64,UklGRlQBAABXRUJQVlA4IEgBAABQCACdASoeABsAPtFco0yoJSMiMBgIAQAaCWwAuzlBfgGnO3BOALUBuQHUAbxt+2ZGxJRCYtBpYkvKE4agKG/XsXzkJxoCkLfy2JgA/v6UMx3P58mCrRxyi2inrTWQtl778n/xgSpf89/Y/+P6MxQ7ElzA7wlfu8XgcKi2XGDX7X/3TJ+Lc2FN9UflwEHsNaDGFm+cp3PSYB0z6nyEc0tkHRfee/M3RlRP686V8jhfSqeGU40Y9cP0betUGiyL6fX4UCGklWdvBvmBYV2/lpyWAvTXYmHBUTOgmRf4mZ8OSrwbxLSnL7H9xwwSzwHcz5vC2vjXJyn7j2hIrhfmENec/2zV6jbNPlXZFZofyE2n8lhCvjL/wDWARF1g0qxg4v8KzSYrKPR0mH4EXAsrO8U81v8+RaHKdg40DXgwNHEX3mNcn7aigAAA"
+  />
+</figure>
+`;

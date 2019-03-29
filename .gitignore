@@ -1,7 +1,8 @@
 # DIRECTORIES
-/.next
-/dist
-/node_modules
+coverage/
+dist/
+node_modules/
+playground/
 
 # FILES
 .DS_Store
