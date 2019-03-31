@@ -1,4 +1,6 @@
-module.exports = function (api) {
+module.exports = api => {
+  const isTest = Boolean(api.env('test'))
+
   api.cache(true)
 
   return {
@@ -19,5 +21,10 @@ module.exports = function (api) {
       '@babel/proposal-class-properties',
       '@babel/syntax-dynamic-import',
     ],
+    env: {
+      'test': {
+        plugins: ["dynamic-import-node"]
+      }
+    }
   }
 }
