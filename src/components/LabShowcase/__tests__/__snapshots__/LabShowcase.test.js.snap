@@ -1,0 +1,76 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LabShowcase should match snaspshot 1`] = `
+<section
+  class="css-1lzrryp-Root e1uula6j0"
+>
+  <a
+    class="css-h8xsv8-StyledLink-baseArticle e1lgusa60"
+    href="/path/1"
+  >
+    <article
+      class="css-xjgwqh-Article-baseArticle e1lgusa61"
+    >
+      <figure
+        class="css-1t2crv9-Root-ImageLoader e1wlpvq40"
+      >
+        <img
+          class="css-jeu92c-Img-ImageLoader e1wlpvq41"
+          src="http://image1.com"
+        />
+      </figure>
+      <h3>
+        Title 1
+      </h3>
+    </article>
+    <section
+      class="css-1k4ntzt-TechRoot e1lgusa62"
+    >
+      <div
+        class="css-if30yk-Tech e1lgusa63"
+      >
+        React
+      </div>
+      <div
+        class="css-1h4zuz1-Tech e1lgusa63"
+      >
+        Python
+      </div>
+    </section>
+  </a>
+  <a
+    class="css-h8xsv8-StyledLink-baseArticle e1lgusa60"
+    href="/path/2"
+  >
+    <article
+      class="css-xjgwqh-Article-baseArticle e1lgusa61"
+    >
+      <figure
+        class="css-1t2crv9-Root-ImageLoader e1wlpvq40"
+      >
+        <img
+          class="css-jeu92c-Img-ImageLoader e1wlpvq41"
+          src="http://image2.com"
+        />
+      </figure>
+      <h3>
+        Title 2
+      </h3>
+    </article>
+    <section
+      class="css-1k4ntzt-TechRoot e1lgusa62"
+    >
+      <div
+        class="css-if30yk-Tech e1lgusa63"
+      >
+        Ruby
+      </div>
+      <div
+        class="css-1h4zuz1-Tech e1lgusa63"
+      >
+        Go
+      </div>
+    </section>
+  </a>
+</section>
+`;

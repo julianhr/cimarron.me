@@ -1,0 +1,120 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Loading matches snapshot 1`] = `
+@keyframes animation-0 {
+  0%, 14% {
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+  }
+
+  7% {
+    -webkit-transform: translateY(-14px);
+    -ms-transform: translateY(-14px);
+    transform: translateY(-14px);
+  }
+}
+
+@keyframes animation-0 {
+  0%, 14% {
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+  }
+
+  7% {
+    -webkit-transform: translateY(-14px);
+    -ms-transform: translateY(-14px);
+    transform: translateY(-14px);
+  }
+}
+
+@keyframes animation-0 {
+  0%, 14% {
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+  }
+
+  7% {
+    -webkit-transform: translateY(-14px);
+    -ms-transform: translateY(-14px);
+    transform: translateY(-14px);
+  }
+}
+
+.emotion-8 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  height: 70vh;
+}
+
+.emotion-6 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 24px;
+}
+
+.emotion-0 {
+  font-size: 34px;
+  padding: 0 3px;
+  margin-top: -7px;
+  -webkit-animation: animation-0 1400ms ease-in 0s infinite;
+  animation: animation-0 1400ms ease-in 0s infinite;
+}
+
+.emotion-2 {
+  font-size: 34px;
+  padding: 0 3px;
+  margin-top: -7px;
+  -webkit-animation: animation-0 1400ms ease-in 280ms infinite;
+  animation: animation-0 1400ms ease-in 280ms infinite;
+}
+
+.emotion-4 {
+  font-size: 34px;
+  padding: 0 3px;
+  margin-top: -7px;
+  -webkit-animation: animation-0 1400ms ease-in 560ms infinite;
+  animation: animation-0 1400ms ease-in 560ms infinite;
+}
+
+<div
+  class="emotion-8 emotion-9"
+>
+  <div
+    class="emotion-6 emotion-7"
+  >
+    <span>
+      Loading
+    </span>
+    <span
+      class="emotion-0 emotion-1"
+    >
+      .
+    </span>
+    <span
+      class="emotion-2 emotion-3"
+    >
+      .
+    </span>
+    <span
+      class="emotion-4 emotion-5"
+    >
+      .
+    </span>
+  </div>
+</div>
+`;

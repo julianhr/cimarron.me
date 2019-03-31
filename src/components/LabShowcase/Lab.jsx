@@ -87,10 +87,10 @@ function Lab({ title, stack, urlPath, thumbnailSrc }) {
 }
 
 Lab.propTypes = {
-  thumbnailSrc: PropTypes.string,
-  stack: PropTypes.arrayOf(PropTypes.string),
-  title: PropTypes.string,
-  urlPath: PropTypes.string,
+  thumbnailSrc: PropTypes.string.isRequired,
+  stack: PropTypes.arrayOf(PropTypes.string).isRequired,
+  title: PropTypes.string.isRequired,
+  urlPath: PropTypes.string.isRequired,
 }
 
 export default Lab

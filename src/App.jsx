@@ -4,6 +4,7 @@ import styled from '@emotion/styled'
 import TopNav from './components/TopNav/TopNav'
 import LabRoutes from './components/LabRoutes/LabRoutes'
 import withAppRoot from './components/library/withAppRoot'
+import labs from './labs/labsData'
 
 
 const Container = styled.div`
@@ -23,7 +24,7 @@ class App extends React.Component {
       <Container>
         <Main>
           <TopNav />
-          <LabRoutes pathname={location.pathname} />
+          <LabRoutes labs={labs} />
         </Main>
       </Container>
     )

@@ -35,6 +35,7 @@ module.exports = {
     "/node_modules/",
     "/__fixtures__/",
     "/__mocks__/",
+    "src/styles/",
   ],
 
   // A list of reporter names that Jest uses when writing coverage reports
