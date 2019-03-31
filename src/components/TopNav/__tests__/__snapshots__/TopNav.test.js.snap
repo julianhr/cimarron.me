@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TopNav should match snapshot 1`] = `
+<header
+  class="css-fmgjok-RootHeader e1isgil50"
+>
+  <div
+    class="css-14jo2cv-Root e1r6iq2i0"
+  >
+    <h3
+      class="css-1nbenu-H3 e1r6iq2i1"
+    >
+      Julian Hernandez
+    </h3>
+    <h6
+      class="css-mz7w21-H6 e1r6iq2i2"
+    >
+      Full Stack Software Developer
+    </h6>
+  </div>
+  <div
+    class="css-wjqisa-Root e1x2x8qm0"
+  >
+    <div
+      class="css-u96gbo-Root e1uo4w6s0"
+    >
+      <a
+        class="css-sk58pa-StyledLink e1uo4w6s1"
+        href="/"
+      >
+        Home
+      </a>
+    </div>
+  </div>
+</header>
+`;
