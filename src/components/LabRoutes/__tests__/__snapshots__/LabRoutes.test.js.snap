@@ -1,0 +1,163 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LabRoutes snapshots loading state 1`] = `
+<div
+  className="css-16yj1vq-Root e17hmr3i0"
+>
+  <div
+    className="css-14q6cg7-Container e17hmr3i1"
+  >
+    <span>
+      Loading
+    </span>
+    <span
+      className="css-1ui7ev8-Dot1-spanBase e17hmr3i2"
+    >
+      .
+    </span>
+    <span
+      className="css-nxj8q0-Dot2-spanBase e17hmr3i3"
+    >
+      .
+    </span>
+    <span
+      className="css-19ldbnk-Dot3-spanBase e17hmr3i4"
+    >
+      .
+    </span>
+  </div>
+</div>
+`;
+
+exports[`LabRoutes snapshots route to Home 1`] = `
+<section
+  className="css-1lzrryp-Root e1uula6j0"
+>
+  <a
+    className="css-h8xsv8-StyledLink-baseArticle e1lgusa60"
+    href="/path/1"
+    onClick={[Function]}
+  >
+    <article
+      className="css-xjgwqh-Article-baseArticle e1lgusa61"
+    >
+      <figure
+        className="css-1t2crv9-Root-ImageLoader e1wlpvq40"
+      >
+        <img
+          className="css-jeu92c-Img-ImageLoader e1wlpvq41"
+          onLoad={[Function]}
+          src="http://image1.com"
+        />
+      </figure>
+      <h3>
+        Title 1
+      </h3>
+    </article>
+    <section
+      className="css-1k4ntzt-TechRoot e1lgusa62"
+    >
+      <div
+        className="css-if30yk-Tech e1lgusa63"
+      >
+        React
+      </div>
+      <div
+        className="css-1h4zuz1-Tech e1lgusa63"
+      >
+        Python
+      </div>
+    </section>
+  </a>
+  <a
+    className="css-h8xsv8-StyledLink-baseArticle e1lgusa60"
+    href="/path/2"
+    onClick={[Function]}
+  >
+    <article
+      className="css-xjgwqh-Article-baseArticle e1lgusa61"
+    >
+      <figure
+        className="css-1t2crv9-Root-ImageLoader e1wlpvq40"
+      >
+        <img
+          className="css-jeu92c-Img-ImageLoader e1wlpvq41"
+          onLoad={[Function]}
+          src="http://image2.com"
+        />
+      </figure>
+      <h3>
+        Title 2
+      </h3>
+    </article>
+    <section
+      className="css-1k4ntzt-TechRoot e1lgusa62"
+    >
+      <div
+        className="css-if30yk-Tech e1lgusa63"
+      >
+        Ruby
+      </div>
+      <div
+        className="css-1h4zuz1-Tech e1lgusa63"
+      >
+        Go
+      </div>
+    </section>
+  </a>
+</section>
+`;
+
+exports[`LabRoutes snapshots route to component resolved by Suspense 1`] = `
+<component 1
+  history={
+    Object {
+      "action": "POP",
+      "block": [Function],
+      "canGo": [Function],
+      "createHref": [Function],
+      "entries": Array [
+        Object {
+          "hash": "",
+          "key": "r0q6qy",
+          "pathname": "/path/1",
+          "search": "",
+          "state": undefined,
+        },
+      ],
+      "go": [Function],
+      "goBack": [Function],
+      "goForward": [Function],
+      "index": 0,
+      "length": 1,
+      "listen": [Function],
+      "location": Object {
+        "hash": "",
+        "key": "r0q6qy",
+        "pathname": "/path/1",
+        "search": "",
+        "state": undefined,
+      },
+      "push": [Function],
+      "replace": [Function],
+    }
+  }
+  location={
+    Object {
+      "hash": "",
+      "key": "r0q6qy",
+      "pathname": "/path/1",
+      "search": "",
+      "state": undefined,
+    }
+  }
+  match={
+    Object {
+      "isExact": true,
+      "params": Object {},
+      "path": "/path/1",
+      "url": "/path/1",
+    }
+  }
+/>
+`;
