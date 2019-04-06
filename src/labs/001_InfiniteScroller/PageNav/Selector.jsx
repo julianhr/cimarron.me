@@ -18,22 +18,23 @@ const Root = styled.div`
   }
 `
 
-function Selector({ label, keys, values, selected, onChange }) {
+function Selector({ label, keys, titles, selected, onChange }) {
   const renderOptions = () => {
     return keys.map((key, i) => (
       <option
         key={key}
         value={key.toString()}
       >
-        {values[i]}
+        {titles[i]}
       </option>
     ))
   }
 
   return (
     <Root>
-      <label htmlFor="method">{label}</label>
+      <label htmlFor='scroller-type'>{label}</label>
       <select
+        id='scroller-type'
         value={selected}
         onChange={(event) => onChange(event.target.value)}
       >
@@ -46,7 +47,7 @@ function Selector({ label, keys, values, selected, onChange }) {
 Selector.propTypes = {
   label: PropTypes.string.isRequired,
   keys: PropTypes.array.isRequired,
-  values: PropTypes.array.isRequired,
+  titles: PropTypes.array.isRequired,
   selected: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   onChange: PropTypes.func.isRequired,
 }
