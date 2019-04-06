@@ -3,7 +3,6 @@ import { mount } from 'enzyme'
 import emotionSerializer from 'jest-emotion'
 
 import GithubLogo from '../GithubLogo'
-import throwPropErrors from '~/__tests__/__mocks__/throwPropErrorsMock'
 
 
 const testProps = {
@@ -23,10 +22,6 @@ const testProps = {
 
 describe('GithubLogo', () => {
   describe('required props', () => {
-    beforeAll(() => {
-      throwPropErrors()
-    })
-
     it('url', () => {
       const props = {...testProps}
       delete props['url']
