@@ -1,0 +1,166 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Card snapshots all props 1`] = `
+.emotion-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background: #FFF;
+  display: none;
+  width: 150px;
+  height: 100px;
+}
+
+@media (min-width:520px) {
+  .emotion-2 {
+    display: inherit;
+    float: left;
+    width: 150px;
+    height: 100px;
+    margin-right: 30px;
+    margin-bottom: 10px;
+  }
+}
+
+.emotion-0 {
+  opacity: 0;
+  -webkit-transition: opacity 80ms linear;
+  transition: opacity 80ms linear;
+  will-change: opacity;
+}
+
+.emotion-4 {
+  color: #3D3D3D;
+  padding-bottom: 10px;
+}
+
+.emotion-6 {
+  padding-top: 5px;
+}
+
+.emotion-10 {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  padding: 20px 25px 10px;
+  min-height: 140px;
+  background: #f0d5ea;
+  border: 1px solid #a07f99;
+}
+
+<article
+  className="emotion-10 emotion-11"
+>
+  <figure
+    className="emotion-2 emotion-3"
+  >
+    <img
+      className="emotion-0 emotion-1"
+      onLoad={[Function]}
+      src="http://test.com"
+    />
+  </figure>
+  <h4
+    className="emotion-4 emotion-5"
+  >
+    1. test title
+  </h4>
+  <p
+    className="emotion-6 emotion-7"
+  >
+    sentence 1
+  </p>
+  <p
+    className="emotion-6 emotion-7"
+  >
+    sentence 2
+  </p>
+</article>
+`;
+
+exports[`Card snapshots required props 1`] = `
+.emotion-10 {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  padding: 20px 25px 10px;
+  min-height: 140px;
+  background: white;
+}
+
+.emotion-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background: #FFF;
+  display: none;
+  width: 150px;
+  height: 100px;
+}
+
+@media (min-width:520px) {
+  .emotion-2 {
+    display: inherit;
+    float: left;
+    width: 150px;
+    height: 100px;
+    margin-right: 30px;
+    margin-bottom: 10px;
+  }
+}
+
+.emotion-0 {
+  opacity: 0;
+  -webkit-transition: opacity 80ms linear;
+  transition: opacity 80ms linear;
+  will-change: opacity;
+}
+
+.emotion-4 {
+  color: #3D3D3D;
+  padding-bottom: 10px;
+}
+
+.emotion-6 {
+  padding-top: 5px;
+}
+
+<article
+  className="emotion-10 emotion-11"
+>
+  <figure
+    className="emotion-2 emotion-3"
+  >
+    <img
+      className="emotion-0 emotion-1"
+      onLoad={[Function]}
+      src="http://test.com"
+    />
+  </figure>
+  <h4
+    className="emotion-4 emotion-5"
+  >
+    1. test title
+  </h4>
+  <p
+    className="emotion-6 emotion-7"
+  >
+    sentence 1
+  </p>
+  <p
+    className="emotion-6 emotion-7"
+  >
+    sentence 2
+  </p>
+</article>
+`;
