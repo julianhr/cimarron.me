@@ -11,17 +11,17 @@ exports[`LabRoutes snapshots loading state 1`] = `
       Loading
     </span>
     <span
-      className="css-1ui7ev8-Dot1-spanBase e17hmr3i2"
+      className="css-1el1107-Dot1-spanBase e17hmr3i2"
     >
       .
     </span>
     <span
-      className="css-nxj8q0-Dot2-spanBase e17hmr3i3"
+      className="css-1jlm3v0-Dot2-spanBase e17hmr3i3"
     >
       .
     </span>
     <span
-      className="css-19ldbnk-Dot3-spanBase e17hmr3i4"
+      className="css-1xikft-Dot3-spanBase e17hmr3i4"
     >
       .
     </span>
@@ -34,18 +34,18 @@ exports[`LabRoutes snapshots route to Home 1`] = `
   className="css-1lzrryp-Root e1uula6j0"
 >
   <a
-    className="css-h8xsv8-StyledLink-baseArticle e1lgusa60"
+    className="css-8hm572-StyledLink-baseArticle e1lgusa60"
     href="/path/1"
     onClick={[Function]}
   >
     <article
-      className="css-xjgwqh-Article-baseArticle e1lgusa61"
+      className="css-1dt8rsn-Article-baseArticle e1lgusa61"
     >
       <figure
         className="css-1t2crv9-Root-ImageLoader e1wlpvq40"
       >
         <img
-          className="css-jeu92c-Img-ImageLoader e1wlpvq41"
+          className="css-3fxohy-Img-ImageLoader e1wlpvq41"
           onLoad={[Function]}
           src="http://image1.com"
         />
@@ -70,18 +70,18 @@ exports[`LabRoutes snapshots route to Home 1`] = `
     </section>
   </a>
   <a
-    className="css-h8xsv8-StyledLink-baseArticle e1lgusa60"
+    className="css-8hm572-StyledLink-baseArticle e1lgusa60"
     href="/path/2"
     onClick={[Function]}
   >
     <article
-      className="css-xjgwqh-Article-baseArticle e1lgusa61"
+      className="css-1dt8rsn-Article-baseArticle e1lgusa61"
     >
       <figure
         className="css-1t2crv9-Root-ImageLoader e1wlpvq40"
       >
         <img
-          className="css-jeu92c-Img-ImageLoader e1wlpvq41"
+          className="css-3fxohy-Img-ImageLoader e1wlpvq41"
           onLoad={[Function]}
           src="http://image2.com"
         />
