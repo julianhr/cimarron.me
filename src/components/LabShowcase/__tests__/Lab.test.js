@@ -4,7 +4,6 @@ import { render } from 'enzyme'
 import Lab from '../Lab'
 import imgSrc from '~/__tests__/__fixtures__/imgSrc'
 import withAppRoot from '~/components/library/withAppRoot'
-import throwPropErrorsMock from '~/__tests__/__mocks__/throwPropErrorsMock'
 
 
 const testProps = {
@@ -22,10 +21,6 @@ describe('Lab', () => {
   })
 
   describe('required props', () => {
-    beforeAll(() => {
-      throwPropErrorsMock()
-    })
-
     it('thumbnailSrc', () => {
       const props = {...testProps}
       delete props.thumbnailSrc
