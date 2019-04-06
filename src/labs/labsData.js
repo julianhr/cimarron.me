@@ -1,11 +1,20 @@
 import React from 'react'
 
 
-const data = [
+export const LAB_SHAPE = {
+  title: ['string'],
+  component: ['object'],
+  urlPath: ['string'],
+  thumbnailSrc: ['string'],
+  stack: ['object'],
+  createdAt: ['string']
+}
+
+const DATA = [
   {
     title: 'Infinite Scroller',
     component: React.lazy(
-      () => import(/* webpackChunkName: "InfiniteScroller" */ '~/labs/001_InfiniteScroller')
+      () => import(/* webpackChunkName: "InfiniteScroller" */ '~/labs/001_InfiniteScroller/InfiniteScroller')
     ),
     urlPath: '/labs/infinite-scroller',
     thumbnailSrc: require('../labs/001_InfiniteScroller/thumbnail.png'),
@@ -14,4 +23,4 @@ const data = [
   }
 ]
 
-export default data
+export default DATA
