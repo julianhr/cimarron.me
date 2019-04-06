@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Scrollers matches snapshot with all props 1`] = `
+Array [
+  <ForwardRef(render)
+    styles={
+      Object {
+        "map": undefined,
+        "name": "1e2xhh9-globalStyles-globalStyles",
+        "next": undefined,
+        "styles": "body{color:#3D3D3D,lineHeight 1.3em;}p,h1,h2,h3,h4,h5,h6,figure{margin:0;}h1,h2,h3,h4,h5,h6{color:#AB164D;}p{padding:.8em 0;}h1{font-size:44;}h2{line-height:2em;font-size:34;font-weight:500;}h3{font-size:24;font-weight:600;}h4{line-height:1.3em;font-size:18;}h5{font-size:12;}h6{font-size:8;}code{color:#D90000;font-size:14;}label:globalStyles;label:globalStyles;",
+      }
+    }
+  />,
+  <Root>
+    <section
+      className="css-1sjkg4e-Root e1iukibw0"
+    >
+      <Root>
+        <div
+          className="css-47ru1c-Root exr8ng20"
+        />
+      </Root>
+      <Contour>
+        <div
+          className="css-1sfqwic-Contour e1iukibw1"
+        >
+          <Root>
+            <div
+              className="css-11qniw9-Root e5woe9i0"
+            >
+              <Message>
+                <div
+                  className="css-quardp-Message ehwlun20"
+                >
+                  <div>
+                    <p>
+                      This browser doesn't support the Intersection Observer.
+                    </p>
+                    <a
+                      href="https://caniuse.com/#feat=intersectionobserver"
+                      rel="noopener noreferrer"
+                      target="_blank"
+                    >
+                      Check compatibility
+                    </a>
+                  </div>
+                </div>
+              </Message>
+            </div>
+          </Root>
+        </div>
+      </Contour>
+    </section>
+  </Root>,
+]
+`;
