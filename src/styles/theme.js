@@ -4,7 +4,7 @@ export const colors = {
     dark: '#AB164D',
   },
   code: '#D90000',
-  heightlight: '#FFD342',
+  highlight: '#FFD342',
   background: '#FFF',
   field: {
     background: '#F0F0F0',

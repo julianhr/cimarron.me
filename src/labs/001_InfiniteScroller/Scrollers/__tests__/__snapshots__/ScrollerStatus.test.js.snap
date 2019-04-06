@@ -1,0 +1,105 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ScrollerStatus flash animation animation steps 1`] = `
+Array [
+  Array [
+    Object {
+      "flashState": "stage",
+    },
+  ],
+  Array [
+    Object {
+      "flashState": "transition",
+    },
+  ],
+]
+`;
+
+exports[`ScrollerStatus flash animation renders styles correctly: reset 1`] = `
+.emotion-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  padding: 10px 30px 10px;
+}
+
+.emotion-0 {
+  padding: 2px 10px;
+}
+
+<div
+  className="emotion-2 emotion-3"
+>
+  <div>
+    Records:
+    <span
+      className="emotion-0 emotion-1"
+    >
+      5
+    </span>
+  </div>
+</div>
+`;
+
+exports[`ScrollerStatus flash animation renders styles correctly: stage 1`] = `
+.emotion-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  padding: 10px 30px 10px;
+}
+
+.emotion-0 {
+  padding: 2px 10px;
+  background-color: #FFD342;
+  will-change: background-color;
+}
+
+<div
+  className="emotion-2 emotion-3"
+>
+  <div>
+    Records:
+    <span
+      className="emotion-0 emotion-1"
+    >
+      5
+    </span>
+  </div>
+</div>
+`;
+
+exports[`ScrollerStatus flash animation renders styles correctly: transition 1`] = `
+.emotion-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  padding: 10px 30px 10px;
+}
+
+.emotion-0 {
+  padding: 2px 10px;
+  -webkit-transition: background-color 65ms;
+  transition: background-color 65ms;
+  background-color: transparent;
+}
+
+<div
+  className="emotion-2 emotion-3"
+>
+  <div>
+    Records:
+    <span
+      className="emotion-0 emotion-1"
+    >
+      5
+    </span>
+  </div>
+</div>
+`;
