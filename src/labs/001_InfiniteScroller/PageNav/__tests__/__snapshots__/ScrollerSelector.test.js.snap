@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ScrollerSelector snapshots matches with all props 1`] = `
+Array [
+  <ForwardRef(render)
+    styles={
+      Object {
+        "map": undefined,
+        "name": "1e2xhh9-globalStyles-globalStyles",
+        "next": undefined,
+        "styles": "body{color:#3D3D3D,lineHeight 1.3em;}p,h1,h2,h3,h4,h5,h6,figure{margin:0;}h1,h2,h3,h4,h5,h6{color:#AB164D;}p{padding:.8em 0;}h1{font-size:44;}h2{line-height:2em;font-size:34;font-weight:500;}h3{font-size:24;font-weight:600;}h4{line-height:1.3em;font-size:18;}h5{font-size:12;}h6{font-size:8;}code{color:#D90000;font-size:14;}label:globalStyles;label:globalStyles;",
+      }
+    }
+  />,
+  <Root>
+    <div
+      className="css-1jt9zxq-Root el5yv3l0"
+    >
+      <label
+        htmlFor="scroller-type"
+      >
+        Scroller Re-Fetch Method:
+      </label>
+      <select
+        id="scroller-type"
+        onChange={[Function]}
+        value="intersectionObserver"
+      >
+        <option
+          key="intersectionObserver"
+          value="intersectionObserver"
+        >
+          Intersection Observer with Sentinel
+        </option>
+        <option
+          key="containerScrollHeights"
+          value="containerScrollHeights"
+        >
+          Container scrollHeight and scrollTop
+        </option>
+        <option
+          key="sentinelClientRect"
+          value="sentinelClientRect"
+        >
+          Sentinel bounding client rectangle
+        </option>
+      </select>
+    </div>
+  </Root>,
+]
+`;

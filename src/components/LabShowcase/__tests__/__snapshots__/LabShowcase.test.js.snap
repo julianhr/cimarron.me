@@ -1,21 +1,21 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`LabShowcase should match snaspshot 1`] = `
+exports[`LabShowcase should match snapshot 1`] = `
 <section
   class="css-1lzrryp-Root e1uula6j0"
 >
   <a
-    class="css-h8xsv8-StyledLink-baseArticle e1lgusa60"
+    class="css-8hm572-StyledLink-baseArticle e1lgusa60"
     href="/path/1"
   >
     <article
-      class="css-xjgwqh-Article-baseArticle e1lgusa61"
+      class="css-1dt8rsn-Article-baseArticle e1lgusa61"
     >
       <figure
         class="css-1t2crv9-Root-ImageLoader e1wlpvq40"
       >
         <img
-          class="css-jeu92c-Img-ImageLoader e1wlpvq41"
+          class="css-3fxohy-Img-ImageLoader e1wlpvq41"
           src="http://image1.com"
         />
       </figure>
@@ -39,17 +39,17 @@ exports[`LabShowcase should match snaspshot 1`] = `
     </section>
   </a>
   <a
-    class="css-h8xsv8-StyledLink-baseArticle e1lgusa60"
+    class="css-8hm572-StyledLink-baseArticle e1lgusa60"
     href="/path/2"
   >
     <article
-      class="css-xjgwqh-Article-baseArticle e1lgusa61"
+      class="css-1dt8rsn-Article-baseArticle e1lgusa61"
     >
       <figure
         class="css-1t2crv9-Root-ImageLoader e1wlpvq40"
       >
         <img
-          class="css-jeu92c-Img-ImageLoader e1wlpvq41"
+          class="css-3fxohy-Img-ImageLoader e1wlpvq41"
           src="http://image2.com"
         />
       </figure>

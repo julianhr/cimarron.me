@@ -23,7 +23,7 @@ const Root = styled.section`
 const RowA1 = styled.div`
 `
 
-function Index() {
+function InfiniteScroller() {
   return (
     <Provider store={infiniteScollerStore}>
       <Root>
@@ -37,4 +37,4 @@ function Index() {
   )
 }
 
-export default Index
+export default InfiniteScroller

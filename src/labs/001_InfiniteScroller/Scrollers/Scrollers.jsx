@@ -10,6 +10,12 @@ import ScrollerContainerHeights from './ScrollerContainerHeights'
 import ScrollerSentinelClientRect from './ScrollerSentinelClientRect'
 
 
+export const SCROLLERS = {
+  intersectionObserver: ScrollerSentinelIntObs,
+  containerScrollHeights: ScrollerContainerHeights,
+  sentinelClientRect: ScrollerSentinelClientRect,
+}
+
 const Root = styled.section`
   width: 100%;
   height: 80vh;
@@ -33,13 +39,18 @@ const Contour = styled.div`
   overflow: hidden;
 `
 
-function Scrollers({ recordsPerFetch, scrollerType }) {
-  const fetchCards = async () => {
+export class Scrollers extends React.PureComponent {
+  static propTypes = {
+    recordsPerFetch: PropTypes.number.isRequired,
+    scrollerType: PropTypes.string.isRequired,
+  }
+
+  async fetchCards() {
     const path = '/infinite-scroller'
-    const query = { paragraphs: 1, entries: recordsPerFetch }
+    const query = { paragraphs: 1, entries: this.props.recordsPerFetch }
     const url = urlBuilder(path, query)
     const res = await fetch(url)
-
+  
     try {
       if (res.ok) {
         const json = await res.json()
@@ -48,40 +59,33 @@ function Scrollers({ recordsPerFetch, scrollerType }) {
         throw Error('There was an error with the fetch request.')
       }
     } catch (error) {
-      console.log('testing error', error)
+      console.error('testing error', error)
       throw error
     }
   }
 
-  const renderChildren = () => {
-    switch (scrollerType) {
-      case 'intersectionObserver':
-        return <ScrollerSentinelIntObs cardFetcher={fetchCards} />
-      case 'containerScrollHeights':
-        return <ScrollerContainerHeights cardFetcher={fetchCards} />
-      case 'sentinelClientRect':
-        return <ScrollerSentinelClientRect cardFetcher={fetchCards} />
+  renderChildren() {
+    if (this.props.scrollerType in SCROLLERS) {
+      const Element = SCROLLERS[this.props.scrollerType]
+      return <Element cardFetcher={this.fetchCards.bind(this)} />
     }
   }
 
-  return (
-    <Root>
-      <ScrollerStatus />
-      <Contour>
-        {renderChildren()}
-      </Contour>
-    </Root>
-  )
+  render() {
+    return (
+      <Root>
+        <ScrollerStatus />
+        <Contour>
+          {this.renderChildren()}
+        </Contour>
+      </Root>
+    )
+  }
 }
 
-Scrollers.propTypes = {
-  entryCount: PropTypes.number,
-  recordsPerFetch: PropTypes.number,
-  scrollerType: PropTypes.string,
-}
 
-const mapStateToProps = ({ recordsPerFetch, scrollerType, entryCount }) => (
-  { recordsPerFetch, scrollerType, entryCount }
+const mapStateToProps = ({ recordsPerFetch, scrollerType }) => (
+  { recordsPerFetch, scrollerType }
 )
 
 export default connect(mapStateToProps)(Scrollers)

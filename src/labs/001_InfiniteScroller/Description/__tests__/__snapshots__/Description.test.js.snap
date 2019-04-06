@@ -1,0 +1,97 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Description snapshots with valid md file: valid md file 1`] = `
+<section
+  className="css-9l38gp-Root eyj91y30"
+>
+  <div
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "test-file-stub",
+      }
+    }
+  />
+  <p
+    className="css-1vm6kb8-P eyj91y31"
+  >
+    source on 
+    <span>
+      <a
+        href="https://github.com/julianhr/cimarron.me/tree/master/src/labs/001_InfiniteScroller"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        <img
+          alt="GitHub"
+          className="css-1inomk8-Img-GithubLogo exbqvm20"
+          src="test-file-stub"
+        />
+      </a>
+    </span>
+  </p>
+</section>
+`;
+
+exports[`Description with invalid md file: invalid md file 1`] = `
+<section
+  className="css-9l38gp-Root eyj91y30"
+>
+  <div
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": <React.Fragment />,
+      }
+    }
+  />
+  <p
+    className="css-1vm6kb8-P eyj91y31"
+  >
+    source on 
+    <span>
+      <a
+        href="https://github.com/julianhr/cimarron.me/tree/master/src/labs/001_InfiniteScroller"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        <img
+          alt="GitHub"
+          className="css-1inomk8-Img-GithubLogo exbqvm20"
+          src="test-file-stub"
+        />
+      </a>
+    </span>
+  </p>
+</section>
+`;
+
+exports[`Description with invalid md file: no md file 1`] = `
+<section
+  className="css-9l38gp-Root eyj91y30"
+>
+  <div
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": <React.Fragment />,
+      }
+    }
+  />
+  <p
+    className="css-1vm6kb8-P eyj91y31"
+  >
+    source on 
+    <span>
+      <a
+        href="https://github.com/julianhr/cimarron.me/tree/master/src/labs/001_InfiniteScroller"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        <img
+          alt="GitHub"
+          className="css-1inomk8-Img-GithubLogo exbqvm20"
+          src="test-file-stub"
+        />
+      </a>
+    </span>
+  </p>
+</section>
+`;

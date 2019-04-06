@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FetchStatus accepts element as child 1`] = `
+<div
+  className="css-quardp-Message ehwlun20"
+>
+  <div>
+    <article>
+      testing
+    </article>
+  </div>
+</div>
+`;
+
+exports[`FetchStatus matches snapshot with all props 1`] = `
+<div
+  class="css-quardp-Message ehwlun20"
+>
+  <div>
+    Testing
+  </div>
+</div>
+`;

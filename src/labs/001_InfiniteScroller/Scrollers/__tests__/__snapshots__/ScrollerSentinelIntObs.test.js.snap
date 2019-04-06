@@ -1,0 +1,132 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ScrollerSentinelIntObs #getCard returns a non-sentinel Card element if datum index != sentinel index 1`] = `
+<Card
+  description={
+    Array [
+      "sentence one",
+      "sentence two",
+    ]
+  }
+  imgUrl="http://image.com"
+  position={14}
+  title="test title"
+/>
+`;
+
+exports[`ScrollerSentinelIntObs #getCard returns a sentinel Card element if datum index == sentinel index 1`] = `
+<ForwardRef
+  description={
+    Array [
+      "sentence one",
+      "sentence two",
+    ]
+  }
+  forwardedRef={<article />}
+  imgUrl="http://image.com"
+  position={14}
+  title="test title"
+/>
+`;
+
+exports[`ScrollerSentinelIntObs #setNewCards appends new cards to the current ones: data 1 1`] = `
+<div
+  className="css-11qniw9-Root e5woe9i0"
+>
+  card 1
+  card 2
+</div>
+`;
+
+exports[`ScrollerSentinelIntObs #setNewCards appends new cards to the current ones: data 2 1`] = `
+<div
+  className="css-11qniw9-Root e5woe9i0"
+>
+  card 1
+  card 2
+  card 3
+  card 4
+</div>
+`;
+
+exports[`ScrollerSentinelIntObs #setNewCards appends new cards to the current ones: no data 1`] = `
+<div
+  className="css-11qniw9-Root e5woe9i0"
+/>
+`;
+
+exports[`ScrollerSentinelIntObs Intergration Intersection Observer displays loading message on mount if supported 1`] = `
+<div
+  className="css-11qniw9-Root e5woe9i0"
+>
+  <div
+    className="css-quardp-Message ehwlun20"
+  >
+    <div>
+      Loading...
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ScrollerSentinelIntObs Intergration Intersection Observer displays message if not supported 1`] = `
+<div
+  className="css-11qniw9-Root e5woe9i0"
+>
+  <div
+    className="css-quardp-Message ehwlun20"
+  >
+    <div>
+      <p>
+        This browser doesn't support the Intersection Observer.
+      </p>
+      <a
+        href="https://caniuse.com/#feat=intersectionobserver"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        Check compatibility
+      </a>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ScrollerSentinelIntObs Intergration displays cards up to point if error thrown by #cardFetcher 1`] = `
+<Root>
+  <div
+    className="css-11qniw9-Root e5woe9i0"
+  >
+    one
+    two
+    three
+  </div>
+</Root>
+`;
+
+exports[`ScrollerSentinelIntObs Intergration displays error message on mount if initial fetch throws error 1`] = `
+<div
+  className="css-11qniw9-Root e5woe9i0"
+>
+  <div
+    className="css-quardp-Message ehwlun20"
+  >
+    <div>
+      Error: mocked error
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ScrollerSentinelIntObs Intergration matches snapshot for happy path 1`] = `
+<div
+  className="css-11qniw9-Root e5woe9i0"
+>
+  <div>
+    one
+  </div>
+  <div>
+    two
+  </div>
+</div>
+`;

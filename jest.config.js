@@ -85,7 +85,7 @@ module.exports = {
   // A map from regular expressions to module names that allow to stub out resources with a single module
   // moduleNameMapper: {},
   moduleNameMapper: {
-    "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/src/__tests__/__mocks__/fileMock.js",
+    "\\.(md|jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/src/__tests__/__mocks__/fileMock.js",
     "\\.(css|less)$": "<rootDir>/src/__tests__/__mocks__/styleMock.js",
     "^~(.*)$": "<rootDir>/src$1",
   },
@@ -120,6 +120,7 @@ module.exports = {
 
   // Automatically restore mock state between every test
   // restoreMocks: false,
+  restoreMocks: true,
 
   // The root directory that Jest should scan for tests and modules within
   // rootDir: null,
@@ -139,6 +140,7 @@ module.exports = {
   // A list of paths to modules that run some code to configure or set up the testing framework before each test
   // setupFilesAfterEnv: [],
   setupFilesAfterEnv: [
+    '<rootDir>/configs/jestExtendConfig.js',
     '<rootDir>/configs/enzymeConfig.js',
     '<rootDir>/configs/enzymeSerializersConfig.js',
   ],
@@ -185,11 +187,20 @@ module.exports = {
 
   // A map from regular expressions to paths to transformers
   // transform: null
+  transform: {
+    // https://github.com/facebook/jest/issues/6229
+    "^.+\\.(js|jsx)$": "./configs/jestTransform.js"
+  },
 
   // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
   // transformIgnorePatterns: [
   //   "/node_modules/"
   // ],
+  transformIgnorePatterns: [
+    // https://github.com/facebook/jest/issues/6229
+    "/node_modules/(?!lodash-es).+\\.js$",
+    "playground/"
+  ],
 
   // An array of regexp pattern strings that are matched against all modules before the module loader will automatically return a mock for them
   // unmockedModulePathPatterns: undefined,

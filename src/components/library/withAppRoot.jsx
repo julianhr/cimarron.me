@@ -10,17 +10,21 @@ import globalStyles from '~/styles/globalStyles'
 import theme from '~/styles/theme'
 
 
-function withAppRoot(WrappedComponent, props={}) {
-  return () => (
-    <Provider store={appStore}>
-      <BrowserRouter>
-        <ThemeProvider theme={theme}>
-          <Global styles={globalStyles} />
-          <WrappedComponent {...props} />
-        </ThemeProvider>
-      </BrowserRouter>
-    </Provider>
-  )
+function withAppRoot(WrappedComponent, otherProps={}) {
+  return class extends React.Component {
+    render() {
+      return (
+        <Provider store={appStore}>
+          <BrowserRouter>
+            <ThemeProvider theme={theme}>
+              <Global styles={globalStyles} />
+              <WrappedComponent {...this.props} {...otherProps} />
+            </ThemeProvider>
+          </BrowserRouter>
+        </Provider>
+      )
+    }
+  }
 }
 
 export default withAppRoot

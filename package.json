@@ -10,7 +10,7 @@
     "build": "webpack --mode production --profile",
     "start": "webpack-dev-server --mode development --profile",
     "test": "jest",
-    "test:dev": "jest --verbose --watch"
+    "test:dev": "jest --verbose --watch --coverage"
   },
   "husky": {
     "hooks": {
@@ -92,8 +92,9 @@
     ],
     "parser": "babel-eslint",
     "rules": {
-      "semi": ["error", "never"],
-      "react/display-name": false
+      "no-unused-vars": ["error", { "argsIgnorePattern": "^_$", "varsIgnorePattern": "^_$" }],
+      "react/display-name": false,
+      "semi": ["error", "never"]
     }
   }
 }

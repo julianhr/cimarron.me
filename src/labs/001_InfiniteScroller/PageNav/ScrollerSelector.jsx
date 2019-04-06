@@ -1,26 +1,23 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled from '@emotion/styled'
 import { connect } from 'react-redux'
 
 import { setScrollerType } from '../actions/rootActions'
 import Selector from './Selector'
 
 
-function ScrollerSelector({ scrollerType, setScrollerType }) {
+export const SCROLLERS = [
+  { intersectionObserver: 'Intersection Observer with Sentinel' },
+  { containerScrollHeights: 'Container scrollHeight and scrollTop' },
+  { sentinelClientRect: 'Sentinel bounding client rectangle' },
+]
+
+export function ScrollerSelector({ scrollerType, setScrollerType }) {
   return (
     <Selector
       label='Scroller Re-Fetch Method:'
-      keys={[
-        'intersectionObserver',
-        'containerScrollHeights',
-        'sentinelClientRect',
-      ]}
-      values={[
-        'Intersection Observer with Sentinel',
-        'Container scrollHeight and scrollTop',
-        'Sentinel bounding client rectangle',
-      ]}
+      keys={SCROLLERS.map(scroller => Object.keys(scroller))}
+      titles={SCROLLERS.map(scroller => Object.values(scroller))}
       selected={scrollerType}
       onChange={setScrollerType}
     />
@@ -28,8 +25,8 @@ function ScrollerSelector({ scrollerType, setScrollerType }) {
 }
 
 ScrollerSelector.propTypes = {
-  setScrollerType: PropTypes.func,
-  scrollerType: PropTypes.string,
+  setScrollerType: PropTypes.func.isRequired,
+  scrollerType: PropTypes.string.isRequired,
 }
 
 const mapStateToProps = ({ scrollerType }) => ({ scrollerType })

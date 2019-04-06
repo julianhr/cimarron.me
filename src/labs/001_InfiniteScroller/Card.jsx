@@ -62,9 +62,9 @@ function Card({ title, imgUrl, description, forwardedRef, position }) {
 Card.propTypes = {
   description: PropTypes.array.isRequired,
   forwardedRef: PropTypes.object,
-  imgUrl: PropTypes.string,
+  imgUrl: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-  position: PropTypes.number,
+  position: PropTypes.number.isRequired,
 }
 
 export default Card
