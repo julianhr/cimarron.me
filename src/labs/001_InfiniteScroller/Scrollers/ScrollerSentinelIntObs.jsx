@@ -15,13 +15,13 @@ const Root = styled.div`
   overflow-y: auto;
 `
 
-class ScrollerSentinelIntObs extends React.PureComponent {
+export class ScrollerSentinelIntObs extends React.PureComponent {
   static propTypes = {
-    cardFetcher: PropTypes.func,
-    isFetching: PropTypes.bool,
-    sentinelPosition: PropTypes.number,
-    setEntryCount: PropTypes.func,
-    setIsFetching: PropTypes.func,
+    cardFetcher: PropTypes.func.isRequired,
+    isFetching: PropTypes.bool.isRequired,
+    sentinelPosition: PropTypes.number.isRequired,
+    setEntryCount: PropTypes.func.isRequired,
+    setIsFetching: PropTypes.func.isRequired,
   }
 
   state = {
@@ -41,8 +41,7 @@ class ScrollerSentinelIntObs extends React.PureComponent {
 
     if (this.isSupported()) {
       this.observer = new IntersectionObserver(this.handleIntObs())
-      this.setState({ isSupported: true })
-      this.fetchCards()
+      this.getNewCards()
     } else {
       this.setState({ isSupported: false, })
     }
@@ -57,50 +56,55 @@ class ScrollerSentinelIntObs extends React.PureComponent {
   }
 
   isSupported() {
-    return 'IntersectionObserver' in window
+    // Boolean check needed for Node and Jest by extension
+    return 'IntersectionObserver' in window && Boolean(IntersectionObserver)
   }
 
-  async fetchCards() {
-    const { cardFetcher, setIsFetching } = this.props
-    let data
-    setIsFetching(true)
+  async getNewCards() {
+    const { cardFetcher, setIsFetching, setEntryCount } = this.props
 
     try {
-      data = await cardFetcher(this)
-      if (!data) { return }
+      setIsFetching(true)
+      const data = await cardFetcher(this)
+      this.setNewCards(data)
+      setEntryCount(this.state.cards.length)
     } catch (error) {
       this.setState({ fetch: { status: 'error', error: error.toString() } })
-      return
     }
 
-    const { cards: currCards } = this.state
-    const cards = [...currCards]
+    setIsFetching(false)
+  }
 
+  getCard(datum, i, sentinelPosition, lastKey) {
+    const { title, image_url: imgUrl, description } = datum
+    const position = lastKey + i + 1
+    const props = { imgUrl, title, description, position }
+    let CardElement = Card
+
+    if (i + 1 === sentinelPosition) {
+      CardElement = React.forwardRef((props, ref) => <Card forwardedRef={ref} {...props} />)
+      props.forwardedRef = this.refSentinel
+    }
+
+    return <CardElement key={lastKey + i} {...props} />
+  }
+
+  setNewCards(data) {
+    const { length: lastKey } = this.state.cards
+    const { sentinelPosition } = this.props
+    const cards = [...this.state.cards]
+
+    // a new sentinel will be set, remove the previous one
     if (this.refSentinel.current) {
       this.observer.unobserve(this.refSentinel.current)
     }
 
-    this.appendNewCards(cards, data, currCards.length)
-    this.props.setEntryCount(cards.length)
-    this.setState({ cards, fetch: null })
-    setIsFetching(false)
-  }
-
-  appendNewCards(cards, data, lastKey) {
-    const { sentinelPosition } = this.props
-
-    data.forEach(({ title, image_url: imgUrl, description }, i) => {
-      const position = lastKey + i + 1
-      const props = { imgUrl, title, description, position }
-      let CardComponent = Card
-
-      if (i+1 === sentinelPosition) {
-        CardComponent = React.forwardRef((props, ref) => <Card forwardedRef={ref} {...props} />)
-        props.forwardedRef = this.refSentinel
-      }
-
-      cards.push(<CardComponent key={lastKey+i} {...props} />)
+    data.forEach((datum, i) => {
+      const card = this.getCard(datum, i, sentinelPosition, lastKey)
+      cards.push(card)
     })
+
+    this.setState({ cards, fetch: null })
   }
 
   handleIntObs() {
@@ -112,20 +116,20 @@ class ScrollerSentinelIntObs extends React.PureComponent {
         const { cards } = parent.state
 
         if (entry.isIntersecting && !isFetching && cards.length < 200) {
-          parent.fetchCards()
+          parent.getNewCards()
         }
       })
     }
   }
 
-  renderCardResult() {
+  renderResult() {
     const fetchStatus = (this.state.fetch || {}).status
 
     if (!this.state.isSupported) {
       return (
         <FetchStatus>
           <>
-            <p>This browser doesn't support the Intersection Observer. </p>
+            <p>This browser doesn't support the Intersection Observer.</p>
             <a
               href='https://caniuse.com/#feat=intersectionobserver'
               target='_blank'
@@ -148,7 +152,7 @@ class ScrollerSentinelIntObs extends React.PureComponent {
   render() {
     return (
       <Root>
-        {this.renderCardResult()}
+        {this.renderResult()}
       </Root>
     )
   }
