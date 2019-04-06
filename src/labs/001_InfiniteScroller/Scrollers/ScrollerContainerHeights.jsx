@@ -16,12 +16,12 @@ const Root = styled.div`
   overflow-y: scroll;
 `
 
-class ScrollerContainerHeights extends React.PureComponent {
+export class ScrollerContainerHeights extends React.PureComponent {
   static propTypes = {
-    cardFetcher: PropTypes.func,
-    isFetching: PropTypes.bool,
-    setEntryCount: PropTypes.func,
-    setIsFetching: PropTypes.func,
+    cardFetcher: PropTypes.func.isRequired,
+    isFetching: PropTypes.bool.isRequired,
+    setEntryCount: PropTypes.func.isRequired,
+    setIsFetching: PropTypes.func.isRequired,
   }
 
   state = {
@@ -36,16 +36,7 @@ class ScrollerContainerHeights extends React.PureComponent {
 
   componentDidMount() {
     this.props.setEntryCount(0)
-    this.fetchCards()
-  }
-
-  handleOnScroll(event) {
-    const { isFetching } = this.props
-    const { cards } = this.state
-
-    if (!isFetching && this.canFetchCards(this.refRoot.current) && cards.length < 200) {
-      this.fetchCards()
-    }
+    this.getNewCards()
   }
   
   canFetchCards(containerElement) {
@@ -54,34 +45,47 @@ class ScrollerContainerHeights extends React.PureComponent {
     return scrollHeight - scrollTop < clientHeight + buffer
   }
 
-  async fetchCards() {
-    const { cardFetcher, setIsFetching } = this.props
-    let data
-    setIsFetching(true)
+  async getNewCards() {
+    const { cardFetcher, setIsFetching, setEntryCount } = this.props
 
     try {
-      data = await cardFetcher(this)
-      if (!data) { return }
+      setIsFetching(true)
+      const data = await cardFetcher(this)
+      this.setNewCards(data)
+      setEntryCount(this.state.cards.length)
     } catch (error) {
       this.setState({ fetch: { status: 'error', error: error.toString() } })
-      return
     }
 
-    const { cards: currCards } = this.state
-    const cards = [...currCards]
-
-    this.appendNewCards(cards, data, currCards.length)
-    this.props.setEntryCount(cards.length)
-    this.setState({ cards, fetch: null })
     setIsFetching(false)
   }
 
-  appendNewCards(cards, data, lastKey) {
-    data.forEach(({ title, image_url: imgUrl, description }, i) => {
-      const position = lastKey + i + 1
-      const props = { imgUrl, title, description, position }
-      cards.push(<Card key={lastKey+i} {...props} /> )
+  setNewCards(data) {
+    const { length: lastKey } = this.state.cards
+    const cards = [...this.state.cards]
+
+    data.forEach((datum, i) => {
+      const card = this.getCard(datum, i, lastKey)
+      cards.push(card)
     })
+
+    this.setState({ cards, fetch: null })
+  }
+
+  getCard(datum, i, lastKey) {
+    const { title, image_url: imgUrl, description } = datum
+    const position = lastKey + i + 1
+    const props = { imgUrl, title, description, position }
+    return <Card key={lastKey + i} {...props} />
+  }
+
+  handleOnScroll() {
+    const { isFetching } = this.props
+    const { cards } = this.state
+
+    if (!isFetching && this.canFetchCards(this.refRoot.current) && cards.length < 200) {
+      this.getNewCards()
+    }
   }
 
   renderCardResult() {
