@@ -25,8 +25,10 @@ function FetchStatus({ children }) {
 }
 
 FetchStatus.propTypes = {
-  msg: PropTypes.string,
-  children: PropTypes.oneOfType([PropTypes.element, PropTypes.string])
+  children: PropTypes.oneOfType([
+    PropTypes.element,
+    PropTypes.string
+  ]).isRequired,
 }
 
 export default FetchStatus
