@@ -9,6 +9,14 @@ import mdScrolerSentinelClientRect from './scroller_sentinel_client_rect.md'
 import GithubLogo from '~/components/library/GithubLogo'
 
 
+export const SCROLLERS = {
+  'intersectionObserver': mdScrollerIntObs,
+  'containerScrollHeights': mdScrollerContainerHeights,
+  'sentinelClientRect': mdScrolerSentinelClientRect,
+}
+
+const GITHUB_URL = "https://github.com/julianhr/cimarron.me/tree/master/src/labs/001_InfiniteScroller"
+
 const Root = styled.section`
   padding: 0 30px 20px;
   width: 100%;
@@ -22,32 +30,27 @@ const P = styled.p`
   padding-top: 20px;
 `
 
-class Description extends React.PureComponent {
+export class Description extends React.PureComponent {
   static propTypes = {
     scrollerType: PropTypes.string,
   }
   
   getDescription() {
-    switch (this.props.scrollerType) {
-      case 'intersectionObserver':
-        return mdScrollerIntObs
-      case 'containerScrollHeights':
-        return mdScrollerContainerHeights
-      case 'sentinelClientRect':
-        return mdScrolerSentinelClientRect
+    if (this.props.scrollerType in SCROLLERS) {
+      return SCROLLERS[this.props.scrollerType]
+    } else {
+      return <React.Fragment />
     }
   }
 
   render() {
-    const githubUrl = "https://github.com/julianhr/cimarron.me/tree/master/src/labs/001_InfiniteScroller"
-
     return (
       <Root>
         <div
           dangerouslySetInnerHTML={{ __html: this.getDescription() }}
         />
         <P>
-          source on <GithubLogo url={githubUrl} styles={{ img: { marginTop: -4 } }} />
+          source on <GithubLogo url={GITHUB_URL} styles={{ img: { marginTop: -4 } }} />
         </P>
       </Root>
     )
