@@ -16,13 +16,13 @@ const Root = styled.div`
   overflow-y: scroll;
 `
 
-class ScrollerSentinelClientRect extends React.PureComponent {
+export class ScrollerSentinelClientRect extends React.PureComponent {
   static propTypes = {
-    cardFetcher: PropTypes.func,
-    isFetching: PropTypes.bool,
-    sentinelPosition: PropTypes.number,
-    setEntryCount: PropTypes.func,
-    setIsFetching: PropTypes.func,
+    cardFetcher: PropTypes.func.isRequired,
+    isFetching: PropTypes.bool.isRequired,
+    sentinelPosition: PropTypes.number.isRequired,
+    setEntryCount: PropTypes.func.isRequired,
+    setIsFetching: PropTypes.func.isRequired,
   }
 
   state = {
@@ -38,10 +38,10 @@ class ScrollerSentinelClientRect extends React.PureComponent {
 
   componentDidMount() {
     this.props.setEntryCount(0)
-    this.fetchCards()
+    this.getNewCards()
   }
 
-  handleOnScroll(event) {
+  handleOnScroll() {
     const { isFetching } = this.props
     const { cards } = this.state
     const { top: sentinelTop } = this.refSentinel.current.getBoundingClientRect()
@@ -49,50 +49,54 @@ class ScrollerSentinelClientRect extends React.PureComponent {
     const isSentinelVisible = sentinelTop <= rootBottom
 
     if (!isFetching && isSentinelVisible && cards.length < 200) {
-      this.fetchCards()
+      this.getNewCards()
     }
   }
 
-  async fetchCards() {
-    const { cardFetcher, setIsFetching } = this.props
-    let data
-    setIsFetching(true)
+  async getNewCards() {
+    const { cardFetcher, setIsFetching, setEntryCount } = this.props
 
     try {
-      data = await cardFetcher(this)
-      if (!data) { return }
+      setIsFetching(true)
+      const data = await cardFetcher(this)
+      this.setNewCards(data)
+      setEntryCount(this.state.cards.length)
     } catch (error) {
       this.setState({ fetch: { status: 'error', error: error.toString() } })
-      return
     }
 
-    const { cards: currCards } = this.state
-    const cards = [...currCards]
-
-    this.appendNewCards(cards, data, currCards.length)
-    this.props.setEntryCount(cards.length)
-    this.setState({ cards, fetch: null })
     setIsFetching(false)
   }
 
-  appendNewCards(cards, data, lastKey) {
+  setNewCards(data) {
     const { sentinelPosition } = this.props
+    const { length: lastKey } = this.state.cards
+    const cards = [...this.state.cards]
 
-    data.forEach(({ title, image_url: imgUrl, description }, i) => {
-      const position = lastKey + i + 1
-      const props = { imgUrl, title, description, position }
-      let CardComponent = Card
-
-      if (i+1 === sentinelPosition) {
-        CardComponent = React.forwardRef((props, ref) => <Card forwardedRef={ref} {...props} />)
-        props.forwardedRef = this.refSentinel
-      }
-
-      cards.push( <CardComponent key={lastKey+i} {...props} /> )
+    data.forEach((datum, i) => {
+      const card = this.getCard(datum, i, sentinelPosition, lastKey)
+      cards.push(card)
     })
+
+    this.setState({ cards, fetch: null })
   }
 
-  renderCardResult() {
+  getCard(datum, i, sentinelPosition, lastKey) {
+    const { title, image_url: imgUrl, description } = datum
+    const position = lastKey + i + 1
+    const props = { imgUrl, title, description, position }
+    let CardComponent = Card
+
+    if (i + 1 === sentinelPosition) {
+      CardComponent = React.forwardRef((props, ref) => <Card forwardedRef={ref} {...props} />)
+      // previous ref element will be overwritten by new sentinel
+      props.forwardedRef = this.refSentinel
+    }
+
+    return <CardComponent key={lastKey + i} {...props} />
+  }
+
+  renderResult() {
     const fetchStatus = (this.state.fetch || {}).status
 
     if (fetchStatus === 'loading') {
@@ -110,7 +114,7 @@ class ScrollerSentinelClientRect extends React.PureComponent {
         ref={this.refRoot}
         onScroll={throttle(this.handleOnScroll, 200, { leading: false }).bind(this)}
       >
-        {this.renderCardResult()}
+        {this.renderResult()}
       </Root>
     )
   }

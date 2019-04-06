@@ -1,0 +1,118 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ScrollerSentinelClientRect #getCard returns a non-sentinel Card element if datum index != sentinel index 1`] = `
+<Card
+  description={
+    Array [
+      "sentence one",
+      "sentence two",
+    ]
+  }
+  imgUrl="http://image.com"
+  position={13}
+  title="test title"
+/>
+`;
+
+exports[`ScrollerSentinelClientRect #getCard returns a sentinel Card element if datum index == sentinel index 1`] = `
+<ForwardRef
+  description={
+    Array [
+      "sentence one",
+      "sentence two",
+    ]
+  }
+  forwardedRef={<article />}
+  imgUrl="http://image.com"
+  position={13}
+  title="test title"
+/>
+`;
+
+exports[`ScrollerSentinelClientRect #setNewCards appends new cards to the current ones: data 1 1`] = `
+<div
+  className="css-1ml1922-Root e1u23dax0"
+  onScroll={[Function]}
+>
+  card 1
+  card 2
+</div>
+`;
+
+exports[`ScrollerSentinelClientRect #setNewCards appends new cards to the current ones: data 2 1`] = `
+<div
+  className="css-1ml1922-Root e1u23dax0"
+  onScroll={[Function]}
+>
+  card 1
+  card 2
+  card 3
+  card 4
+</div>
+`;
+
+exports[`ScrollerSentinelClientRect #setNewCards appends new cards to the current ones: no data 1`] = `
+<div
+  className="css-1ml1922-Root e1u23dax0"
+  onScroll={[Function]}
+/>
+`;
+
+exports[`ScrollerSentinelClientRect Intergration displays cards up to point if error thrown by #cardFetcher 1`] = `
+<Root
+  onScroll={[Function]}
+>
+  <div
+    className="css-1ml1922-Root e1u23dax0"
+    onScroll={[Function]}
+  >
+    one
+    two
+    three
+  </div>
+</Root>
+`;
+
+exports[`ScrollerSentinelClientRect Intergration displays error message on mount if initial fetch throws error 1`] = `
+<div
+  className="css-1ml1922-Root e1u23dax0"
+  onScroll={[Function]}
+>
+  <div
+    className="css-quardp-Message ehwlun20"
+  >
+    <div>
+      Error: mocked error
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ScrollerSentinelClientRect Intergration displays loading message on mount 1`] = `
+<div
+  className="css-1ml1922-Root e1u23dax0"
+  onScroll={[Function]}
+>
+  <div
+    className="css-quardp-Message ehwlun20"
+  >
+    <div>
+      Loading...
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ScrollerSentinelClientRect Intergration matches snapshot for happy path 1`] = `
+<div
+  className="css-1ml1922-Root e1u23dax0"
+  onScroll={[Function]}
+>
+  <div>
+    one
+  </div>
+  <div>
+    two
+  </div>
+</div>
+`;
