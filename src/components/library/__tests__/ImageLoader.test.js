@@ -4,7 +4,6 @@ import emotionSerializer from 'jest-emotion'
 
 import ImageLoader from '../ImageLoader'
 import withAppRoot from '~/components/library/withAppRoot'
-import throwPropErrors from '~/__tests__/__mocks__/throwPropErrorsMock'
 import imgSrc from '~/__tests__/__fixtures__/imgSrc'
 
 
@@ -24,15 +23,7 @@ const testProps = {
 
 
 describe('ImageLoader', () => {
-  beforeAll(() => {
-    throwPropErrors()
-  })
-
   describe('required props', () => {
-    beforeAll(() => {
-      throwPropErrors()
-    })
-
     it('maxWidth', () => {
       const props = {...testProps}
       delete props['maxWidth']

@@ -11,7 +11,7 @@ const Root = styled.figure`
 
 const Img = styled.img`
   opacity: 0;
-  transition: opacity 100ms linear;
+  transition: opacity 80ms linear;
 `
 
 class ImageLoader extends React.PureComponent {
