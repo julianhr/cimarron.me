@@ -8,7 +8,7 @@ import Description from './Description/Description'
 import Scrollers from './Scrollers/Scrollers'
 import labStore from './reducers'
 import withAppRoot from '~/components/library/withAppRoot'
-import withAppShell from '~/components/library/withAppShell'
+import withLabShell from '~/components/library/withLabShell'
 
 
 const Root = styled.section`
@@ -37,4 +37,4 @@ export function InfiniteScroller() {
   )
 }
 
-export default withAppRoot(withAppShell(InfiniteScroller), labStore)
+export default withAppRoot(withLabShell(InfiniteScroller), labStore)
