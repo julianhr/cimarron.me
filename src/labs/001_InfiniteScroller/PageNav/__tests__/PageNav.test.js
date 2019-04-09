@@ -3,15 +3,15 @@ import { render, mount, shallow } from 'enzyme'
 import { create } from 'react-test-renderer'
 
 import PageNav from '../PageNav'
-import RootMock from '../../__tests__/__mocks__/RootMock'
+import MockInfiniteScrollerApp from '../../__tests__/__mocks__/MockInfiniteScrollerApp'
 
 
 describe('PageNav', () => {
   it('matches snapshot', () => {
     const wrapper = mount(
-      <RootMock>
+      <MockInfiniteScrollerApp>
         <PageNav />
-      </RootMock>
+      </MockInfiniteScrollerApp>
     )
 
     expect(wrapper).toMatchSnapshot()

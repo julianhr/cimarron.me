@@ -3,7 +3,7 @@ import { render, mount } from 'enzyme'
 import emotionSerializer from 'jest-emotion'
 
 import ImageLoader from '../ImageLoader'
-import withAppRoot from '~/components/library/withAppRoot'
+import MockApp from '~/__tests__/__mocks__/MockApp'
 import imgSrc from '~/__tests__/__fixtures__/imgSrc'
 
 
@@ -21,28 +21,27 @@ const testProps = {
   },
 }
 
+const renderApp = (props) => render(<MockApp><ImageLoader {...props} /></MockApp>)
+
 
 describe('ImageLoader', () => {
   describe('required props', () => {
     it('maxWidth', () => {
       const props = {...testProps}
       delete props['maxWidth']
-      const RootedImageLoader = withAppRoot(ImageLoader, props)
-      expect(() => render(<RootedImageLoader />)).toThrow()
+      expect(() => renderApp(props)).toThrow()
     })
     
     it('maxHeight', () => {
       const props = {...testProps}
       delete props['maxHeight']
-      const RootedImageLoader = withAppRoot(ImageLoader, props)
-      expect(() => render(<RootedImageLoader />)).toThrow()
+      expect(() => renderApp(props)).toThrow()
     })
     
     it('imgSrc', () => {
       const props = {...testProps}
       delete props['imgSrc']
-      const RootedImageLoader = withAppRoot(ImageLoader, props)
-      expect(() => render(<RootedImageLoader />)).toThrow()
+      expect(() => renderApp(props)).toThrow()
     })
   })
 
@@ -52,26 +51,21 @@ describe('ImageLoader', () => {
     })
 
     it('matches snapshot with all props', () => {
-      const RootedImageLoader = withAppRoot(ImageLoader, testProps)
-      const wrapper = render(<RootedImageLoader />)
-      expect(wrapper).toMatchSnapshot()
+      expect(renderApp(testProps)).toMatchSnapshot()
     })
   
     it('matches snapshot with no styles', () => {
       const props = {...testProps}
       delete props['styles']
-      const RootedImageLoader = withAppRoot(ImageLoader, props)
-      const wrapper = render(<RootedImageLoader />)
-      expect(wrapper).toMatchSnapshot()
-    })
+      expect(renderApp(props)).toMatchSnapshot()
+  })
 
     it('should trigger onload event when image src is loaded', () => {
       const oldHandle = ImageLoader.prototype.handleOnLoad
       const mockHandleOnLoad = jest.fn()
       ImageLoader.prototype.handleOnLoad = mockHandleOnLoad
   
-      const RootedImageLoader = withAppRoot(ImageLoader, testProps)
-      const wrapper = mount(<RootedImageLoader />)
+      const wrapper = mount(<MockApp><ImageLoader {...testProps} /></MockApp>)
       wrapper.find('img').simulate('load')
       expect(mockHandleOnLoad).toBeCalledTimes(1)
       
@@ -80,8 +74,7 @@ describe('ImageLoader', () => {
     })
     
     it('matches snapshot after image src is loaded', () => {
-      const RootedImageLoader = withAppRoot(ImageLoader, testProps)
-      const wrapper = mount(<RootedImageLoader />)
+      const wrapper = mount(<MockApp><ImageLoader {...testProps} /></MockApp>)
       wrapper.find('img').simulate('load')
       expect(wrapper).toMatchSnapshot()
       wrapper.unmount()
