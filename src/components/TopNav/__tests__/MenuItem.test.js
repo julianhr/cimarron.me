@@ -1,7 +1,6 @@
 import React from 'react'
 import { render, mount, shallow } from 'enzyme'
 import { create } from 'react-test-renderer'
-import { StaticRouter } from 'react-router-dom'
 
 import MenuItem from '../MenuItem'
 import MockApp from '~/__tests__/__mocks__/MockApp'
@@ -10,6 +9,7 @@ import MockApp from '~/__tests__/__mocks__/MockApp'
 const testProps = {
   url: '/some/test/path',
   label: 'test label',
+  isLinkRouted: false,
 }
 
 const renderApp = props => create(<MockApp><MenuItem {...props} /></MockApp>)
@@ -27,12 +27,18 @@ describe('MenuItem', () => {
       delete props.label
       expect(() => renderApp(props)).toThrow()
     })
+
+    it('isLinkRouted is not required', () => {
+      const props = {...testProps}
+      delete props.isLinkRouted
+      expect(() => renderApp(props)).not.toThrow()
+    })
   })
 
-  describe.only('snapshots', () => {
-    it('matches when path includes labs', () => {
+  describe('snapshots', () => {
+    it('isLinkRouted == false', () => {
       const props = {...testProps}
-      props.url = '/labs/someproject'
+      props.isLinkRouted = false
       const wrapper = mount(
         <MockApp>
           <MenuItem {...props} />
@@ -42,9 +48,9 @@ describe('MenuItem', () => {
       wrapper.unmount()
     })
 
-    it('matches when path does not include labs', () => {
+    it('isLinkRouted == true', () => {
       const props = {...testProps}
-      props.url = '/diff/someproject'
+      props.isLinkRouted = true
       const wrapper = mount(
         <MockApp>
           <MenuItem {...props} />
