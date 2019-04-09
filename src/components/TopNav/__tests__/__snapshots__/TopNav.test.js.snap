@@ -46,16 +46,17 @@ Array [
             >
               <EmotionCssPropInternal
                 __EMOTION_LABEL_PLEASE_DO_NOT_USE__="AnchorTag"
-                __EMOTION_TYPE_PLEASE_DO_NOT_USE__={[Function]}
+                __EMOTION_TYPE_PLEASE_DO_NOT_USE__="a"
                 css={[Function]}
-                to="/"
+                href="/one/path"
+                rel="noopener noreferrer"
               >
                 <a
                   className="css-1qyni6p-STYLES-STYLES"
-                  href="/"
-                  onClick={[Function]}
+                  href="/one/path"
+                  rel="noopener noreferrer"
                 >
-                  Home
+                  label 1
                 </a>
               </EmotionCssPropInternal>
             </div>
