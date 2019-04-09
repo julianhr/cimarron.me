@@ -28,13 +28,13 @@ const STYLES = {
   `
 }
 
-function MenuItem({ url, label }) {
+function MenuItem({ url, label, isLinkRouted }) {
   return (
     <Root>
       <AnchorTag
         url={url}
         rootStyle={STYLES.link}
-        isLinkRouted={!url.includes('/labs/')}
+        isLinkRouted={isLinkRouted}
       >
         {label}
       </AnchorTag>
@@ -45,6 +45,11 @@ function MenuItem({ url, label }) {
 MenuItem.propTypes = {
   url: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
+  isLinkRouted: PropTypes.bool,
+}
+
+MenuItem.defaultProps = {
+  isLinkRouted: true,
 }
 
 export default MenuItem
