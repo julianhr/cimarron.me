@@ -13,11 +13,12 @@ const Root = styled.div`
 function RightNav(props) {
 
   const renderMenuItems = menuItems => (
-    menuItems.map((item, i) => (
+    menuItems.map(({ url, label, isLinkRouted }, i) => (
       <MenuItem
         key={i}
-        url={item.url}
-        label={item.label}
+        url={url}
+        label={label}
+        isLinkRouted={isLinkRouted}
       />
     ))
   )
