@@ -6,6 +6,9 @@ import infiniteScollerStore from './reducers'
 import PageNav from './PageNav/PageNav'
 import Description from './Description/Description'
 import Scrollers from './Scrollers/Scrollers'
+import labStore from './reducers'
+import withAppRoot from '~/components/library/withAppRoot'
+import withAppShell from '~/components/library/withAppShell'
 
 
 const Root = styled.section`
@@ -20,21 +23,18 @@ const Root = styled.section`
   }
 `
 
-const RowA1 = styled.div`
-`
-
-function InfiniteScroller() {
+export function InfiniteScroller() {
   return (
     <Provider store={infiniteScollerStore}>
       <Root>
-        <RowA1>
+        <div>
           <PageNav />
           <Description />
-        </RowA1>
+        </div>
         <Scrollers />
       </Root>
     </Provider>
   )
 }
 
-export default InfiniteScroller
+export default withAppRoot(withAppShell(InfiniteScroller), labStore)
