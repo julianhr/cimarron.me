@@ -1,14 +1,14 @@
 import React from 'react'
-import { render } from 'enzyme'
+import { mount } from 'enzyme'
 
 import TopNav from '../TopNav'
-import withAppRoot from '~/components/library/withAppRoot'
+import MockApp from '~/__tests__/__mocks__/MockApp'
 
 
 describe('TopNav', () => {
   it('should match snapshot', () => {
-    const RootedTopNav = withAppRoot(TopNav)
-    const wrapper = render(<RootedTopNav />)
+    const wrapper = mount(<MockApp><TopNav /></MockApp>)
     expect(wrapper).toMatchSnapshot()
+    wrapper.unmount()
   })
 })
