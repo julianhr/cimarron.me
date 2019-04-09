@@ -2,7 +2,6 @@ import React from 'react'
 import styled from '@emotion/styled'
 
 import TopNav from '~/components/TopNav/TopNav'
-import withAppRoot from '~/components/library/withAppRoot'
 
 const Container = styled.div`
   display: grid;
@@ -15,13 +14,17 @@ const Main = styled.main`
   grid-area: main;
 `
 
-function withAppShell(WrappedElement) {
+const MENU_ITEMS = [
+  { url: '/', label: 'Home', isLinkRouted: false },
+]
+
+function withLabShell(WrappedElement) {
   return class extends React.Component {
     render() {
       return (
         <Container>
           <Main>
-            <TopNav />
+            <TopNav menuItems={MENU_ITEMS} />
             <WrappedElement {...this.props} />
           </Main>
         </Container>
@@ -30,4 +33,4 @@ function withAppShell(WrappedElement) {
   }
 }
 
-export default withAppShell
+export default withLabShell
