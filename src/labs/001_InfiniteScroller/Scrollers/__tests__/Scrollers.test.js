@@ -3,7 +3,7 @@ import { render, mount, shallow } from 'enzyme'
 import { create } from 'react-test-renderer'
 
 import { Scrollers, SCROLLERS } from '../Scrollers'
-import RootMock from '../../__tests__/__mocks__/RootMock'
+import MockInfiniteScrollerApp from '../../__tests__/__mocks__/MockInfiniteScrollerApp'
 
 
 describe('Scrollers', () => {
@@ -12,7 +12,11 @@ describe('Scrollers', () => {
     scrollerType: Object.keys(SCROLLERS)[0],
   }
 
-  const renderRooted = (props) => mount(<RootMock><Scrollers {...props} /></RootMock>)
+  const renderRooted = (props) => mount(
+    <MockInfiniteScrollerApp>
+      <Scrollers {...props} />
+    </MockInfiniteScrollerApp>
+  )
 
   describe('props', () => {
     it('recordsPerFetch is required', () => {

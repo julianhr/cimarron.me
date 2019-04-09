@@ -2,7 +2,7 @@ import React from 'react'
 import { create } from 'react-test-renderer'
 
 import { Description, SCROLLERS } from '../Description'
-import MockRoot from '../../__tests__/__mocks__/RootMock'
+import MockInfiniteScrollerApp from '../../__tests__/__mocks__/MockInfiniteScrollerApp'
 
 
 describe('Description', () => {
@@ -11,9 +11,9 @@ describe('Description', () => {
       const mdString = Object.keys(SCROLLERS)[0]
   
       const wrapper = create(
-        <MockRoot>
+        <MockInfiniteScrollerApp>
           <Description scrollerType={mdString} />
-        </MockRoot>
+        </MockInfiniteScrollerApp>
       )
       expect(wrapper).toMatchSnapshot('valid md file')
     })
@@ -21,16 +21,16 @@ describe('Description', () => {
 
   it('with invalid md file', () => {
       const wrapper = create(
-        <MockRoot>
+        <MockInfiniteScrollerApp>
           <Description scrollerType={'invalid'} />
-        </MockRoot>
+        </MockInfiniteScrollerApp>
       )
       expect(wrapper).toMatchSnapshot('invalid md file')
       
       wrapper.update(
-        <MockRoot>
+        <MockInfiniteScrollerApp>
           <Description />
-        </MockRoot>
+        </MockInfiniteScrollerApp>
       )
       expect(wrapper).toMatchSnapshot('no md file')
   })
@@ -38,9 +38,9 @@ describe('Description', () => {
   it('with invalid md file', () => {
     for (let [key, _] of Object.entries(SCROLLERS)) {
       const wrapper = create(
-        <MockRoot>
+        <MockInfiniteScrollerApp>
           <Description scrollerType={key} />
-        </MockRoot>
+        </MockInfiniteScrollerApp>
       )
 
       const nodes = wrapper.root.findAll(node => node.props.hasOwnProperty('dangerouslySetInnerHTML'))

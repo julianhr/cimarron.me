@@ -3,8 +3,14 @@ import { create } from 'react-test-renderer'
 import emotionSerializer from 'jest-emotion'
 
 import Card from '../Card'
-import withAppRoot from '~/components/library/withAppRoot'
+import MockInfiniteScrollerApp from '../__tests__/__mocks__/MockInfiniteScrollerApp'
 
+
+const renderApp = props => create(
+  <MockInfiniteScrollerApp>
+    <Card {...props} />
+  </MockInfiniteScrollerApp>
+)
 
 describe('Card', () => {
   const testProps = {
@@ -19,36 +25,31 @@ describe('Card', () => {
     it('description is required', () => {
       const props = {...testProps}
       delete props.description
-      const RootedCard = withAppRoot(Card, props)
-      expect(() => create(<RootedCard />)).toThrow()
+      expect(() => renderApp(props)).toThrow()
     })
 
     it('title is required', () => {
       const props = {...testProps}
       delete props.title
-      const RootedCard = withAppRoot(Card, props)
-      expect(() => create(<RootedCard />)).toThrow()
+      expect(() => renderApp(props)).toThrow()
     })
 
     it('imgUrl is required', () => {
       const props = {...testProps}
       delete props.imgUrl
-      const RootedCard = withAppRoot(Card, props)
-      expect(() => create(<RootedCard />)).toThrow()
+      expect(() => renderApp(props)).toThrow()
     })
 
     it('position is required', () => {
       const props = {...testProps}
       delete props.position
-      const RootedCard = withAppRoot(Card, props)
-      expect(() => create(<RootedCard />)).toThrow()
+      expect(() => renderApp(props)).toThrow()
     })
 
     it('forwardedRef is not required', () => {
       const props = {...testProps}
       delete props.forwardedRef
-      const RootedCard = withAppRoot(Card, props)
-      expect(() => create(<RootedCard />)).not.toThrow()
+      expect(() => renderApp(props)).not.toThrow()
     })
   })
 
@@ -58,25 +59,20 @@ describe('Card', () => {
     })
 
     it('all props', () => {
-      const RootedCard = withAppRoot(Card, testProps)
-      const wrapper = create(<RootedCard />)
-      expect(wrapper).toMatchSnapshot()
+      expect(renderApp(testProps)).toMatchSnapshot()
     })
 
     it('required props', () => {
       const props = {...testProps}
       delete props.forwardedRef
-      const RootedCard = withAppRoot(Card, props)
-      const wrapper = create(<RootedCard />)
-      expect(wrapper).toMatchSnapshot()
+      expect(renderApp(props)).toMatchSnapshot()
     })
   })
 
   it('connects forwardedRef to root element', () => {
     const props = {...testProps}
     props.forwardedRef = React.createRef()
-    const RootedCard = withAppRoot(Card, props)
-    const wrapper = create(<RootedCard />)
+    const wrapper = renderApp(props)
     const element = wrapper.root.findAllByType('article')
     expect(element).toHaveLength(1)
     expect(element[0].instance).toBe(props.forwardedRef.current)
