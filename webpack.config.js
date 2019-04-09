@@ -23,6 +23,7 @@ module.exports = (env, argv) => {
   return {
     entry: {
       main: './src/index.js',
+      InfiniteScroller: './src/labs/001_InfiniteScroller/index.js',
     },
     module: {
       rules: [
@@ -65,7 +66,16 @@ module.exports = (env, argv) => {
       new LodashModuleReplacementPlugin,
       new CleanWebpackPlugin(),
       new HtmlWebpackPlugin({
-        template: './src/index.html',
+        filename: 'index.html',
+        template: './src/views/index.ejs',
+        hash: true,
+        chunks: 'main vendors react redux commons'.split(' ')
+      }),
+      new HtmlWebpackPlugin({
+        filename: 'labs/infinite-scroller/index.html',
+        template: './src/views/index.ejs',
+        hash: true,
+        chunks: 'InfiniteScroller vendors react redux commons'.split(' ')
       }),
       new CopyPlugin([{ from: 'public', to: '.' }]),
       new DuplicatesPlugin(),
@@ -77,14 +87,33 @@ module.exports = (env, argv) => {
       }
     },
     optimization: {
-      runtimeChunk: 'single',
+      runtimeChunk: false,
       splitChunks: {
+        minSize: 0,
+        maxInitialRequests: Infinity,
         cacheGroups: {
+          default: false,
+          vendors: false,
           vendor: {
-            test: /node_modules/,
-            name: 'npm',
+            test: /node_modules\/(?!(react|redux|lodash))/,
+            name: 'vendors',
             chunks: 'all',
           },
+          react: {
+            test: /node_modules\/react/,
+            name: 'react',
+            chunks: 'all',
+          },
+          redux: {
+            test: /node_modules\/redux/,
+            name: 'redux',
+            chunks: 'all',
+          },
+          commons: {
+            name: 'commons',
+            chunks: 'all',
+            minChunks: 2
+          }
         },
       },
     },

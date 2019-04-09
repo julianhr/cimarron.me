@@ -3,7 +3,7 @@ import { render, mount, shallow } from 'enzyme'
 import { create } from 'react-test-renderer'
 
 import Selector from '../Selector'
-import RootMock from '../../__tests__/__mocks__/RootMock'
+import MockInfiniteScrollerApp from '../../__tests__/__mocks__/MockInfiniteScrollerApp'
 
 
 describe('Selector', () => {
@@ -15,7 +15,11 @@ describe('Selector', () => {
     onChange:  () => 'test onChange',
   }
 
-  const renderer = (props) => mount(<RootMock><Selector {...props} /></RootMock>)
+  const renderer = (props) => mount(
+    <MockInfiniteScrollerApp>
+      <Selector {...props} />
+    </MockInfiniteScrollerApp>
+  )
   let wrapper
 
   afterEach(() => {

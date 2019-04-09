@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
 
 import LeftNav from './LeftNav'
@@ -12,21 +13,19 @@ const RootHeader = styled.header`
   width: 100%;
 `
 
-const menuItems = [
-  { url: '/', label: 'Home' },
-]
-
-class AppNav extends React.PureComponent {
-  render() {
-    return (
-      <RootHeader>
-        <LeftNav />
-        <RightNav
-          menuItems={menuItems}
-        />
-      </RootHeader>
-    )
-  }
+function TopNav({ menuItems }) {
+  return (
+    <RootHeader>
+      <LeftNav />
+      <RightNav
+        menuItems={menuItems}
+      />
+    </RootHeader>
+  )
 }
 
-export default AppNav
+TopNav.propTypes = {
+  menuItems: PropTypes.arrayOf(PropTypes.object).isRequired,
+}
+
+export default TopNav

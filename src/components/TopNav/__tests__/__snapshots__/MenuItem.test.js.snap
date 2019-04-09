@@ -1,0 +1,72 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MenuItem snapshots isLinkRouted == false 1`] = `
+Array [
+  <ForwardRef(render)
+    styles={
+      Object {
+        "map": undefined,
+        "name": "1e2xhh9-globalStyles-globalStyles",
+        "next": undefined,
+        "styles": "body{color:#3D3D3D,lineHeight 1.3em;}p,h1,h2,h3,h4,h5,h6,figure{margin:0;}h1,h2,h3,h4,h5,h6{color:#AB164D;}p{padding:.8em 0;}h1{font-size:44;}h2{line-height:2em;font-size:34;font-weight:500;}h3{font-size:24;font-weight:600;}h4{line-height:1.3em;font-size:18;}h5{font-size:12;}h6{font-size:8;}code{color:#D90000;font-size:14;}label:globalStyles;label:globalStyles;",
+      }
+    }
+  />,
+  <Root>
+    <div
+      className="css-u96gbo-Root e1uo4w6s0"
+    >
+      <EmotionCssPropInternal
+        __EMOTION_LABEL_PLEASE_DO_NOT_USE__="AnchorTag"
+        __EMOTION_TYPE_PLEASE_DO_NOT_USE__="a"
+        css={[Function]}
+        href="/some/test/path"
+        rel="noopener noreferrer"
+      >
+        <a
+          className="css-1qyni6p-STYLES-STYLES"
+          href="/some/test/path"
+          rel="noopener noreferrer"
+        >
+          test label
+        </a>
+      </EmotionCssPropInternal>
+    </div>
+  </Root>,
+]
+`;
+
+exports[`MenuItem snapshots isLinkRouted == true 1`] = `
+Array [
+  <ForwardRef(render)
+    styles={
+      Object {
+        "map": undefined,
+        "name": "1e2xhh9-globalStyles-globalStyles",
+        "next": undefined,
+        "styles": "body{color:#3D3D3D,lineHeight 1.3em;}p,h1,h2,h3,h4,h5,h6,figure{margin:0;}h1,h2,h3,h4,h5,h6{color:#AB164D;}p{padding:.8em 0;}h1{font-size:44;}h2{line-height:2em;font-size:34;font-weight:500;}h3{font-size:24;font-weight:600;}h4{line-height:1.3em;font-size:18;}h5{font-size:12;}h6{font-size:8;}code{color:#D90000;font-size:14;}label:globalStyles;label:globalStyles;",
+      }
+    }
+  />,
+  <Root>
+    <div
+      className="css-u96gbo-Root e1uo4w6s0"
+    >
+      <EmotionCssPropInternal
+        __EMOTION_LABEL_PLEASE_DO_NOT_USE__="AnchorTag"
+        __EMOTION_TYPE_PLEASE_DO_NOT_USE__={[Function]}
+        css={[Function]}
+        to="/some/test/path"
+      >
+        <a
+          className="css-1qyni6p-STYLES-STYLES"
+          href="/some/test/path"
+          onClick={[Function]}
+        >
+          test label
+        </a>
+      </EmotionCssPropInternal>
+    </div>
+  </Root>,
+]
+`;

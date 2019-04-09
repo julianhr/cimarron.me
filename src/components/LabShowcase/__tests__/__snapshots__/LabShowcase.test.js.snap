@@ -5,11 +5,12 @@ exports[`LabShowcase should match snapshot 1`] = `
   class="css-1lzrryp-Root e1uula6j0"
 >
   <a
-    class="css-8hm572-StyledLink-baseArticle e1lgusa60"
+    class="css-4yofyo-baseArticle-link-link"
     href="/path/1"
+    rel="noopener noreferrer"
   >
     <article
-      class="css-1dt8rsn-Article-baseArticle e1lgusa61"
+      class="css-1dt8rsn-Article-baseArticle e1lgusa60"
     >
       <figure
         class="css-1t2crv9-Root-ImageLoader e1wlpvq40"
@@ -24,26 +25,27 @@ exports[`LabShowcase should match snapshot 1`] = `
       </h3>
     </article>
     <section
-      class="css-1k4ntzt-TechRoot e1lgusa62"
+      class="css-1k4ntzt-TechRoot e1lgusa61"
     >
       <div
-        class="css-if30yk-Tech e1lgusa63"
+        class="css-if30yk-Tech e1lgusa62"
       >
         React
       </div>
       <div
-        class="css-1h4zuz1-Tech e1lgusa63"
+        class="css-1h4zuz1-Tech e1lgusa62"
       >
         Python
       </div>
     </section>
   </a>
   <a
-    class="css-8hm572-StyledLink-baseArticle e1lgusa60"
+    class="css-4yofyo-baseArticle-link-link"
     href="/path/2"
+    rel="noopener noreferrer"
   >
     <article
-      class="css-1dt8rsn-Article-baseArticle e1lgusa61"
+      class="css-1dt8rsn-Article-baseArticle e1lgusa60"
     >
       <figure
         class="css-1t2crv9-Root-ImageLoader e1wlpvq40"
@@ -58,15 +60,15 @@ exports[`LabShowcase should match snapshot 1`] = `
       </h3>
     </article>
     <section
-      class="css-1k4ntzt-TechRoot e1lgusa62"
+      class="css-1k4ntzt-TechRoot e1lgusa61"
     >
       <div
-        class="css-if30yk-Tech e1lgusa63"
+        class="css-if30yk-Tech e1lgusa62"
       >
         Ruby
       </div>
       <div
-        class="css-1h4zuz1-Tech e1lgusa63"
+        class="css-1h4zuz1-Tech e1lgusa62"
       >
         Go
       </div>

@@ -5,20 +5,19 @@ import { ThemeProvider } from 'emotion-theming'
 import { Global } from '@emotion/core'
 import 'sanitize.css'
 
-import appStore from '~/reducers'
 import globalStyles from '~/styles/globalStyles'
 import theme from '~/styles/theme'
 
 
-function withAppRoot(WrappedComponent, otherProps={}) {
+function withAppRoot(WrappedComponent, store) {
   return class extends React.Component {
     render() {
       return (
-        <Provider store={appStore}>
+        <Provider store={store}>
           <BrowserRouter>
             <ThemeProvider theme={theme}>
               <Global styles={globalStyles} />
-              <WrappedComponent {...this.props} {...otherProps} />
+              <WrappedComponent {...this.props} />
             </ThemeProvider>
           </BrowserRouter>
         </Provider>

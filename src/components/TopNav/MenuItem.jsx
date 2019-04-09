@@ -1,7 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Link } from 'react-router-dom'
 import styled from '@emotion/styled'
+import { css } from '@emotion/core'
+
+import AnchorTag from '~/components/library/AnchorTag'
 
 
 const Root = styled.div`
@@ -10,8 +12,9 @@ const Root = styled.div`
   align-items: center;
 `
 
-const StyledLink = styled(Link)`
-    color: ${props => props.theme.colors.text};
+const STYLES = {
+  link: (props) => css`
+    color: ${props.colors.text};
     text-decoration: none;
     margin: 0 10px;
     padding: 0 6px 4px;
@@ -22,23 +25,31 @@ const StyledLink = styled(Link)`
       border-bottom-color: #e10d75;
       transition-duration: 140ms;
     }
-`
+  `
+}
 
-function MenuItem(props) {
+function MenuItem({ url, label, isLinkRouted }) {
   return (
     <Root>
-      <StyledLink
-        to={props.url}
+      <AnchorTag
+        url={url}
+        rootStyle={STYLES.link}
+        isLinkRouted={isLinkRouted}
       >
-        {props.label}
-      </StyledLink>
+        {label}
+      </AnchorTag>
     </Root>
   )
 }
 
 MenuItem.propTypes = {
-  url: PropTypes.string,
-  label: PropTypes.string,
+  url: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
+  isLinkRouted: PropTypes.bool,
+}
+
+MenuItem.defaultProps = {
+  isLinkRouted: true,
 }
 
 export default MenuItem

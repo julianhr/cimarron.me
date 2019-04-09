@@ -1,8 +1,9 @@
 import React from 'react'
 import styled from '@emotion/styled'
 
-import TopNav from './components/TopNav/TopNav'
-import LabRoutes from './components/LabRoutes/LabRoutes'
+import LabShowcase from './components/LabShowcase/LabShowcase'
+import TopNav from '~/components/TopNav/TopNav'
+import appStore from './reducers'
 import withAppRoot from './components/library/withAppRoot'
 import labs from './labs/labsData'
 
@@ -18,17 +19,19 @@ const Main = styled.main`
   grid-area: main;
 `
 
-class App extends React.Component {
-  render() {
-    return (
-      <Container>
-        <Main>
-          <TopNav />
-          <LabRoutes labs={labs} />
-        </Main>
-      </Container>
-    )
-  }
+const MENU_ITEMS = [
+  { url: '/', label: 'Home' },
+]
+
+function App() {
+  return (
+    <Container>
+      <Main>
+        <TopNav menuItems={MENU_ITEMS} />
+        <LabShowcase labs={labs} />
+      </Main>
+    </Container>
+  )
 }
 
-export default withAppRoot(App)
+export default withAppRoot(App, appStore)

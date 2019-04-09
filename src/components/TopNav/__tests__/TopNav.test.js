@@ -1,14 +1,31 @@
 import React from 'react'
-import { render } from 'enzyme'
+import { mount } from 'enzyme'
+import { create } from 'react-test-renderer'
 
 import TopNav from '../TopNav'
-import withAppRoot from '~/components/library/withAppRoot'
+import MockApp from '~/__tests__/__mocks__/MockApp'
 
+
+const testProps = {
+  menuItems: [
+    { url: '/one/path', label: 'label 1', isLinkRouted: false },
+  ]
+}
+
+const renderApp = (props) => create(<MockApp><TopNav {...props} /></MockApp>)
 
 describe('TopNav', () => {
+  describe('props', () => {
+    it('requires menuItems', () => {
+      const props = {...testProps}
+      delete props.menuItems
+      expect(() => renderApp(props)).toThrow()
+    })
+  })
+
   it('should match snapshot', () => {
-    const RootedTopNav = withAppRoot(TopNav)
-    const wrapper = render(<RootedTopNav />)
+    const wrapper = mount(<MockApp><TopNav {...testProps} /></MockApp>)
     expect(wrapper).toMatchSnapshot()
+    wrapper.unmount()
   })
 })

@@ -2,21 +2,20 @@ import React from 'react'
 import { render } from 'enzyme'
 
 import LabShowcase from '../LabShowcase'
-import withAppRoot from '~/components/library/withAppRoot'
+import MockApp from '~/__tests__/__mocks__/MockApp'
 import labsData from '~/__tests__/__fixtures__/labsDataFixture'
 
 
+const renderApp = props => render(<MockApp><LabShowcase {...props} /></MockApp>)
+
 describe('LabShowcase', () => {
   it('should match snapshot', () => {
-    const RootedLabShowcase = withAppRoot(LabShowcase, { labs: labsData })
-    const wrapper = render(<RootedLabShowcase />)
-    expect(wrapper).toMatchSnapshot()
+    expect(renderApp({ labs: labsData })).toMatchSnapshot()
   })
 
-  describe('required props', () => {
-    it('labs', () => {
-      const RootedLabShowcase = withAppRoot(LabShowcase)
-      expect(() => render(<RootedLabShowcase />)).toThrow()
+  describe('props', () => {
+    it('labs is required', () => {
+      expect(() => renderApp()).toThrow()
     })
   })
 })

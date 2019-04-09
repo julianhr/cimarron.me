@@ -10,7 +10,13 @@ const Root = styled.section`
 `
 
 function LabShowcase({ labs }) {
-  const renderLabs = labs.map((lab, i) => <Lab key={i} {...lab} />)
+  const renderLabs = labs.map((lab, i) => (
+    <Lab
+      key={i}
+      isLinkRouted={false}
+      {...lab}
+    />
+  ))
 
   return (
     <Root>
