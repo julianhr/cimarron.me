@@ -1,36 +1,68 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`TopNav should match snapshot 1`] = `
-<header
-  class="css-fmgjok-RootHeader e1isgil50"
->
-  <div
-    class="css-14jo2cv-Root e1r6iq2i0"
-  >
-    <h3
-      class="css-1nbenu-H3 e1r6iq2i1"
+Array [
+  <ForwardRef(render)
+    styles={
+      Object {
+        "map": undefined,
+        "name": "1e2xhh9-globalStyles-globalStyles",
+        "next": undefined,
+        "styles": "body{color:#3D3D3D,lineHeight 1.3em;}p,h1,h2,h3,h4,h5,h6,figure{margin:0;}h1,h2,h3,h4,h5,h6{color:#AB164D;}p{padding:.8em 0;}h1{font-size:44;}h2{line-height:2em;font-size:34;font-weight:500;}h3{font-size:24;font-weight:600;}h4{line-height:1.3em;font-size:18;}h5{font-size:12;}h6{font-size:8;}code{color:#D90000;font-size:14;}label:globalStyles;label:globalStyles;",
+      }
+    }
+  />,
+  <RootHeader>
+    <header
+      className="css-fmgjok-RootHeader e1isgil50"
     >
-      Julian Hernandez
-    </h3>
-    <h6
-      class="css-mz7w21-H6 e1r6iq2i2"
-    >
-      Full Stack Software Developer
-    </h6>
-  </div>
-  <div
-    class="css-wjqisa-Root e1x2x8qm0"
-  >
-    <div
-      class="css-u96gbo-Root e1uo4w6s0"
-    >
-      <a
-        class="css-sk58pa-StyledLink e1uo4w6s1"
-        href="/"
-      >
-        Home
-      </a>
-    </div>
-  </div>
-</header>
+      <Root>
+        <div
+          className="css-14jo2cv-Root e1r6iq2i0"
+        >
+          <H3>
+            <h3
+              className="css-1nbenu-H3 e1r6iq2i1"
+            >
+              Julian Hernandez
+            </h3>
+          </H3>
+          <H6>
+            <h6
+              className="css-mz7w21-H6 e1r6iq2i2"
+            >
+              Full Stack Software Developer
+            </h6>
+          </H6>
+        </div>
+      </Root>
+      <Root>
+        <div
+          className="css-wjqisa-Root e1x2x8qm0"
+        >
+          <Root>
+            <div
+              className="css-u96gbo-Root e1uo4w6s0"
+            >
+              <EmotionCssPropInternal
+                __EMOTION_LABEL_PLEASE_DO_NOT_USE__="AnchorTag"
+                __EMOTION_TYPE_PLEASE_DO_NOT_USE__={[Function]}
+                css={[Function]}
+                to="/"
+              >
+                <a
+                  className="css-1qyni6p-STYLES-STYLES"
+                  href="/"
+                  onClick={[Function]}
+                >
+                  Home
+                </a>
+              </EmotionCssPropInternal>
+            </div>
+          </Root>
+        </div>
+      </Root>
+    </header>
+  </RootHeader>,
+]
 `;
