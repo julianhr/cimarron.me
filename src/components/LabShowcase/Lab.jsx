@@ -2,9 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
 import { css } from '@emotion/core'
-import { Link } from 'react-router-dom'
 
 import ImageLoader from '../library/ImageLoader'
+import AnchorTag from '../library/AnchorTag'
 
 
 const baseArticle = css`
@@ -13,20 +13,22 @@ const baseArticle = css`
   flex-direction: column;
 `
 
-const StyledLink = styled(Link)`
-  ${baseArticle}
-  max-width: 250px;
-  text-decoration: none;
-  color: unset;
-  background: #ededed;
-  padding: 5px 12px 12px;
-  will-change: box-shadow;
-  transition: box-shadow 30ms ease-in;
+const STYLES = {
+  link: css`
+    ${baseArticle}
+    max-width: 250px;
+    text-decoration: none;
+    color: unset;
+    background: #ededed;
+    padding: 5px 12px 12px;
+    will-change: box-shadow;
+    transition: box-shadow 30ms ease-in;
 
-  :hover {
-    box-shadow: 1px 1px 4px #bbb;
-  }
-`
+    :hover {
+      box-shadow: 1px 1px 4px #bbb;
+    }
+  `
+}
 
 const Article = styled.article`
   ${baseArticle}
@@ -47,7 +49,7 @@ const Tech = styled.div`
   padding: 2px 7px;
 `
 
-function Lab({ title, stack, urlPath, thumbnailSrc }) {
+function Lab({ title, stack, urlPath, thumbnailSrc, isLinkRouted }) {
   const getTechStyle = (index) => {
     const hue = (330 + index * 30) % 360
     const sat = 60
@@ -67,8 +69,10 @@ function Lab({ title, stack, urlPath, thumbnailSrc }) {
   )
 
   return (
-    <StyledLink
-      to={urlPath}
+    <AnchorTag
+      url={urlPath}
+      rootStyle={STYLES.link}
+      isLinkRouted={isLinkRouted}
     >
       <Article>
         <ImageLoader
@@ -82,7 +86,7 @@ function Lab({ title, stack, urlPath, thumbnailSrc }) {
       <TechRoot>
         {renderTech(stack)}
       </TechRoot>
-    </StyledLink>
+    </AnchorTag>
   )
 }
 
@@ -91,6 +95,7 @@ Lab.propTypes = {
   stack: PropTypes.arrayOf(PropTypes.string).isRequired,
   title: PropTypes.string.isRequired,
   urlPath: PropTypes.string.isRequired,
+  isLinkRouted: PropTypes.bool.isRequired,
 }
 
 export default Lab

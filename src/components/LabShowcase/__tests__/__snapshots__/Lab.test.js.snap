@@ -2,11 +2,12 @@
 
 exports[`Lab should match snapshot with all props 1`] = `
 <a
-  class="css-8hm572-StyledLink-baseArticle e1lgusa60"
-  href="/https://test.com"
+  class="css-4yofyo-baseArticle-link-link"
+  href="https://test.com"
+  rel="noopener noreferrer"
 >
   <article
-    class="css-1dt8rsn-Article-baseArticle e1lgusa61"
+    class="css-1dt8rsn-Article-baseArticle e1lgusa60"
   >
     <figure
       class="css-1t2crv9-Root-ImageLoader e1wlpvq40"
@@ -21,15 +22,15 @@ exports[`Lab should match snapshot with all props 1`] = `
     </h3>
   </article>
   <section
-    class="css-1k4ntzt-TechRoot e1lgusa62"
+    class="css-1k4ntzt-TechRoot e1lgusa61"
   >
     <div
-      class="css-if30yk-Tech e1lgusa63"
+      class="css-if30yk-Tech e1lgusa62"
     >
       React
     </div>
     <div
-      class="css-1h4zuz1-Tech e1lgusa63"
+      class="css-1h4zuz1-Tech e1lgusa62"
     >
       Node.js
     </div>
