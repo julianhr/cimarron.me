@@ -9,7 +9,7 @@
   "scripts": {
     "build": "webpack --mode production --profile",
     "start": "webpack-dev-server --mode development --profile",
-    "test": "jest",
+    "test": "jest --coverage",
     "test:dev": "jest --verbose --watch --coverage"
   },
   "husky": {
@@ -70,7 +70,7 @@
     "url-loader": "^1.1.2",
     "webpack": "^4.29.5",
     "webpack-cli": "^3.2.3",
-    "webpack-dev-server": "^3.2.1"
+    "webpack-dev-server": "^3.3.0"
   },
   "browserslist": [
     ">1%",
