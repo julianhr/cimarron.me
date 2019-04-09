@@ -86,6 +86,8 @@ module.exports = (env, argv) => {
         '~': path.resolve(__dirname, 'src')
       }
     },
+    // incorporates ideas from
+    // https://hackernoon.com/the-100-correct-way-to-split-your-chunks-with-webpack-f8a9df5b7758
     optimization: {
       runtimeChunk: false,
       splitChunks: {
