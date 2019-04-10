@@ -69,13 +69,19 @@ module.exports = (env, argv) => {
         filename: 'index.html',
         template: './src/views/index.ejs',
         hash: true,
-        chunks: 'main vendors react redux commons'.split(' ')
+        chunks: 'main vendors react redux commons'.split(' '),
+        templateParameters: {
+          title: 'Julian Hernandez - Personal Website'
+        }
       }),
       new HtmlWebpackPlugin({
         filename: 'labs/infinite-scroller/index.html',
         template: './src/views/index.ejs',
         hash: true,
-        chunks: 'InfiniteScroller vendors react redux commons'.split(' ')
+        chunks: 'InfiniteScroller vendors react redux commons'.split(' '),
+        templateParameters: {
+          title: 'Infinite Scroller - Personal Website'
+        }
       }),
       new CopyPlugin([{ from: 'public', to: '.' }]),
       new DuplicatesPlugin(),
