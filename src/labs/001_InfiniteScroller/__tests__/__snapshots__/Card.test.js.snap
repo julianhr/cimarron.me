@@ -35,7 +35,7 @@ exports[`Card snapshots all props 1`] = `
 }
 
 .emotion-4 {
-  color: #3D3D3D;
+  color: #222222;
   padding-bottom: 10px;
 }
 
@@ -127,7 +127,7 @@ exports[`Card snapshots required props 1`] = `
 }
 
 .emotion-4 {
-  color: #3D3D3D;
+  color: #222222;
   padding-bottom: 10px;
 }
 

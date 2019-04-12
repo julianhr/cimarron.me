@@ -1,11 +1,12 @@
 import React from 'react'
-import { mount } from 'enzyme'
+import { create } from 'react-test-renderer'
 
 import App from '../App'
 
 
 describe('App', () => {
   it('renders without crashing', () => {
-    expect(() => mount(<App />)).not.toThrow()
+    // Enzyme doesn't support suspense yet
+    expect(() => create(<App />)).not.toThrow()
   })
 })

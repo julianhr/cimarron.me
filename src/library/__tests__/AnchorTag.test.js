@@ -3,6 +3,7 @@ import { render, mount, shallow } from 'enzyme'
 import { create } from 'react-test-renderer'
 
 import AnchorTag from '../AnchorTag'
+import MockApp from '~/__tests__/__mocks__/MockApp'
 
 
 const testProps = {
@@ -11,7 +12,8 @@ const testProps = {
   isLinkRouted: false,
 }
 
-const renderComponent = props => create(<AnchorTag {...props} />)
+// AnchorTag requires the react router
+const renderComponent = props => create(<MockApp><AnchorTag {...props} /></MockApp>)
 
 describe('AnchorTag', () => {
   describe('props', () => {
@@ -36,14 +38,14 @@ describe('AnchorTag', () => {
 
   describe('snapshots', () => {
     it('matches with all props', () => {
-      const wrapper = mount(<AnchorTag {...testProps}/>)
+      const wrapper = mount(<MockApp><AnchorTag {...testProps}/></MockApp>)
       expect(wrapper).toMatchSnapshot()
       wrapper.unmount()
     })
 
     it('matches with required props', () => {
       const props = { url: testProps.url }
-      const wrapper = mount(<AnchorTag {...props}/>)
+      const wrapper = mount(<MockApp><AnchorTag {...props}/></MockApp>)
       expect(wrapper).toMatchSnapshot()
       wrapper.unmount()
     })
