@@ -7,6 +7,13 @@ const globalStyles = css`
     lineHeight 1.3em;
   }
 
+  input, textarea {
+    border: 1px solid ${theme.colors.field.border};
+    background: ${theme.colors.field.background};
+    font-size: 1.1em;
+    padding: 4px 8px;
+  }
+
   p, h1, h2, h3, h4, h5, h6, figure {
     margin: 0;
   }
@@ -20,31 +27,34 @@ const globalStyles = css`
   }
 
   h1 {
-    font-size: 44;
+    font-size: 36px;
+    margin: 50px 0 40px;
   }
 
   h2 {
     line-height: 2em;
-    font-size: 34;
-    font-weight: 500;
+    font-size: 30px;
+    font-weight: 600;
+    margin: 40px 0 30px;
   }
 
   h3 {
-    font-size: 24;
+    font-size: 24px;
     font-weight: 600;
+    margin: 30px 0 30px;
   }
 
   h4 {
     line-height: 1.3em;
-    font-size: 18;
+    font-size: 18px;
   }
 
   h5 {
-    font-size: 12;
+    font-size: 12px;
   }
 
   h6 {
-    font-size: 8;
+    font-size: 8px;
   }
 
   code {

@@ -3,8 +3,8 @@ import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
 import { css } from '@emotion/core'
 
-import ImageLoader from '../library/ImageLoader'
-import AnchorTag from '../library/AnchorTag'
+import ImageLoader from '~/library/ImageLoader'
+import AnchorTag from '~/library/AnchorTag'
 
 
 const baseArticle = css`
@@ -49,6 +49,10 @@ const Tech = styled.div`
   padding: 2px 7px;
 `
 
+const H3 = styled.h3`
+  margin: 0;
+`
+
 function Lab({ title, stack, urlPath, thumbnailSrc, isLinkRouted }) {
   const getTechStyle = (index) => {
     const hue = (330 + index * 30) % 360
@@ -81,7 +85,7 @@ function Lab({ title, stack, urlPath, thumbnailSrc, isLinkRouted }) {
           maxHeight={120}
           styles={{ root: { marginBottom: 20 } }}
         />
-        <h3>{title}</h3>
+        <H3>{title}</H3>
       </Article>
       <TechRoot>
         {renderTech(stack)}

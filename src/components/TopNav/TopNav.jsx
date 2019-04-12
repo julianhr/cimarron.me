@@ -7,6 +7,7 @@ import RightNav from './RightNav'
 
 
 const RootHeader = styled.header`
+  grid-area: header;
   display: flex;
   justify-content: space-between;
   padding: 5px 20px 30px;

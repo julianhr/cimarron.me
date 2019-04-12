@@ -14,6 +14,7 @@ const H3 = styled.h3`
   color: ${props => props.theme.colors.text};
   font-size: 24px;
   font-weight: 400;
+  margin: 0;
 `
 
 const H6 = styled.h6`
