@@ -6,15 +6,15 @@ Array [
     styles={
       Object {
         "map": undefined,
-        "name": "1e2xhh9-globalStyles-globalStyles",
+        "name": "1mn8px4-globalStyles-globalStyles",
         "next": undefined,
-        "styles": "body{color:#3D3D3D,lineHeight 1.3em;}p,h1,h2,h3,h4,h5,h6,figure{margin:0;}h1,h2,h3,h4,h5,h6{color:#AB164D;}p{padding:.8em 0;}h1{font-size:44;}h2{line-height:2em;font-size:34;font-weight:500;}h3{font-size:24;font-weight:600;}h4{line-height:1.3em;font-size:18;}h5{font-size:12;}h6{font-size:8;}code{color:#D90000;font-size:14;}label:globalStyles;label:globalStyles;",
+        "styles": "body{color:#222222,lineHeight 1.3em;}input,textarea{border:1px solid #D1D1C9;background:#ededed;font-size:1.1em;padding:4px 8px;}p,h1,h2,h3,h4,h5,h6,figure{margin:0;}h1,h2,h3,h4,h5,h6{color:#9b1518;}p{padding:.8em 0;}h1{font-size:36px;margin:50px 0 40px;}h2{line-height:2em;font-size:30px;font-weight:600;margin:40px 0 30px;}h3{font-size:24px;font-weight:600;margin:30px 0 30px;}h4{line-height:1.3em;font-size:18px;}h5{font-size:12px;}h6{font-size:8px;}code{color:#D90000;font-size:14;}label:globalStyles;label:globalStyles;",
       }
     }
   />,
   <Root>
     <div
-      className="css-1jt9zxq-Root el5yv3l0"
+      className="css-oxdzot-Root el5yv3l0"
     >
       <label
         htmlFor="scroller-type"
@@ -56,15 +56,15 @@ Array [
     styles={
       Object {
         "map": undefined,
-        "name": "1e2xhh9-globalStyles-globalStyles",
+        "name": "1mn8px4-globalStyles-globalStyles",
         "next": undefined,
-        "styles": "body{color:#3D3D3D,lineHeight 1.3em;}p,h1,h2,h3,h4,h5,h6,figure{margin:0;}h1,h2,h3,h4,h5,h6{color:#AB164D;}p{padding:.8em 0;}h1{font-size:44;}h2{line-height:2em;font-size:34;font-weight:500;}h3{font-size:24;font-weight:600;}h4{line-height:1.3em;font-size:18;}h5{font-size:12;}h6{font-size:8;}code{color:#D90000;font-size:14;}label:globalStyles;label:globalStyles;",
+        "styles": "body{color:#222222,lineHeight 1.3em;}input,textarea{border:1px solid #D1D1C9;background:#ededed;font-size:1.1em;padding:4px 8px;}p,h1,h2,h3,h4,h5,h6,figure{margin:0;}h1,h2,h3,h4,h5,h6{color:#9b1518;}p{padding:.8em 0;}h1{font-size:36px;margin:50px 0 40px;}h2{line-height:2em;font-size:30px;font-weight:600;margin:40px 0 30px;}h3{font-size:24px;font-weight:600;margin:30px 0 30px;}h4{line-height:1.3em;font-size:18px;}h5{font-size:12px;}h6{font-size:8px;}code{color:#D90000;font-size:14;}label:globalStyles;label:globalStyles;",
       }
     }
   />,
   <Root>
     <div
-      className="css-1jt9zxq-Root el5yv3l0"
+      className="css-oxdzot-Root el5yv3l0"
     >
       <label
         htmlFor="scroller-type"

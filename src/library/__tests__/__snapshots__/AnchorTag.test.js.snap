@@ -1,28 +1,62 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AnchorTag snapshots matches with all props 1`] = `
-<EmotionCssPropInternal
-  __EMOTION_LABEL_PLEASE_DO_NOT_USE__="AnchorTag"
-  __EMOTION_TYPE_PLEASE_DO_NOT_USE__="a"
-  css={
-    Object {
-      "background": "#CBA",
+Array [
+  <ForwardRef(render)
+    styles={
+      Object {
+        "map": undefined,
+        "name": "1mn8px4-globalStyles-globalStyles",
+        "next": undefined,
+        "styles": "body{color:#222222,lineHeight 1.3em;}input,textarea{border:1px solid #D1D1C9;background:#ededed;font-size:1.1em;padding:4px 8px;}p,h1,h2,h3,h4,h5,h6,figure{margin:0;}h1,h2,h3,h4,h5,h6{color:#9b1518;}p{padding:.8em 0;}h1{font-size:36px;margin:50px 0 40px;}h2{line-height:2em;font-size:30px;font-weight:600;margin:40px 0 30px;}h3{font-size:24px;font-weight:600;margin:30px 0 30px;}h4{line-height:1.3em;font-size:18px;}h5{font-size:12px;}h6{font-size:8px;}code{color:#D90000;font-size:14;}label:globalStyles;label:globalStyles;",
+      }
     }
-  }
-  href="http://test.com"
-  rel="noopener noreferrer"
->
-  <a
-    className="css-10aldfz-AnchorTag"
+  />,
+  <EmotionCssPropInternal
+    __EMOTION_LABEL_PLEASE_DO_NOT_USE__="AnchorTag"
+    __EMOTION_TYPE_PLEASE_DO_NOT_USE__="a"
+    css={
+      Object {
+        "background": "#CBA",
+      }
+    }
     href="http://test.com"
     rel="noopener noreferrer"
-  />
-</EmotionCssPropInternal>
+    target={null}
+  >
+    <a
+      className="css-10aldfz-AnchorTag"
+      href="http://test.com"
+      rel="noopener noreferrer"
+      target={null}
+    />
+  </EmotionCssPropInternal>,
+]
 `;
 
 exports[`AnchorTag snapshots matches with required props 1`] = `
-<a
-  href="http://test.com"
-  rel="noopener noreferrer"
-/>
+Array [
+  <ForwardRef(render)
+    styles={
+      Object {
+        "map": undefined,
+        "name": "1mn8px4-globalStyles-globalStyles",
+        "next": undefined,
+        "styles": "body{color:#222222,lineHeight 1.3em;}input,textarea{border:1px solid #D1D1C9;background:#ededed;font-size:1.1em;padding:4px 8px;}p,h1,h2,h3,h4,h5,h6,figure{margin:0;}h1,h2,h3,h4,h5,h6{color:#9b1518;}p{padding:.8em 0;}h1{font-size:36px;margin:50px 0 40px;}h2{line-height:2em;font-size:30px;font-weight:600;margin:40px 0 30px;}h3{font-size:24px;font-weight:600;margin:30px 0 30px;}h4{line-height:1.3em;font-size:18px;}h5{font-size:12px;}h6{font-size:8px;}code{color:#D90000;font-size:14;}label:globalStyles;label:globalStyles;",
+      }
+    }
+  />,
+  <EmotionCssPropInternal
+    __EMOTION_LABEL_PLEASE_DO_NOT_USE__="AnchorTag"
+    __EMOTION_TYPE_PLEASE_DO_NOT_USE__={[Function]}
+    css={Object {}}
+    to="http://test.com"
+  >
+    <a
+      className="css-q7jxp9-AnchorTag"
+      href="/http://test.com"
+      onClick={[Function]}
+    />
+  </EmotionCssPropInternal>,
+]
 `;
