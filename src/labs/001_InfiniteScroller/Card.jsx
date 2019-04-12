@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
 
-import ImageLoader from '~/components/library/ImageLoader'
+import ImageLoader from '~/library/ImageLoader'
 
 
 const Root = styled.article`

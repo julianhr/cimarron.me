@@ -1,6 +1,6 @@
 import React from 'react'
 import labStore from '../../reducers'
-import withAppRoot from '~/components/library/withAppRoot'
+import withAppRoot from '~/library/withAppRoot'
 
 
 function MockInfiniteScrollerApp({ children }) {

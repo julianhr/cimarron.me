@@ -7,8 +7,8 @@ import PageNav from './PageNav/PageNav'
 import Description from './Description/Description'
 import Scrollers from './Scrollers/Scrollers'
 import labStore from './reducers'
-import withAppRoot from '~/components/library/withAppRoot'
-import withLabShell from '~/components/library/withLabShell'
+import withAppRoot from '~/library/withAppRoot'
+import withLabShell from '~/library/withLabShell'
 
 
 const Root = styled.section`
