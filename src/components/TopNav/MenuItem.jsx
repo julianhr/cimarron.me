@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
 import { css } from '@emotion/core'
 
-import AnchorTag from '~/components/library/AnchorTag'
+import AnchorTag from '~/library/AnchorTag'
 
 
 const Root = styled.div`
@@ -22,7 +22,7 @@ const STYLES = {
     transition: border-bottom-color 75ms linear;
 
     :hover {
-      border-bottom-color: #e10d75;
+      border-bottom-color: ${props.colors.primary.light};
       transition-duration: 140ms;
     }
   `
