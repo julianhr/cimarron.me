@@ -1,6 +1,6 @@
 import React from 'react'
 
-import withAppRoot from '~/components/library/withAppRoot'
+import withAppRoot from '~/library/withAppRoot'
 import appStore from '~/reducers'
 
 

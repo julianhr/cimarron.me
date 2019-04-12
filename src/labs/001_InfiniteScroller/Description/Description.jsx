@@ -6,7 +6,7 @@ import { connect } from 'react-redux'
 import mdScrollerIntObs from './scroller_int_obs.md'
 import mdScrollerContainerHeights from './scroller_container_height.md'
 import mdScrolerSentinelClientRect from './scroller_sentinel_client_rect.md'
-import GithubLogo from '~/components/library/GithubLogo'
+import GithubLogo from '~/library/GithubLogo'
 
 
 export const SCROLLERS = {
