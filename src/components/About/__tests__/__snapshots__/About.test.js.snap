@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`About matches snapshot 1`] = `
+<section
+  className="css-14jo2cv-Root e5wwmhd0"
+>
+  <h2
+    className="css-1s6s8zy-H2 e5wwmhd1"
+  >
+    About
+  </h2>
+  <a
+    className="css-q7jxp9-AnchorTag"
+    href="https://www.linkedin.com/in/julianhr/"
+    rel="noopener noreferrer"
+    target="_blank"
+  >
+    <figure
+      className="css-29ibi4-Root-ImageLoader eeswxza0"
+    >
+      <img
+        className="css-1k90mm3"
+        onLoad={[Function]}
+        src="test-file-stub"
+      />
+    </figure>
+  </a>
+</section>
+`;
