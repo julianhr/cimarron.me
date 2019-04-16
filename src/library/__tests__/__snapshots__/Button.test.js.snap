@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Selector snapshots with all props 1`] = `
+exports[`Button snapshots with all props 1`] = `
 Array [
   <ForwardRef(render)
     styles={
@@ -12,45 +12,48 @@ Array [
       }
     }
   />,
-  <Root>
-    <div
-      className="css-1o7hb61-Root el5yv3l0"
+  .emotion-2 {
+  color: green;
+}
+
+.emotion-0 {
+  border: 2px solid #9B1518;
+  border-radius: 5px;
+  background: transparent;
+  padding: 4px 16px;
+  color: #9B1518;
+  font-size: 1.2em;
+  height: 44px;
+  min-width: 140px;
+  color: green;
+}
+
+.emotion-0:hover {
+  cursor: pointer;
+}
+
+.emotion-0:disabled {
+  border: 2px solid #FFA8AA;
+  color: #FFA8AA;
+}
+
+<Btn
+    className="emotion-2"
+    onClick={[Function]}
+    type="submit"
+  >
+    <button
+      className="emotion-0 emotion-1"
+      onClick={[Function]}
+      type="submit"
     >
-      <label
-        htmlFor="scroller-type"
-      >
-        test label
-      </label>
-      <select
-        id="scroller-type"
-        onChange={[Function]}
-        value="B"
-      >
-        <option
-          key="a"
-          value="a"
-        >
-          A
-        </option>
-        <option
-          key="b"
-          value="b"
-        >
-          B
-        </option>
-        <option
-          key="c"
-          value="c"
-        >
-          C
-        </option>
-      </select>
-    </div>
-  </Root>,
+      Hello!
+    </button>
+  </Btn>,
 ]
 `;
 
-exports[`Selector snapshots without selected prop 1`] = `
+exports[`Button snapshots with required props 1`] = `
 Array [
   <ForwardRef(render)
     styles={
@@ -62,39 +65,38 @@ Array [
       }
     }
   />,
-  <Root>
-    <div
-      className="css-1o7hb61-Root el5yv3l0"
+  .emotion-0 {
+  border: 2px solid #9B1518;
+  border-radius: 5px;
+  background: transparent;
+  padding: 4px 16px;
+  color: #9B1518;
+  font-size: 1.2em;
+  height: 44px;
+  min-width: 140px;
+}
+
+.emotion-0:hover {
+  cursor: pointer;
+}
+
+.emotion-0:disabled {
+  border: 2px solid #FFA8AA;
+  color: #FFA8AA;
+}
+
+<Btn
+    className="emotion-2"
+    onClick={[Function]}
+    type="button"
+  >
+    <button
+      className="emotion-0 emotion-1"
+      onClick={[Function]}
+      type="button"
     >
-      <label
-        htmlFor="scroller-type"
-      >
-        test label
-      </label>
-      <select
-        id="scroller-type"
-        onChange={[Function]}
-      >
-        <option
-          key="a"
-          value="a"
-        >
-          A
-        </option>
-        <option
-          key="b"
-          value="b"
-        >
-          B
-        </option>
-        <option
-          key="c"
-          value="c"
-        >
-          C
-        </option>
-      </select>
-    </div>
-  </Root>,
+      Hello!
+    </button>
+  </Btn>,
 ]
 `;

@@ -23,7 +23,7 @@ exports[`Description snapshots with valid md file: valid md file 1`] = `
       >
         <img
           alt="GitHub"
-          className="css-1inomk8-Img-GithubLogo exbqvm20"
+          className="css-1inomk8-Img-GithubLogo epzvwn20"
           src="test-file-stub"
         />
       </a>
@@ -55,7 +55,7 @@ exports[`Description with invalid md file: invalid md file 1`] = `
       >
         <img
           alt="GitHub"
-          className="css-1inomk8-Img-GithubLogo exbqvm20"
+          className="css-1inomk8-Img-GithubLogo epzvwn20"
           src="test-file-stub"
         />
       </a>
@@ -87,7 +87,7 @@ exports[`Description with invalid md file: no md file 1`] = `
       >
         <img
           alt="GitHub"
-          className="css-1inomk8-Img-GithubLogo exbqvm20"
+          className="css-1inomk8-Img-GithubLogo epzvwn20"
           src="test-file-stub"
         />
       </a>

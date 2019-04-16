@@ -1,13 +1,17 @@
 export const colors = {
-  text: '#3D3D3D',
-  primary: {
-    dark: '#AB164D',
-  },
-  code: '#D90000',
-  highlight: '#FFD342',
   background: '#FFF',
+  code: '#D90000',
+  error: '#d400ff',
   field: {
-    background: '#F0F0F0',
+    background: '#f7f7f7',
+    border: '#BBB',
+  },
+  highlight: '#FFD342',
+  text: '#222222',
+  primary: {
+    dark: '#9B1518',
+    light: '#CE1F23',
+    dim: '#FFA8AA',
   },
 }
 

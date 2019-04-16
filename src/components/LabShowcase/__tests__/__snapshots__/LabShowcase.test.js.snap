@@ -13,14 +13,16 @@ exports[`LabShowcase should match snapshot 1`] = `
       class="css-1dt8rsn-Article-baseArticle e1lgusa60"
     >
       <figure
-        class="css-1t2crv9-Root-ImageLoader e1wlpvq40"
+        class="css-1t2crv9-Root-ImageLoader eeswxza0"
       >
         <img
-          class="css-3fxohy-Img-ImageLoader e1wlpvq41"
+          class="css-1k90mm3"
           src="http://image1.com"
         />
       </figure>
-      <h3>
+      <h3
+        class="css-1brvuev-H3 e1lgusa63"
+      >
         Title 1
       </h3>
     </article>
@@ -48,14 +50,16 @@ exports[`LabShowcase should match snapshot 1`] = `
       class="css-1dt8rsn-Article-baseArticle e1lgusa60"
     >
       <figure
-        class="css-1t2crv9-Root-ImageLoader e1wlpvq40"
+        class="css-1t2crv9-Root-ImageLoader eeswxza0"
       >
         <img
-          class="css-3fxohy-Img-ImageLoader e1wlpvq41"
+          class="css-1k90mm3"
           src="http://image2.com"
         />
       </figure>
-      <h3>
+      <h3
+        class="css-1brvuev-H3 e1lgusa63"
+      >
         Title 2
       </h3>
     </article>

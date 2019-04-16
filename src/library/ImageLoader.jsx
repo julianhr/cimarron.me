@@ -16,14 +16,16 @@ const Img = styled.img`
 
 class ImageLoader extends React.PureComponent {
   static propTypes = {
-    maxWidth: PropTypes.number.isRequired,
-    maxHeight: PropTypes.number.isRequired,
     imgSrc: PropTypes.string.isRequired,
+    maxHeight: PropTypes.number.isRequired,
+    maxWidth: PropTypes.number.isRequired,
+    shouldFadeIn: PropTypes.bool,
     styles: PropTypes.object,
   }
 
   static defaultProps = {
     styles: {},
+    shouldFadeIn: true,
   }
 
   constructor() {
@@ -41,27 +43,43 @@ class ImageLoader extends React.PureComponent {
     this.setState({ isImgLoaded: true })
   }
 
+  getImgProps() {
+    if (this.props.shouldFadeIn) {
+      let imgStyle = {
+        transition: 'opacity 80ms linear',
+        willChange: 'opacity',
+        opacity: 0,
+      }
+  
+      if (this.state.isImgLoaded) {
+        imgStyle = {
+          transition: 'opacity 80ms linear',
+          opacity: 1,
+          width: this.refImg.current.width,
+          height: this.refImg.current.height,
+        }
+      }
+
+      return {
+        css: [this.props.styles.img, imgStyle],
+        onLoad: this.handleOnLoad
+      }
+    } else {
+      return { css: [this.props.styles.img] }
+    }
+  }
+
   render() {
     const { styles, maxWidth, maxHeight, imgSrc } = this.props
-    let imgStyle = { willChange: 'opacity' }
-
-    if (this.state.isImgLoaded) {
-      imgStyle = {
-        opacity: 1,
-        width: this.refImg.current.width,
-        height: this.refImg.current.height,
-      }
-    }
 
     return (
       <Root
         css={{ ...(styles.root || {}), width: maxWidth, height: maxHeight }}
       >
-        <Img
+        <img
           ref={this.refImg}
           src={imgSrc}
-          css={{ ...(styles.img || {}), ...imgStyle }}
-          onLoad={this.handleOnLoad}
+          {...this.getImgProps()}
         />
       </Root>
     )

@@ -6,9 +6,9 @@ Array [
     styles={
       Object {
         "map": undefined,
-        "name": "1e2xhh9-globalStyles-globalStyles",
+        "name": "1n3w7e7-globalStyles-globalStyles",
         "next": undefined,
-        "styles": "body{color:#3D3D3D,lineHeight 1.3em;}p,h1,h2,h3,h4,h5,h6,figure{margin:0;}h1,h2,h3,h4,h5,h6{color:#AB164D;}p{padding:.8em 0;}h1{font-size:44;}h2{line-height:2em;font-size:34;font-weight:500;}h3{font-size:24;font-weight:600;}h4{line-height:1.3em;font-size:18;}h5{font-size:12;}h6{font-size:8;}code{color:#D90000;font-size:14;}label:globalStyles;label:globalStyles;",
+        "styles": "body{color:#222222,lineHeight 1.3em;font-size:18px;}input,textarea{border:2px solid #BBB;background:#f7f7f7;border-radius:5px;font-size:20px;}input,textarea{border:1px solid #BBB;background:#f7f7f7;font-size:1.1em;padding:4px 8px;}p,h1,h2,h3,h4,h5,h6,figure{margin:0;}h1,h2,h3,h4,h5,h6{color:#9B1518;}p{padding:.8em 0;line-height:1.4em;}h1{font-size:36px;margin:50px 0 40px;}h2{line-height:1.4em;font-size:30px;font-weight:600;margin:40px 0 30px;}h3{font-size:24px;font-weight:600;margin:30px 0 30px;}h4{line-height:1.3em;font-size:18px;}h5{font-size:12px;}h6{font-size:8px;}code{color:#D90000;font-size:14;}label:globalStyles;label:globalStyles;",
       }
     }
   />,
@@ -22,11 +22,13 @@ Array [
         css={[Function]}
         href="/some/test/path"
         rel="noopener noreferrer"
+        target={null}
       >
         <a
-          className="css-1qyni6p-STYLES-STYLES"
+          className="css-1566xl0-STYLES-STYLES"
           href="/some/test/path"
           rel="noopener noreferrer"
+          target={null}
         >
           test label
         </a>
@@ -42,9 +44,9 @@ Array [
     styles={
       Object {
         "map": undefined,
-        "name": "1e2xhh9-globalStyles-globalStyles",
+        "name": "1n3w7e7-globalStyles-globalStyles",
         "next": undefined,
-        "styles": "body{color:#3D3D3D,lineHeight 1.3em;}p,h1,h2,h3,h4,h5,h6,figure{margin:0;}h1,h2,h3,h4,h5,h6{color:#AB164D;}p{padding:.8em 0;}h1{font-size:44;}h2{line-height:2em;font-size:34;font-weight:500;}h3{font-size:24;font-weight:600;}h4{line-height:1.3em;font-size:18;}h5{font-size:12;}h6{font-size:8;}code{color:#D90000;font-size:14;}label:globalStyles;label:globalStyles;",
+        "styles": "body{color:#222222,lineHeight 1.3em;font-size:18px;}input,textarea{border:2px solid #BBB;background:#f7f7f7;border-radius:5px;font-size:20px;}input,textarea{border:1px solid #BBB;background:#f7f7f7;font-size:1.1em;padding:4px 8px;}p,h1,h2,h3,h4,h5,h6,figure{margin:0;}h1,h2,h3,h4,h5,h6{color:#9B1518;}p{padding:.8em 0;line-height:1.4em;}h1{font-size:36px;margin:50px 0 40px;}h2{line-height:1.4em;font-size:30px;font-weight:600;margin:40px 0 30px;}h3{font-size:24px;font-weight:600;margin:30px 0 30px;}h4{line-height:1.3em;font-size:18px;}h5{font-size:12px;}h6{font-size:8px;}code{color:#D90000;font-size:14;}label:globalStyles;label:globalStyles;",
       }
     }
   />,
@@ -59,7 +61,7 @@ Array [
         to="/some/test/path"
       >
         <a
-          className="css-1qyni6p-STYLES-STYLES"
+          className="css-1566xl0-STYLES-STYLES"
           href="/some/test/path"
           onClick={[Function]}
         >
