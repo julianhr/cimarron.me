@@ -1,6 +1,71 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ImageLoader snapshots matches snapshot after image src is loaded 1`] = `
+exports[`ImageLoader image fade in disabled 1`] = `
+.emotion-1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background: #FFF;
+  color: green;
+  width: 200px;
+  height: 100px;
+}
+
+.emotion-0 {
+  color: yellow;
+}
+
+<figure
+  className="emotion-1 emotion-2"
+>
+  <img
+    className="emotion-0"
+    src="data:image/webp;base64,UklGRlQBAABXRUJQVlA4IEgBAABQCACdASoeABsAPtFco0yoJSMiMBgIAQAaCWwAuzlBfgGnO3BOALUBuQHUAbxt+2ZGxJRCYtBpYkvKE4agKG/XsXzkJxoCkLfy2JgA/v6UMx3P58mCrRxyi2inrTWQtl778n/xgSpf89/Y/+P6MxQ7ElzA7wlfu8XgcKi2XGDX7X/3TJ+Lc2FN9UflwEHsNaDGFm+cp3PSYB0z6nyEc0tkHRfee/M3RlRP686V8jhfSqeGU40Y9cP0betUGiyL6fX4UCGklWdvBvmBYV2/lpyWAvTXYmHBUTOgmRf4mZ8OSrwbxLSnL7H9xwwSzwHcz5vC2vjXJyn7j2hIrhfmENec/2zV6jbNPlXZFZofyE2n8lhCvjL/wDWARF1g0qxg4v8KzSYrKPR0mH4EXAsrO8U81v8+RaHKdg40DXgwNHEX3mNcn7aigAAA"
+  />
+</figure>
+`;
+
+exports[`ImageLoader image fade in enabled 1`] = `
+.emotion-1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background: #FFF;
+  color: green;
+  width: 200px;
+  height: 100px;
+}
+
+.emotion-0 {
+  color: yellow;
+  -webkit-transition: opacity 80ms linear;
+  transition: opacity 80ms linear;
+  will-change: opacity;
+  opacity: 0;
+}
+
+<figure
+  className="emotion-1 emotion-2"
+>
+  <img
+    className="emotion-0"
+    onLoad={[Function]}
+    src="data:image/webp;base64,UklGRlQBAABXRUJQVlA4IEgBAABQCACdASoeABsAPtFco0yoJSMiMBgIAQAaCWwAuzlBfgGnO3BOALUBuQHUAbxt+2ZGxJRCYtBpYkvKE4agKG/XsXzkJxoCkLfy2JgA/v6UMx3P58mCrRxyi2inrTWQtl778n/xgSpf89/Y/+P6MxQ7ElzA7wlfu8XgcKi2XGDX7X/3TJ+Lc2FN9UflwEHsNaDGFm+cp3PSYB0z6nyEc0tkHRfee/M3RlRP686V8jhfSqeGU40Y9cP0betUGiyL6fX4UCGklWdvBvmBYV2/lpyWAvTXYmHBUTOgmRf4mZ8OSrwbxLSnL7H9xwwSzwHcz5vC2vjXJyn7j2hIrhfmENec/2zV6jbNPlXZFZofyE2n8lhCvjL/wDWARF1g0qxg4v8KzSYrKPR0mH4EXAsrO8U81v8+RaHKdg40DXgwNHEX3mNcn7aigAAA"
+  />
+</figure>
+`;
+
+exports[`ImageLoader on image load matches snapshot after image is loaded 1`] = `
 Array [
   <ForwardRef(render)
     styles={
@@ -56,70 +121,4 @@ Array [
     </figure>
   </Root>,
 ]
-`;
-
-exports[`ImageLoader snapshots matches snapshot with all props 1`] = `
-.emotion-1 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  background: #FFF;
-  color: green;
-  width: 200px;
-  height: 100px;
-}
-
-.emotion-0 {
-  color: yellow;
-  -webkit-transition: opacity 80ms linear;
-  transition: opacity 80ms linear;
-  will-change: opacity;
-  opacity: 0;
-}
-
-<figure
-  class="emotion-1 emotion-2"
->
-  <img
-    class="emotion-0"
-    src="data:image/webp;base64,UklGRlQBAABXRUJQVlA4IEgBAABQCACdASoeABsAPtFco0yoJSMiMBgIAQAaCWwAuzlBfgGnO3BOALUBuQHUAbxt+2ZGxJRCYtBpYkvKE4agKG/XsXzkJxoCkLfy2JgA/v6UMx3P58mCrRxyi2inrTWQtl778n/xgSpf89/Y/+P6MxQ7ElzA7wlfu8XgcKi2XGDX7X/3TJ+Lc2FN9UflwEHsNaDGFm+cp3PSYB0z6nyEc0tkHRfee/M3RlRP686V8jhfSqeGU40Y9cP0betUGiyL6fX4UCGklWdvBvmBYV2/lpyWAvTXYmHBUTOgmRf4mZ8OSrwbxLSnL7H9xwwSzwHcz5vC2vjXJyn7j2hIrhfmENec/2zV6jbNPlXZFZofyE2n8lhCvjL/wDWARF1g0qxg4v8KzSYrKPR0mH4EXAsrO8U81v8+RaHKdg40DXgwNHEX3mNcn7aigAAA"
-  />
-</figure>
-`;
-
-exports[`ImageLoader snapshots matches snapshot with no styles 1`] = `
-.emotion-1 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  background: #FFF;
-  width: 200px;
-  height: 100px;
-}
-
-.emotion-0 {
-  -webkit-transition: opacity 80ms linear;
-  transition: opacity 80ms linear;
-  will-change: opacity;
-  opacity: 0;
-}
-
-<figure
-  class="emotion-1 emotion-2"
->
-  <img
-    class="emotion-0"
-    src="data:image/webp;base64,UklGRlQBAABXRUJQVlA4IEgBAABQCACdASoeABsAPtFco0yoJSMiMBgIAQAaCWwAuzlBfgGnO3BOALUBuQHUAbxt+2ZGxJRCYtBpYkvKE4agKG/XsXzkJxoCkLfy2JgA/v6UMx3P58mCrRxyi2inrTWQtl778n/xgSpf89/Y/+P6MxQ7ElzA7wlfu8XgcKi2XGDX7X/3TJ+Lc2FN9UflwEHsNaDGFm+cp3PSYB0z6nyEc0tkHRfee/M3RlRP686V8jhfSqeGU40Y9cP0betUGiyL6fX4UCGklWdvBvmBYV2/lpyWAvTXYmHBUTOgmRf4mZ8OSrwbxLSnL7H9xwwSzwHcz5vC2vjXJyn7j2hIrhfmENec/2zV6jbNPlXZFZofyE2n8lhCvjL/wDWARF1g0qxg4v8KzSYrKPR0mH4EXAsrO8U81v8+RaHKdg40DXgwNHEX3mNcn7aigAAA"
-  />
-</figure>
 `;
