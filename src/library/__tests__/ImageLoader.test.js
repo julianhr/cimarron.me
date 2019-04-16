@@ -1,5 +1,6 @@
 import React from 'react'
 import { render, mount } from 'enzyme'
+import { create } from 'react-test-renderer'
 import emotionSerializer from 'jest-emotion'
 
 import ImageLoader from '../ImageLoader'
@@ -11,6 +12,7 @@ const testProps = {
   maxWidth: 200,
   maxHeight: 100,
   imgSrc: imgSrc,
+  shouldFadeIn: false,
   styles: {
     root: {
       color: 'green'
@@ -21,51 +23,74 @@ const testProps = {
   },
 }
 
-const renderApp = (props) => render(<MockApp><ImageLoader {...props} /></MockApp>)
+const renderApp = (props) => create(<MockApp><ImageLoader {...props} /></MockApp>)
 
 
 describe('ImageLoader', () => {
-  describe('required props', () => {
-    it('maxWidth', () => {
+  describe('props', () => {
+    test('maxWidth is required', () => {
       const props = {...testProps}
-      delete props['maxWidth']
+      delete props.maxWidth
       expect(() => renderApp(props)).toThrow()
     })
-    
-    it('maxHeight', () => {
+
+    test('maxHeight is required', () => {
       const props = {...testProps}
-      delete props['maxHeight']
+      delete props.maxHeight
       expect(() => renderApp(props)).toThrow()
     })
-    
-    it('imgSrc', () => {
+
+    test('imgSrc is required', () => {
       const props = {...testProps}
-      delete props['imgSrc']
+      delete props.imgSrc
       expect(() => renderApp(props)).toThrow()
+    })
+
+    test('shouldFadeIn is not required', () => {
+      const props = {...testProps}
+      delete props.shouldFadeIn
+      expect(() => renderApp(props)).not.toThrow()
+    })
+
+    test('styles is not required', () => {
+      const props = {...testProps}
+      delete props.styles
+      expect(() => renderApp(props)).not.toThrow()
     })
   })
 
-  describe('snapshots', () => {
+  describe('image fade in', () => {
     beforeAll(() => {
       expect.addSnapshotSerializer(emotionSerializer)
     })
 
-    it('matches snapshot with all props', () => {
-      expect(renderApp(testProps)).toMatchSnapshot()
+    test('enabled', () => {
+      const props = {...testProps}
+      props.shouldFadeIn = true
+      expect(renderApp(props)).toMatchSnapshot()
     })
   
-    it('matches snapshot with no styles', () => {
+    test('disabled', () => {
       const props = {...testProps}
-      delete props['styles']
+      props.shouldFadeIn = false
       expect(renderApp(props)).toMatchSnapshot()
+    })
   })
 
-    it('should trigger onload event when image src is loaded', () => {
+  describe('on image load', () => {
+    let propsFadeIn
+
+    beforeEach(() => {
+      propsFadeIn = {...testProps}
+      propsFadeIn.shouldFadeIn = true
+    })
+
+    it('should trigger onload function once loaded', () => {
       const oldHandle = ImageLoader.prototype.handleOnLoad
       const mockHandleOnLoad = jest.fn()
       ImageLoader.prototype.handleOnLoad = mockHandleOnLoad
   
-      const wrapper = mount(<MockApp><ImageLoader {...testProps} /></MockApp>)
+      const wrapper = mount(<MockApp><ImageLoader {...propsFadeIn} /></MockApp>)
       wrapper.find('img').simulate('load')
       expect(mockHandleOnLoad).toBeCalledTimes(1)
       
@@ -73,8 +98,9 @@ describe('ImageLoader', () => {
       wrapper.unmount()
     })
     
-    it('matches snapshot after image src is loaded', () => {
-      const wrapper = mount(<MockApp><ImageLoader {...testProps} /></MockApp>)
+    it('matches snapshot after image is loaded', () => {
+      const wrapper = mount(<MockApp><ImageLoader {...propsFadeIn} /></MockApp>)
+
       wrapper.find('img').simulate('load')
       expect(wrapper).toMatchSnapshot()
       wrapper.unmount()
