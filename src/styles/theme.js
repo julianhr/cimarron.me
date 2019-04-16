@@ -1,16 +1,17 @@
 export const colors = {
+  background: '#FFF',
+  code: '#D90000',
+  error: '#d400ff',
+  field: {
+    background: '#f7f7f7',
+    border: '#BBB',
+  },
+  highlight: '#FFD342',
   text: '#222222',
   primary: {
-    dark: '#9b1518',
-    light: '#ce1f23'
-  },
-  code: '#D90000',
-  highlight: '#FFD342',
-  background: '#FFF',
-  field: {
-    background: '#ededed',
-    error: 'red',
-    border: '#D1D1C9'
+    dark: '#9B1518',
+    light: '#CE1F23',
+    dim: '#FFA8AA',
   },
 }
 

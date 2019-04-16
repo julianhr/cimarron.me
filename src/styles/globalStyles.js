@@ -5,6 +5,14 @@ const globalStyles = css`
   body {
     color: ${theme.colors.text},
     lineHeight 1.3em;
+    font-size: 18px;
+  }
+
+  input, textarea {
+    border: 2px solid ${theme.colors.field.border};
+    background: ${theme.colors.field.background};
+    border-radius: 5px;
+    font-size: 20px;
   }
 
   input, textarea {
@@ -24,6 +32,7 @@ const globalStyles = css`
 
   p {
     padding: .8em 0;
+    line-height: 1.4em;
   }
 
   h1 {
@@ -32,7 +41,7 @@ const globalStyles = css`
   }
 
   h2 {
-    line-height: 2em;
+    line-height: 1.4em;
     font-size: 30px;
     font-weight: 600;
     margin: 40px 0 30px;

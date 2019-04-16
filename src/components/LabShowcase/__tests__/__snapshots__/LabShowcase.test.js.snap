@@ -16,7 +16,7 @@ exports[`LabShowcase should match snapshot 1`] = `
         class="css-1t2crv9-Root-ImageLoader eeswxza0"
       >
         <img
-          class="css-3fxohy-Img-ImageLoader eeswxza1"
+          class="css-1k90mm3"
           src="http://image1.com"
         />
       </figure>
@@ -53,7 +53,7 @@ exports[`LabShowcase should match snapshot 1`] = `
         class="css-1t2crv9-Root-ImageLoader eeswxza0"
       >
         <img
-          class="css-3fxohy-Img-ImageLoader eeswxza1"
+          class="css-1k90mm3"
           src="http://image2.com"
         />
       </figure>
