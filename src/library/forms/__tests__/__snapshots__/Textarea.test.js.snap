@@ -1,0 +1,80 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Textarea erorr highlighting snapshot when there is error text 1`] = `
+.emotion-2 {
+  background: yellow;
+}
+
+.emotion-0 {
+  color: green;
+}
+
+.emotion-1 {
+  color: orange;
+}
+
+<div
+  className="field emotion-2"
+>
+  <label
+    className="emotion-0"
+    htmlFor="age"
+  >
+    test label
+  </label>
+  <textarea
+    cols={15}
+    defaultValue="test value"
+    id="age"
+    name="age"
+    onChange={[Function]}
+    rows={12}
+  />
+  <span
+    className="emotion-1"
+  />
+</div>
+`;
+
+exports[`Textarea erorr highlighting snapshot without error txt 1`] = `
+.emotion-3 {
+  background: yellow;
+}
+
+.emotion-0 {
+  color: green;
+}
+
+.emotion-1 {
+  border: 2px solid #d400ff;
+}
+
+.emotion-2 {
+  color: orange;
+}
+
+<div
+  className="field emotion-3"
+>
+  <label
+    className="emotion-0"
+    htmlFor="age"
+  >
+    test label
+  </label>
+  <textarea
+    className="emotion-1"
+    cols={15}
+    defaultValue="test value"
+    id="age"
+    name="age"
+    onChange={[Function]}
+    rows={12}
+  />
+  <span
+    className="emotion-2"
+  >
+    test error message
+  </span>
+</div>
+`;

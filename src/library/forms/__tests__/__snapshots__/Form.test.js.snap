@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Form props incorporates formStyle if passed 1`] = `
+.emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  color: salmon;
+}
+
+.emotion-0 div.field {
+  margin-bottom: 15px;
+}
+
+.emotion-0 label {
+  padding: 0 10px 4px;
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  color: #9B1518;
+  font-size: 1.1em;
+}
+
+.emotion-0 input,
+.emotion-0 textarea {
+  width: 100%;
+  margin-bottom: 5px;
+}
+
+.emotion-0 input:focus,
+.emotion-0 textarea:focus {
+  outline: none;
+}
+
+.emotion-0 input {
+  padding: 10px 12px;
+}
+
+.emotion-0 textarea {
+  padding: 12px;
+}
+
+.emotion-0 span {
+  color: #d400ff;
+  font-size: 18px;
+  padding: 0 10px;
+}
+
+.emotion-0 button[type=submit] {
+  margin-top: 20px;
+}
+
+<form
+  className="emotion-0 emotion-1"
+  method="POST"
+  onKeyPress={[Function]}
+  onSubmit={[Function]}
+>
+  <input
+    defaultValue="test value"
+    type="text"
+  />
+</form>
+`;
