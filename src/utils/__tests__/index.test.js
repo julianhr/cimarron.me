@@ -24,11 +24,11 @@ describe('#urlBuilder', () => {
 
     it('returns a valid url', () => {
       const cases = {
-        '/': '',
-        '/path/start/slash': '/path/start/slash',
-        '/path/start/slash/': '/path/start/slash',
-        'path/start/empty': '/path/start/empty',
-        'path/start/empty/': '/path/start/empty',
+        '/': '/',
+        '/path/start/slash': '/path/start/slash/',
+        '/path/start/slash/': '/path/start/slash/',
+        'path/start/empty': '/path/start/empty/',
+        'path/start/empty/': '/path/start/empty/',
       }
 
       for (let [path, expected] of Object.entries(cases)) {
@@ -39,10 +39,10 @@ describe('#urlBuilder', () => {
 
     it('appends query params', () => {
       const cases = [
-        ['/', { num: 1, foo: 'bar' }, '?num=1&foo=bar'],
-        ['/test/path', { num: 1, foo: 'bar' }, '/test/path?num=1&foo=bar'],
-        ['test/path', { num: 1, foo: 'bar' }, '/test/path?num=1&foo=bar'],
-        ['test/path/', { num: 1, foo: 'bar' }, '/test/path?num=1&foo=bar'],
+        ['/', { num: 1, foo: 'bar' }, '/?num=1&foo=bar'],
+        ['/test/path', { num: 1, foo: 'bar' }, '/test/path/?num=1&foo=bar'],
+        ['test/path', { num: 1, foo: 'bar' }, '/test/path/?num=1&foo=bar'],
+        ['test/path/', { num: 1, foo: 'bar' }, '/test/path/?num=1&foo=bar'],
       ]
 
       for (let [path, query, expected] of cases) {
@@ -53,11 +53,11 @@ describe('#urlBuilder', () => {
 
     it('adds a port', () => {
       const cases = [
-        ['/', {}, 300, ':300'],
-        ['/', { foo: 'bar' }, 300, ':300?foo=bar'],
-        ['/path', {}, 300, ':300/path'],
-        ['/path/', {}, 300, ':300/path'],
-        ['/path/that', { foo: 'bar' }, 300, ':300/path/that?foo=bar'],
+        ['/', {}, 300, ':300/'],
+        ['/', { foo: 'bar' }, 300, ':300/?foo=bar'],
+        ['/path', {}, 300, ':300/path/'],
+        ['/path/', {}, 300, ':300/path/'],
+        ['/path/that', { foo: 'bar' }, 300, ':300/path/that/?foo=bar'],
       ]
 
       for (let [path, query, port, expected] of cases) {
@@ -70,12 +70,12 @@ describe('#urlBuilder', () => {
       expect(() => urlBuilder('/', {}, null, 'invalid') ).toThrow()
     })
 
-    it('prepends whiltelisted subdomain', () => {
+    it('prepends whitelisted subdomain', () => {
       for (let sub of API_SUB_DOMAINS) {
         const cases = [
-          ['/', {}, 300, sub, `https://${sub}.cimarron.me:300`],
-          ['/', {}, null, sub, `https://${sub}.cimarron.me`],
-          ['/path/that', {foo: 'bar'}, null, sub, `https://${sub}.cimarron.me/path/that?foo=bar`],
+          ['/', {}, 300, sub, `https://${sub}.cimarron.me:300/`],
+          ['/', {}, null, sub, `https://${sub}.cimarron.me/`],
+          ['/path/that', {foo: 'bar'}, null, sub, `https://${sub}.cimarron.me/path/that/?foo=bar`],
         ]
   
         for (let [path, query, port, api, expected] of cases) {
@@ -89,10 +89,10 @@ describe('#urlBuilder', () => {
   describe('localhost', () => {
     it('works correctly', () => {
       const cases = [
-        ['/', {}, 700, `http://localhost:700`],
-        ['/', {}, null, `http://localhost:5000`],
-        ['/path/that', {foo: 'bar'}, null, `http://localhost:5000/path/that?foo=bar`],
-        ['/path/that', {foo: 'bar'}, 700, `http://localhost:700/path/that?foo=bar`],
+        ['/', {}, 700, `http://localhost:700/`],
+        ['/', {}, null, `http://localhost:5000/`],
+        ['/path/that', {foo: 'bar'}, null, `http://localhost:5000/path/that/?foo=bar`],
+        ['/path/that', {foo: 'bar'}, 700, `http://localhost:700/path/that/?foo=bar`],
       ]
 
       for (let [path, query, port, expected] of cases) {
