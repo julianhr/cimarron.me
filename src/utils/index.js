@@ -11,12 +11,10 @@ export function urlBuilder(basePath, query={}, basePort, api='api.flask') {
   const host = isProduction ? `https://${api}.cimarron.me` : 'http://localhost'
   const port = isNumber(basePort) ? `:${basePort}` : (isProduction ? '' : ':5000')
 
-  let path = basePath[0] === '/' ? basePath.slice(1) : basePath
-  path = path.length > 1 && path[path.length - 1] === '/' ? path.slice(0, -1) : path
+  let path = basePath[0] === '/' ? basePath : `/${basePath}`
+  path += path.length > 1 && path[path.length - 1] !== '/' ? '/' : ''
 
-  let urlBase = host + port
-  urlBase += path ? '/' + path : ''
-
+  const urlBase = host + port + path
   const urlQuery = Object.entries(query).map(([key, val]) => `${key}=${val}`).join('&')
   const url = `${urlBase}` + (urlQuery ? `?${urlQuery}` : '')
   return url
