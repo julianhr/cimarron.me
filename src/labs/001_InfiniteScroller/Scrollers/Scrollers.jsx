@@ -46,7 +46,7 @@ export class Scrollers extends React.PureComponent {
   }
 
   async fetchCards() {
-    const path = '/infinite-scroller'
+    const path = '/labs/infinite-scroller'
     const query = { paragraphs: 1, entries: this.props.recordsPerFetch }
     const url = urlBuilder(path, query)
     const res = await fetch(url)
