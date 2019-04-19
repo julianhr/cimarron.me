@@ -1,25 +1,17 @@
 import { css } from '@emotion/core'
-import theme from './theme'
 
-const globalStyles = css`
+const globalStyles = (props) => css`
   body {
-    color: ${theme.colors.text},
+    color: ${props.colors.text},
     lineHeight 1.3em;
     font-size: 18px;
   }
 
   input, textarea {
-    border: 2px solid ${theme.colors.field.border};
-    background: ${theme.colors.field.background};
+    border: 2px solid ${props.colors.field.border};
+    background: ${props.colors.field.background};
     border-radius: 5px;
     font-size: 20px;
-  }
-
-  input, textarea {
-    border: 1px solid ${theme.colors.field.border};
-    background: ${theme.colors.field.background};
-    font-size: 1.1em;
-    padding: 4px 8px;
   }
 
   p, h1, h2, h3, h4, h5, h6, figure {
@@ -27,7 +19,7 @@ const globalStyles = css`
   }
 
   h1, h2, h3, h4, h5, h6 {
-    color: ${theme.colors.primary.dark};
+    color: ${props.colors.primary.dark};
   }
 
   p {
@@ -67,7 +59,7 @@ const globalStyles = css`
   }
 
   code {
-    color: ${theme.colors.code};
+    color: ${props.colors.code};
     font-size: 14;
   }
 `
