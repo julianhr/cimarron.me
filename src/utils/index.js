@@ -1,21 +1,25 @@
-const validApiSubDomains = new Set('api.flask api.rails api.node'.split(' '))
+import { isNumber } from 'lodash-es'
+
+
+export const API_SUB_DOMAINS = new Set('api.flask api.rails api.node'.split(' '))
 
 export function urlBuilder(basePath, query={}, basePort, api='api.flask') {
-  if (!validApiSubDomains.has(api)) { throw new Error('invalid api argument') }
+  if (!API_SUB_DOMAINS.has(api)) { throw new Error('invalid api argument') }
 
   basePath = basePath.trim()
   const isProduction = process.env.NODE_ENV === 'production'
   const host = isProduction ? `https://${api}.cimarron.me` : 'http://localhost'
-  const port = basePort === undefined ? (isProduction ? '443' : '5000') : basePort
-  const path = basePath.length > 0 && basePath[0] === '/' ? basePath.slice(1) : basePath
-  const urlBase = `${host}:${port}/${path}`
+  const port = isNumber(basePort) ? `:${basePort}` : (isProduction ? '' : ':5000')
+
+  let path = basePath[0] === '/' ? basePath.slice(1) : basePath
+  path = path.length > 1 && path[path.length - 1] === '/' ? path.slice(0, -1) : path
+
+  let urlBase = host + port
+  urlBase += path ? '/' + path : ''
+
   const urlQuery = Object.entries(query).map(([key, val]) => `${key}=${val}`).join('&')
-
-  return `${urlBase}/?${urlQuery}`
-}
-
-export function clamp(value, min, max) {
-  return Math.min( Math.max(value, min), max )
+  const url = `${urlBase}` + (urlQuery ? `?${urlQuery}` : '')
+  return url
 }
 
 export function getRangeArray(min, max, isString=false) {
