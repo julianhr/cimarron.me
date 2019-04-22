@@ -1,0 +1,82 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EmailForm matches snapshot 1`] = `
+<form
+  className="css-1gqr0i7-FormTag-EmailForm ehpgenw0"
+  method="POST"
+  onKeyPress={[Function]}
+  onSubmit={[Function]}
+>
+  <div
+    className="field"
+  >
+    <label
+      htmlFor="email"
+    >
+      Your Email
+    </label>
+    <input
+      defaultValue="Araceli_Berge@hotmail.com"
+      id="email"
+      name="email"
+      onChange={[Function]}
+      type="email"
+    />
+    <span />
+  </div>
+  <div
+    className="field"
+  >
+    <label
+      htmlFor="name"
+    >
+      Your Name
+    </label>
+    <input
+      defaultValue="Ms. Wilfredo Bogan"
+      id="name"
+      name="name"
+      onChange={[Function]}
+      type="text"
+    />
+    <span />
+  </div>
+  <div
+    className="field"
+  >
+    <label
+      htmlFor="subject"
+    >
+      Subject
+    </label>
+    <input
+      defaultValue="Reprehenderit non dolores consequatur sit voluptatem."
+      id="subject"
+      name="subject"
+      onChange={[Function]}
+      type="text"
+    />
+    <span />
+  </div>
+  <div
+    className="field"
+  >
+    <label
+      htmlFor="message"
+    >
+      Message
+    </label>
+    <textarea
+      defaultValue="Nisi nostrum consequatur eligendi pariatur eaque ducimus eveniet ipsam autem commodi illo qui exercitationem repudiandae beatae praesentium minus ad veritatis sint ut praesentium at perspiciatis necessitatibus est corrupti eum sapiente quidem delectus est itaque tenetur ut similique voluptatibus quidem laborum eaque quisquam placeat minima vero omnis atque velit incidunt rerum quas ea dolores voluptates quia fugiat odit quas et ipsum distinctio et animi sit distinctio velit et ut tenetur ea dolorem consequatur dolores fugit assumenda autem sunt consequatur maxime est ut expedita rerum provident minima maxime magnam possimus iusto nisi est et aut enim illo recusandae et odio quidem rem."
+      id="message"
+      name="message"
+      onChange={[Function]}
+      rows={20}
+    />
+    <span />
+  </div>
+  <button>
+    Test
+  </button>
+</form>
+`;
