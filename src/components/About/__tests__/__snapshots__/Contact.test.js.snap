@@ -1,0 +1,285 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Contact #getEmailFormBtn returns submit button for form 1`] = `
+<button
+  className="css-1kledvh-Btn-Button exgske30"
+  onClick={[Function]}
+  type="submit"
+>
+  Send
+</button>
+`;
+
+exports[`Contact integration tests #render displays errors on fields upon submitting 1`] = `
+Array [
+  <ForwardRef(render)
+    styles={[Function]}
+  />,
+  Array [
+    <H3>
+      <h3
+        className="css-y3kj8y-H3 eg7gz160"
+      >
+        Contact
+      </h3>
+    </H3>,
+    <EmotionCssPropInternal
+      __EMOTION_LABEL_PLEASE_DO_NOT_USE__="Form"
+      __EMOTION_TYPE_PLEASE_DO_NOT_USE__={
+        Object {
+          "$$typeof": Symbol(react.forward_ref),
+          "__emotion_base": "form",
+          "__emotion_forwardProp": undefined,
+          "__emotion_real": [Circular],
+          "__emotion_styles": Array [
+            "label:FormTag;",
+            "display:flex;flex-direction:column;div.field{margin-bottom:15px;}label{padding:0 10px 4px;width:100%;display:flex;color:",
+            [Function],
+            ";font-size:1.1em;}input,textarea{width:100%;margin-bottom:5px;:focus{outline:none;}}input{padding:10px 12px;}textarea{padding:12px;}span{color:",
+            [Function],
+            ";font-size:18px;padding:0 10px;}button[type=submit]{margin-top:20px;}",
+          ],
+          "defaultProps": undefined,
+          "displayName": "FormTag",
+          "render": [Function],
+          "withComponent": [Function],
+        }
+      }
+      css={
+        Object {
+          "name": "hpfsa3-EmailForm",
+          "styles": "align-self:center;width:80%;max-width:560px;label:EmailForm;",
+        }
+      }
+      method="POST"
+      onKeyPress={[Function]}
+      onSubmit={[Function]}
+    >
+      <FormTag
+        className="css-hpfsa3-EmailForm"
+        method="POST"
+        onKeyPress={[Function]}
+        onSubmit={[Function]}
+      >
+        <form
+          className="css-1gqr0i7-FormTag-EmailForm ehpgenw0"
+          method="POST"
+          onKeyPress={[Function]}
+          onSubmit={[Function]}
+        >
+          <div
+            className="field"
+          >
+            <label
+              htmlFor="email"
+            >
+              Your Email
+            </label>
+            <input
+              defaultValue={null}
+              id="email"
+              name="email"
+              onChange={[Function]}
+              type="email"
+            />
+            <span />
+          </div>
+          <div
+            className="field"
+          >
+            <label
+              htmlFor="name"
+            >
+              Your Name
+            </label>
+            <input
+              defaultValue={null}
+              id="name"
+              name="name"
+              onChange={[Function]}
+              type="text"
+            />
+            <span />
+          </div>
+          <div
+            className="field"
+          >
+            <label
+              htmlFor="subject"
+            >
+              Subject
+            </label>
+            <input
+              defaultValue={null}
+              id="subject"
+              name="subject"
+              onChange={[Function]}
+              type="text"
+            />
+            <span />
+          </div>
+          <div
+            className="field"
+          >
+            <label
+              htmlFor="message"
+            >
+              Message
+            </label>
+            <textarea
+              defaultValue={null}
+              id="message"
+              name="message"
+              onChange={[Function]}
+              rows={20}
+            />
+            <span />
+          </div>
+          <EmotionCssPropInternal
+            __EMOTION_LABEL_PLEASE_DO_NOT_USE__="Button"
+            __EMOTION_TYPE_PLEASE_DO_NOT_USE__={
+              Object {
+                "$$typeof": Symbol(react.forward_ref),
+                "__emotion_base": "button",
+                "__emotion_forwardProp": undefined,
+                "__emotion_real": [Circular],
+                "__emotion_styles": Array [
+                  "label:Btn;",
+                  "border:2px solid ",
+                  [Function],
+                  ";border-radius:5px;background:transparent;padding:4px 16px;color:",
+                  [Function],
+                  ";font-size:1.2em;height:44px;min-width:140px;:hover{cursor:pointer;}:disabled{border:2px solid ",
+                  [Function],
+                  ";color:",
+                  [Function],
+                  ";}",
+                ],
+                "defaultProps": undefined,
+                "displayName": "Btn",
+                "render": [Function],
+                "withComponent": [Function],
+              }
+            }
+            css={
+              Object {
+                "alignSelf": "flex-end",
+              }
+            }
+            onClick={[Function]}
+            type="submit"
+          >
+            <Btn
+              className="css-gp6nfq-Button"
+              onClick={[Function]}
+              type="submit"
+            >
+              <button
+                className="css-1kledvh-Btn-Button exgske30"
+                onClick={[Function]}
+                type="submit"
+              >
+                Send
+              </button>
+            </Btn>
+          </EmotionCssPropInternal>
+        </form>
+      </FormTag>
+    </EmotionCssPropInternal>,
+  ],
+]
+`;
+
+exports[`Contact integration tests #render displays form when CSRF token is set 1`] = `
+Array [
+  <h3
+    className="css-y3kj8y-H3 eg7gz160"
+  >
+    Contact
+  </h3>,
+  <form
+    className="css-1gqr0i7-FormTag-EmailForm ehpgenw0"
+    method="POST"
+    onKeyPress={[Function]}
+    onSubmit={[Function]}
+  >
+    <div
+      className="field"
+    >
+      <label
+        htmlFor="email"
+      >
+        Your Email
+      </label>
+      <input
+        defaultValue={null}
+        id="email"
+        name="email"
+        onChange={[Function]}
+        type="email"
+      />
+      <span />
+    </div>
+    <div
+      className="field"
+    >
+      <label
+        htmlFor="name"
+      >
+        Your Name
+      </label>
+      <input
+        defaultValue={null}
+        id="name"
+        name="name"
+        onChange={[Function]}
+        type="text"
+      />
+      <span />
+    </div>
+    <div
+      className="field"
+    >
+      <label
+        htmlFor="subject"
+      >
+        Subject
+      </label>
+      <input
+        defaultValue={null}
+        id="subject"
+        name="subject"
+        onChange={[Function]}
+        type="text"
+      />
+      <span />
+    </div>
+    <div
+      className="field"
+    >
+      <label
+        htmlFor="message"
+      >
+        Message
+      </label>
+      <textarea
+        defaultValue={null}
+        id="message"
+        name="message"
+        onChange={[Function]}
+        rows={20}
+      />
+      <span />
+    </div>
+    <button
+      className="css-1kledvh-Btn-Button exgske30"
+      onClick={[Function]}
+      type="submit"
+    >
+      Send
+    </button>
+  </form>,
+]
+`;
+
+exports[`Contact integration tests #render does not render if CSRF token not present 1`] = `null`;

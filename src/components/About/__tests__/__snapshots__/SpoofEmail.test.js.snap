@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SpoofEmail matches snapshot 1`] = `
+<div
+  class="css-1858cwa-Root e1bi310a0"
+>
+  <h2
+    class="css-1latw0z-EmailSent"
+  >
+    That was an awefully suspicious email
+  </h2>
+  <test-file-stub
+    height="240"
+    width="240"
+  />
+  <h2
+    class="css-1rh688y-EmailSent"
+  >
+    I have reported it to my detective minions
+  </h2>
+</div>
+`;

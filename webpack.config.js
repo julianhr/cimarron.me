@@ -28,16 +28,16 @@ module.exports = (env, argv) => {
     module: {
       rules: [
         {
-          test: /\.(js|jsx)$/,
+          test: /\.(js|jsx)$/i,
           include: path.resolve(__dirname, 'src'),
           loader: 'babel-loader',
         },
         {
-          test: /\.css$/,
+          test: /\.css$/i,
           use: ['style-loader', 'css-loader'],
         },
         {
-          test: /\.md$/,
+          test: /\.md$/i,
           use: [
             'html-loader',
             {
@@ -57,7 +57,10 @@ module.exports = (env, argv) => {
               }
             }
           ]
-  
+        },
+        {
+          test: /\.svg$/i,
+          loader: 'react-svg-loader',
         }
       ]
     },
