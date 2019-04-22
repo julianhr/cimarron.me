@@ -5,6 +5,7 @@ import styled from '@emotion/styled'
 import AnchorTag from '~/library/AnchorTag'
 import ImageLoader from '~/library/ImageLoader'
 import linkedInBtnSrc from '~/assets/img/linkedin_btn.png'
+import Contact from './Contact'
 
 
 const Root = styled.section`
@@ -31,6 +32,7 @@ function About() {
           imgSrc={linkedInBtnSrc}
         />
       </AnchorTag>
+      <Contact />
     </Root>
   )
 }
