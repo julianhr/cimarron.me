@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EmailSent matches snapshot 1`] = `
+<div
+  class="css-9okclz-Root e11ghwax0"
+>
+  <figure
+    class="css-yxmayv-Root-ImageLoader eeswxza0"
+  >
+    <img
+      class="css-0"
+      src="test-file-stub"
+    />
+  </figure>
+  <h3
+    class="css-tecitd-EmailSent"
+  >
+    Message successfully sent
+  </h3>
+  <h3>
+    Thank you!
+  </h3>
+</div>
+`;
