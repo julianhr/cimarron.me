@@ -64,16 +64,16 @@
     "jest-emotion": "^10.0.10",
     "jest-environment-jsdom-fourteen": "^0.1.0",
     "jest-pnp-resolver": "^1.2.1",
-    "jsdom": "^14.0.0",
+    "jsdom": "^14.1.0",
     "lodash-webpack-plugin": "^0.11.5",
     "markdown-loader": "^5.0.0",
     "react-svg-loader": "^2.1.0",
     "react-test-renderer": "^16.8.6",
     "style-loader": "^0.23.1",
     "url-loader": "^1.1.2",
-    "webpack": "^4.29.5",
-    "webpack-cli": "^3.2.3",
-    "webpack-dev-server": "^3.3.0"
+    "webpack": "^4.30.0",
+    "webpack-cli": "^3.3.1",
+    "webpack-dev-server": "^3.3.1"
   },
   "browserslist": [
     ">1%",
@@ -103,10 +103,7 @@
         }
       ],
       "react/display-name": false,
-      "semi": [
-        "error",
-        "never"
-      ]
+      "semi": ["error", "never"]
     }
   }
 }
