@@ -1,6 +1,7 @@
 import React from 'react'
 import { render, mount, shallow } from 'enzyme'
 import { create } from 'react-test-renderer'
+import faker from 'faker'
 
 import Contact from '../Contact'
 import MockApp from '~/__tests__/__mocks__/MockApp'
@@ -76,7 +77,8 @@ describe('Contact', () => {
     })
 
     describe('not submitted', () => {
-      it('updates field value but does not set errors', async () => {
+      it('updates field values but does not set errors', async () => {
+        const pastDeboucedMs = 200
         const { instance } = createApp().root.findByType(Contact)
         const partialEmail = 'test@'
         const expectedFieldValues = { ...fieldValues, email: partialEmail }
@@ -84,7 +86,7 @@ describe('Contact', () => {
         instance.setState({ wasFormSubmitted: false, fieldValues, fieldErrors: {} })
         instance.debFieldOnChange('email', partialEmail)
 
-        await sleep(200)
+        await sleep(pastDeboucedMs)
         expect(instance.state.fieldValues).toEqual(expectedFieldValues)
         expect(instance.state.fieldErrors).toEqual({})
       })
@@ -92,34 +94,36 @@ describe('Contact', () => {
 
     describe('submit attempted', () => {
       it('updates field value and error if any', async () => {
+        const pastDeboucedMs = 200
         const { instance } = createApp().root.findByType(Contact)
         instance.formRefs.email.current = { focus: () => {} }
         jest.spyOn(instance, 'render').mockReturnValue(null)  // render nullifies refs
         instance.setState({ wasFormSubmitted: true, fieldValues, fieldErrors: {} })
 
-        let partialEmail = 'longusername@'
-        let expectedFieldValues = { ...fieldValues, email: partialEmail }
-        instance.debFieldOnChange('email', partialEmail)
-        await sleep(200)
+        let emailEntered = 'longusername@'
+        let expectedFieldValues = { ...fieldValues, email: emailEntered }
+        instance.debFieldOnChange('email', emailEntered)
+        await sleep(pastDeboucedMs)
         expect(instance.state.fieldValues).toEqual(expectedFieldValues)
         expect(instance.state.fieldErrors).toEqual({ email: ERRORS.email() })
 
-        partialEmail = 'longusername@email'
-        expectedFieldValues = { ...fieldValues, email: partialEmail }
-        instance.debFieldOnChange('email', partialEmail)
-        await sleep(200)
+        emailEntered = 'longusername@email.com'
+        expectedFieldValues = { ...fieldValues, email: emailEntered }
+        instance.debFieldOnChange('email', emailEntered)
+        await sleep(pastDeboucedMs)
+        expect(instance.state.fieldValues).toEqual(expectedFieldValues)
+        expect(instance.state.fieldErrors).toEqual({})
+
+        emailEntered = 'longusername@email'
+        expectedFieldValues = { ...fieldValues, email: emailEntered }
+        instance.debFieldOnChange('email', emailEntered)
+        await sleep(pastDeboucedMs)
         expect(instance.state.fieldValues).toEqual(expectedFieldValues)
         expect(instance.state.fieldErrors).toEqual({ email: ERRORS.email() })
-
-        partialEmail = ''
-        expectedFieldValues = { ...fieldValues, email: partialEmail }
-        instance.debFieldOnChange('email', partialEmail)
-        await sleep(200)
-        expect(instance.state.fieldValues).toEqual(expectedFieldValues)
-        expect(instance.state.fieldErrors).toEqual({ email: ERRORS.required() })
       })
 
       it('moves focus to current field', async () => {
+        const pastDeboucedMs = 200
         const { instance } = createApp().root.findByType(Contact)
         const email = 'test@email.com'
         const mockFocus = jest.fn()
@@ -128,7 +132,7 @@ describe('Contact', () => {
         instance.setState({ wasFormSubmitted: true, fieldValues, fieldErrors: {} })
         instance.debFieldOnChange('email', email)
 
-        await sleep(200)
+        await sleep(pastDeboucedMs)
         expect(mockFocus).toHaveBeenCalledTimes(1)
       })
     })
@@ -371,24 +375,196 @@ describe('Contact', () => {
     })
 
     describe('#render', () => {
+      const mockFetchCsrfTokenResp = {
+        ok: true,
+        json: async () => ({ token: 'test_token' }),
+      }
+
       it('does not render if CSRF token not present', async () => {
         jest.spyOn(Contact.prototype, 'setCsrfToken').mockResolvedValue(null)
         const wrapper = createApp()
-        await sleep(30)
+        await sleep(0)
         expect(wrapper).toMatchSnapshot()
       })
 
       it('displays form when CSRF token is set', async () => {
-        jest.spyOn(global, 'fetch').mockResolvedValue({
-          ok: true,
-          json: async () => ({ token: 'test_token' }),
-        })
+        jest.spyOn(global, 'fetch').mockResolvedValue(mockFetchCsrfTokenResp)
         const wrapper = createApp()
-        await sleep(30)
+        await sleep(0)
         expect(wrapper).toMatchSnapshot()
       })
 
-      xit('displays errors on fields upon submitting', async () => {
+      it('displays errors when form is submitted and does not post the data', async () => {
+        jest.spyOn(global, 'fetch').mockResolvedValue(mockFetchCsrfTokenResp)
+        const spy = jest.spyOn(Contact.prototype, 'sendEmail').mockResolvedValue(null)
+
+        const wrapper = createApp()
+        const { instance } = wrapper.root.findByType(Contact)
+
+        instance.setState(prevState => ({
+          fieldValues: {
+            ...prevState.fieldValues,
+            email: 'partialemail@',
+            name: 'valid name',
+            subject: 'valid subject',
+          }
+        }))
+        instance.formRefs.submit.current = document.createElement('button')
+        instance.handleFormOnSubmit(new MouseEvent('click'))
+
+        await sleep(0)
+        await expect(spy).not.toHaveBeenCalled()
+        expect(wrapper).toMatchSnapshot()
+      })
+
+      describe('400 error', () => {
+        it('displays error if server detects errors on the fields', async () => {
+          const mockSendEmailResp = {
+            ok: false,
+            status: 400,
+            json: async () => ({
+              error_type: 'ValidationError',
+              error_payload: { email: 'test server invalid email' }
+            })
+          }
+          jest.spyOn(global, 'fetch').mockResolvedValue(mockFetchCsrfTokenResp)
+          jest.spyOn(Contact.prototype, 'sendEmail').mockResolvedValue(mockSendEmailResp)
+          const wrapper = createApp()
+          const { instance } = wrapper.root.findByType(Contact)
+  
+          faker.seed(123)
+          instance.setState(prevState => ({
+            fieldValues: {
+              ...prevState.fieldValues,
+              email: 'valid@email.com',
+              name: 'valid name',
+              subject: 'valid subject',
+              message: faker.lorem.paragraph(),
+            }
+          }))
+          instance.formRefs.submit.current = document.createElement('button')
+          await instance.handleFormOnSubmit(new MouseEvent('click'))
+          await sleep(0)
+          expect(wrapper).toMatchSnapshot()
+          faker.seed(123)
+        })
+  
+        it('displays corresponding text if server returns an unknown error', async () => {
+          const mockSendEmailResp = {
+            ok: false,
+            status: 400,
+            json: async () => 'test unknown error',
+            text: async () => 'test unknown error',
+          }
+          jest.spyOn(global, 'fetch').mockResolvedValue(mockFetchCsrfTokenResp)
+          jest.spyOn(Contact.prototype, 'sendEmail').mockResolvedValue(mockSendEmailResp)
+          const wrapper = createApp()
+          const { instance } = wrapper.root.findByType(Contact)
+  
+          faker.seed(123)
+          instance.setState(prevState => ({
+            fieldValues: {
+              ...prevState.fieldValues,
+              email: 'valid@email.com',
+              name: 'valid name',
+              subject: 'valid subject',
+              message: faker.lorem.paragraph(),
+            }
+          }))
+          instance.formRefs.submit.current = document.createElement('button')
+          await instance.handleFormOnSubmit(new MouseEvent('click'))
+          await sleep(0)
+          expect(wrapper).toMatchSnapshot()
+          faker.seed(123)
+        })
+  
+        it('renders SpoofEmail component if csrf token is invalid ', async () => {
+          const mockSendEmailResp = {
+            ok: false,
+            status: 400,
+            json: async () => ({
+              error_type: 'ValidationError',
+              error_payload: {
+                csrf_token: 'invalid token',
+                email: 'test server invalid email',
+              }
+            })
+          }
+          jest.spyOn(global, 'fetch').mockResolvedValue(mockFetchCsrfTokenResp)
+          jest.spyOn(Contact.prototype, 'sendEmail').mockResolvedValue(mockSendEmailResp)
+          const wrapper = createApp()
+          const { instance } = wrapper.root.findByType(Contact)
+  
+          faker.seed(123)
+          instance.setState(prevState => ({
+            fieldValues: {
+              ...prevState.fieldValues,
+              email: 'valid@email.com',
+              name: 'valid name',
+              subject: 'valid subject',
+              message: faker.lorem.paragraph(),
+            }
+          }))
+          instance.formRefs.submit.current = document.createElement('button')
+          await instance.handleFormOnSubmit(new MouseEvent('click'))
+          await sleep(0)
+          expect(wrapper).toMatchSnapshot()
+          faker.seed(123)
+        })
+      })
+
+      describe('500 error', () => {
+        it('displays error message', async () => {
+          const mockSendEmailResp = {
+            ok: false,
+            status: 500,
+            text: async () => 'test internal error',
+          }
+          jest.spyOn(global, 'fetch').mockResolvedValue(mockFetchCsrfTokenResp)
+          jest.spyOn(Contact.prototype, 'sendEmail').mockResolvedValue(mockSendEmailResp)
+          const wrapper = createApp()
+          const { instance } = wrapper.root.findByType(Contact)
+  
+          faker.seed(123)
+          instance.setState(prevState => ({
+            fieldValues: {
+              ...prevState.fieldValues,
+              email: 'valid@email.com',
+              name: 'valid name',
+              subject: 'valid subject',
+              message: faker.lorem.paragraph(),
+            }
+          }))
+          instance.formRefs.submit.current = document.createElement('button')
+          await instance.handleFormOnSubmit(new MouseEvent('click'))
+          await sleep(0)
+          expect(wrapper).toMatchSnapshot()
+          faker.seed(123)
+        })
+      })
+
+      it('renders EmailSent component email was sent successfully', async () => {
+        const mockSendEmailResp = { ok: true, status: 200 }
+        jest.spyOn(global, 'fetch').mockResolvedValue(mockFetchCsrfTokenResp)
+        jest.spyOn(Contact.prototype, 'sendEmail').mockResolvedValue(mockSendEmailResp)
+        const wrapper = createApp()
+        const { instance } = wrapper.root.findByType(Contact)
+
+        faker.seed(123)
+        instance.setState(prevState => ({
+          fieldValues: {
+            ...prevState.fieldValues,
+            email: 'valid@email.com',
+            name: 'valid name',
+            subject: 'valid subject',
+            message: faker.lorem.paragraph(),
+          }
+        }))
+        instance.formRefs.submit.current = document.createElement('button')
+        await instance.handleFormOnSubmit(new MouseEvent('click'))
+        await sleep(0)
+        expect(wrapper).toMatchSnapshot()
+        faker.seed(123)
       })
     })
   })

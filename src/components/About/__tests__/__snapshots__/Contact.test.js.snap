@@ -10,183 +10,419 @@ exports[`Contact #getEmailFormBtn returns submit button for form 1`] = `
 </button>
 `;
 
-exports[`Contact integration tests #render displays errors on fields upon submitting 1`] = `
+exports[`Contact integration tests #render 400 error displays corresponding text if server returns an unknown error 1`] = `
 Array [
-  <ForwardRef(render)
-    styles={[Function]}
-  />,
-  Array [
-    <H3>
-      <h3
-        className="css-y3kj8y-H3 eg7gz160"
-      >
-        Contact
-      </h3>
-    </H3>,
-    <EmotionCssPropInternal
-      __EMOTION_LABEL_PLEASE_DO_NOT_USE__="Form"
-      __EMOTION_TYPE_PLEASE_DO_NOT_USE__={
-        Object {
-          "$$typeof": Symbol(react.forward_ref),
-          "__emotion_base": "form",
-          "__emotion_forwardProp": undefined,
-          "__emotion_real": [Circular],
-          "__emotion_styles": Array [
-            "label:FormTag;",
-            "display:flex;flex-direction:column;div.field{margin-bottom:15px;}label{padding:0 10px 4px;width:100%;display:flex;color:",
-            [Function],
-            ";font-size:1.1em;}input,textarea{width:100%;margin-bottom:5px;:focus{outline:none;}}input{padding:10px 12px;}textarea{padding:12px;}span{color:",
-            [Function],
-            ";font-size:18px;padding:0 10px;}button[type=submit]{margin-top:20px;}",
-          ],
-          "defaultProps": undefined,
-          "displayName": "FormTag",
-          "render": [Function],
-          "withComponent": [Function],
-        }
-      }
-      css={
-        Object {
-          "name": "hpfsa3-EmailForm",
-          "styles": "align-self:center;width:80%;max-width:560px;label:EmailForm;",
-        }
-      }
-      method="POST"
-      onKeyPress={[Function]}
-      onSubmit={[Function]}
+  <h3
+    className="css-y3kj8y-H3 eg7gz160"
+  >
+    Contact
+  </h3>,
+  <form
+    className="css-1gqr0i7-FormTag-EmailForm ehpgenw0"
+    method="POST"
+    onKeyPress={[Function]}
+    onSubmit={[Function]}
+  >
+    <div
+      className="field"
     >
-      <FormTag
-        className="css-hpfsa3-EmailForm"
-        method="POST"
-        onKeyPress={[Function]}
-        onSubmit={[Function]}
+      <label
+        htmlFor="email"
       >
-        <form
-          className="css-1gqr0i7-FormTag-EmailForm ehpgenw0"
-          method="POST"
-          onKeyPress={[Function]}
-          onSubmit={[Function]}
-        >
-          <div
-            className="field"
-          >
-            <label
-              htmlFor="email"
-            >
-              Your Email
-            </label>
-            <input
-              defaultValue={null}
-              id="email"
-              name="email"
-              onChange={[Function]}
-              type="email"
-            />
-            <span />
-          </div>
-          <div
-            className="field"
-          >
-            <label
-              htmlFor="name"
-            >
-              Your Name
-            </label>
-            <input
-              defaultValue={null}
-              id="name"
-              name="name"
-              onChange={[Function]}
-              type="text"
-            />
-            <span />
-          </div>
-          <div
-            className="field"
-          >
-            <label
-              htmlFor="subject"
-            >
-              Subject
-            </label>
-            <input
-              defaultValue={null}
-              id="subject"
-              name="subject"
-              onChange={[Function]}
-              type="text"
-            />
-            <span />
-          </div>
-          <div
-            className="field"
-          >
-            <label
-              htmlFor="message"
-            >
-              Message
-            </label>
-            <textarea
-              defaultValue={null}
-              id="message"
-              name="message"
-              onChange={[Function]}
-              rows={20}
-            />
-            <span />
-          </div>
-          <EmotionCssPropInternal
-            __EMOTION_LABEL_PLEASE_DO_NOT_USE__="Button"
-            __EMOTION_TYPE_PLEASE_DO_NOT_USE__={
-              Object {
-                "$$typeof": Symbol(react.forward_ref),
-                "__emotion_base": "button",
-                "__emotion_forwardProp": undefined,
-                "__emotion_real": [Circular],
-                "__emotion_styles": Array [
-                  "label:Btn;",
-                  "border:2px solid ",
-                  [Function],
-                  ";border-radius:5px;background:transparent;padding:4px 16px;color:",
-                  [Function],
-                  ";font-size:1.2em;height:44px;min-width:140px;:hover{cursor:pointer;}:disabled{border:2px solid ",
-                  [Function],
-                  ";color:",
-                  [Function],
-                  ";}",
-                ],
-                "defaultProps": undefined,
-                "displayName": "Btn",
-                "render": [Function],
-                "withComponent": [Function],
-              }
-            }
-            css={
-              Object {
-                "alignSelf": "flex-end",
-              }
-            }
-            onClick={[Function]}
-            type="submit"
-          >
-            <Btn
-              className="css-gp6nfq-Button"
-              onClick={[Function]}
-              type="submit"
-            >
-              <button
-                className="css-1kledvh-Btn-Button exgske30"
-                onClick={[Function]}
-                type="submit"
-              >
-                Send
-              </button>
-            </Btn>
-          </EmotionCssPropInternal>
-        </form>
-      </FormTag>
-    </EmotionCssPropInternal>,
-  ],
+        Your Email
+      </label>
+      <input
+        defaultValue="valid@email.com"
+        id="email"
+        name="email"
+        onChange={[Function]}
+        type="email"
+      />
+      <span />
+    </div>
+    <div
+      className="field"
+    >
+      <label
+        htmlFor="name"
+      >
+        Your Name
+      </label>
+      <input
+        defaultValue="valid name"
+        id="name"
+        name="name"
+        onChange={[Function]}
+        type="text"
+      />
+      <span />
+    </div>
+    <div
+      className="field"
+    >
+      <label
+        htmlFor="subject"
+      >
+        Subject
+      </label>
+      <input
+        defaultValue="valid subject"
+        id="subject"
+        name="subject"
+        onChange={[Function]}
+        type="text"
+      />
+      <span />
+    </div>
+    <div
+      className="field"
+    >
+      <label
+        htmlFor="message"
+      >
+        Message
+      </label>
+      <textarea
+        defaultValue="Quis molestiae tempora eligendi omnis quisquam quisquam quos. Dolor voluptatibus velit nobis culpa deleniti. Reprehenderit in nisi et. Quia odio et inventore eligendi in deserunt id. Sit odio quia vitae provident quo provident molestiae."
+        id="message"
+        name="message"
+        onChange={[Function]}
+        rows={20}
+      />
+      <span />
+    </div>
+    <button
+      className="css-1kledvh-Btn-Button exgske30"
+      onClick={[Function]}
+      type="submit"
+    >
+      Send
+    </button>
+  </form>,
+  <div
+    className="css-sbk2pj-ErrorMessage eg7gz161"
+  >
+    <p>
+      There was an error sending this email:
+      <br />
+      test unknown error
+    </p>
+  </div>,
+]
+`;
+
+exports[`Contact integration tests #render 400 error displays error if server detects errors on the fields 1`] = `
+Array [
+  <h3
+    className="css-y3kj8y-H3 eg7gz160"
+  >
+    Contact
+  </h3>,
+  <form
+    className="css-1gqr0i7-FormTag-EmailForm ehpgenw0"
+    method="POST"
+    onKeyPress={[Function]}
+    onSubmit={[Function]}
+  >
+    <div
+      className="field"
+    >
+      <label
+        htmlFor="email"
+      >
+        Your Email
+      </label>
+      <input
+        className="css-7ujlhu-STYLES-STYLES"
+        defaultValue="valid@email.com"
+        id="email"
+        name="email"
+        onChange={[Function]}
+        type="email"
+      />
+      <span>
+        test server invalid email
+      </span>
+    </div>
+    <div
+      className="field"
+    >
+      <label
+        htmlFor="name"
+      >
+        Your Name
+      </label>
+      <input
+        defaultValue="valid name"
+        id="name"
+        name="name"
+        onChange={[Function]}
+        type="text"
+      />
+      <span />
+    </div>
+    <div
+      className="field"
+    >
+      <label
+        htmlFor="subject"
+      >
+        Subject
+      </label>
+      <input
+        defaultValue="valid subject"
+        id="subject"
+        name="subject"
+        onChange={[Function]}
+        type="text"
+      />
+      <span />
+    </div>
+    <div
+      className="field"
+    >
+      <label
+        htmlFor="message"
+      >
+        Message
+      </label>
+      <textarea
+        defaultValue="Quis molestiae tempora eligendi omnis quisquam quisquam quos. Dolor voluptatibus velit nobis culpa deleniti. Reprehenderit in nisi et. Quia odio et inventore eligendi in deserunt id. Sit odio quia vitae provident quo provident molestiae."
+        id="message"
+        name="message"
+        onChange={[Function]}
+        rows={20}
+      />
+      <span />
+    </div>
+    <button
+      className="css-1kledvh-Btn-Button exgske30"
+      onClick={[Function]}
+      type="submit"
+    >
+      Send
+    </button>
+  </form>,
+]
+`;
+
+exports[`Contact integration tests #render 400 error renders SpoofEmail component if csrf token is invalid  1`] = `
+<div
+  className="css-1858cwa-Root e1bi310a0"
+>
+  <h2
+    className="css-1latw0z-EmailSent"
+  >
+    That was an awefully suspicious email
+  </h2>
+  <test-file-stub
+    height={240}
+    width={240}
+  />
+  <h2
+    className="css-1rh688y-EmailSent"
+  >
+    I have reported it to my detective minions
+  </h2>
+</div>
+`;
+
+exports[`Contact integration tests #render 500 error displays error message 1`] = `
+Array [
+  <h3
+    className="css-y3kj8y-H3 eg7gz160"
+  >
+    Contact
+  </h3>,
+  <form
+    className="css-1gqr0i7-FormTag-EmailForm ehpgenw0"
+    method="POST"
+    onKeyPress={[Function]}
+    onSubmit={[Function]}
+  >
+    <div
+      className="field"
+    >
+      <label
+        htmlFor="email"
+      >
+        Your Email
+      </label>
+      <input
+        defaultValue="valid@email.com"
+        id="email"
+        name="email"
+        onChange={[Function]}
+        type="email"
+      />
+      <span />
+    </div>
+    <div
+      className="field"
+    >
+      <label
+        htmlFor="name"
+      >
+        Your Name
+      </label>
+      <input
+        defaultValue="valid name"
+        id="name"
+        name="name"
+        onChange={[Function]}
+        type="text"
+      />
+      <span />
+    </div>
+    <div
+      className="field"
+    >
+      <label
+        htmlFor="subject"
+      >
+        Subject
+      </label>
+      <input
+        defaultValue="valid subject"
+        id="subject"
+        name="subject"
+        onChange={[Function]}
+        type="text"
+      />
+      <span />
+    </div>
+    <div
+      className="field"
+    >
+      <label
+        htmlFor="message"
+      >
+        Message
+      </label>
+      <textarea
+        defaultValue="Quis molestiae tempora eligendi omnis quisquam quisquam quos. Dolor voluptatibus velit nobis culpa deleniti. Reprehenderit in nisi et. Quia odio et inventore eligendi in deserunt id. Sit odio quia vitae provident quo provident molestiae."
+        id="message"
+        name="message"
+        onChange={[Function]}
+        rows={20}
+      />
+      <span />
+    </div>
+    <button
+      className="css-1kledvh-Btn-Button exgske30"
+      onClick={[Function]}
+      type="submit"
+    >
+      Send
+    </button>
+  </form>,
+  <div
+    className="css-sbk2pj-ErrorMessage eg7gz161"
+  >
+    <p>
+      There was an error sending this email:
+      <br />
+      test internal error
+    </p>
+  </div>,
+]
+`;
+
+exports[`Contact integration tests #render displays errors when form is submitted and does not post the data 1`] = `
+Array [
+  <h3
+    className="css-y3kj8y-H3 eg7gz160"
+  >
+    Contact
+  </h3>,
+  <form
+    className="css-1gqr0i7-FormTag-EmailForm ehpgenw0"
+    method="POST"
+    onKeyPress={[Function]}
+    onSubmit={[Function]}
+  >
+    <div
+      className="field"
+    >
+      <label
+        htmlFor="email"
+      >
+        Your Email
+      </label>
+      <input
+        className="css-7ujlhu-STYLES-STYLES"
+        defaultValue="partialemail@"
+        id="email"
+        name="email"
+        onChange={[Function]}
+        type="email"
+      />
+      <span>
+        This email address is invalid
+      </span>
+    </div>
+    <div
+      className="field"
+    >
+      <label
+        htmlFor="name"
+      >
+        Your Name
+      </label>
+      <input
+        defaultValue="valid name"
+        id="name"
+        name="name"
+        onChange={[Function]}
+        type="text"
+      />
+      <span />
+    </div>
+    <div
+      className="field"
+    >
+      <label
+        htmlFor="subject"
+      >
+        Subject
+      </label>
+      <input
+        defaultValue="valid subject"
+        id="subject"
+        name="subject"
+        onChange={[Function]}
+        type="text"
+      />
+      <span />
+    </div>
+    <div
+      className="field"
+    >
+      <label
+        htmlFor="message"
+      >
+        Message
+      </label>
+      <textarea
+        className="css-7ujlhu-STYLES-STYLES"
+        defaultValue={null}
+        id="message"
+        name="message"
+        onChange={[Function]}
+        rows={20}
+      />
+      <span>
+        This field is required
+      </span>
+    </div>
+    <button
+      className="css-1kledvh-Btn-Button exgske30"
+      onClick={[Function]}
+      type="submit"
+    >
+      Send
+    </button>
+  </form>,
 ]
 `;
 
@@ -283,3 +519,26 @@ Array [
 `;
 
 exports[`Contact integration tests #render does not render if CSRF token not present 1`] = `null`;
+
+exports[`Contact integration tests #render renders EmailSent component email was sent successfully 1`] = `
+<div
+  className="css-9okclz-Root e11ghwax0"
+>
+  <figure
+    className="css-yxmayv-Root-ImageLoader eeswxza0"
+  >
+    <img
+      className="css-0"
+      src="test-file-stub"
+    />
+  </figure>
+  <h3
+    className="css-tecitd-EmailSent"
+  >
+    Message successfully sent
+  </h3>
+  <h3>
+    Thank you!
+  </h3>
+</div>
+`;

@@ -1,15 +1,22 @@
 import React from 'react'
+import { Provider } from 'react-redux'
+import { BrowserRouter } from 'react-router-dom'
+import { ThemeProvider } from 'emotion-theming'
 
-import withAppRoot from '~/library/withAppRoot'
 import appStore from '~/reducers'
+import theme from '~/styles/theme'
 
 
 function MockApp({ children }) {
   return (
-    <>
-      {children}
-    </>
+    <Provider store={appStore}>
+      <BrowserRouter>
+        <ThemeProvider theme={theme}>
+          {children}
+        </ThemeProvider>
+      </BrowserRouter>
+    </Provider>
   )
 }
 
-export default withAppRoot(MockApp, appStore)
+export default MockApp
