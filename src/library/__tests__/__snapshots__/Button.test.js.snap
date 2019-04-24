@@ -1,11 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Button snapshots with all props 1`] = `
-Array [
-  <ForwardRef(render)
-    styles={[Function]}
-  />,
-  .emotion-2 {
+.emotion-2 {
   color: green;
 }
 
@@ -31,27 +27,22 @@ Array [
 }
 
 <Btn
-    className="emotion-2"
+  className="emotion-2"
+  onClick={[Function]}
+  type="submit"
+>
+  <button
+    className="emotion-0 emotion-1"
     onClick={[Function]}
     type="submit"
   >
-    <button
-      className="emotion-0 emotion-1"
-      onClick={[Function]}
-      type="submit"
-    >
-      Hello!
-    </button>
-  </Btn>,
-]
+    Hello!
+  </button>
+</Btn>
 `;
 
 exports[`Button snapshots with required props 1`] = `
-Array [
-  <ForwardRef(render)
-    styles={[Function]}
-  />,
-  .emotion-0 {
+.emotion-0 {
   border: 2px solid #9B1518;
   border-radius: 5px;
   background: transparent;
@@ -72,17 +63,16 @@ Array [
 }
 
 <Btn
-    className="emotion-2"
+  className="emotion-2"
+  onClick={[Function]}
+  type="button"
+>
+  <button
+    className="emotion-0 emotion-1"
     onClick={[Function]}
     type="button"
   >
-    <button
-      className="emotion-0 emotion-1"
-      onClick={[Function]}
-      type="button"
-    >
-      Hello!
-    </button>
-  </Btn>,
-]
+    Hello!
+  </button>
+</Btn>
 `;

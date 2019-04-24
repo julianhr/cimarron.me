@@ -1,60 +1,50 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`MenuItem snapshots isLinkRouted == false 1`] = `
-Array [
-  <ForwardRef(render)
-    styles={[Function]}
-  />,
-  <Root>
-    <div
-      className="css-u96gbo-Root e1uo4w6s0"
+<Root>
+  <div
+    className="css-u96gbo-Root e1uo4w6s0"
+  >
+    <EmotionCssPropInternal
+      __EMOTION_LABEL_PLEASE_DO_NOT_USE__="AnchorTag"
+      __EMOTION_TYPE_PLEASE_DO_NOT_USE__="a"
+      css={[Function]}
+      href="/some/test/path"
+      rel="noopener noreferrer"
+      target={null}
     >
-      <EmotionCssPropInternal
-        __EMOTION_LABEL_PLEASE_DO_NOT_USE__="AnchorTag"
-        __EMOTION_TYPE_PLEASE_DO_NOT_USE__="a"
-        css={[Function]}
+      <a
+        className="css-1566xl0-STYLES-STYLES"
         href="/some/test/path"
         rel="noopener noreferrer"
         target={null}
       >
-        <a
-          className="css-1566xl0-STYLES-STYLES"
-          href="/some/test/path"
-          rel="noopener noreferrer"
-          target={null}
-        >
-          test label
-        </a>
-      </EmotionCssPropInternal>
-    </div>
-  </Root>,
-]
+        test label
+      </a>
+    </EmotionCssPropInternal>
+  </div>
+</Root>
 `;
 
 exports[`MenuItem snapshots isLinkRouted == true 1`] = `
-Array [
-  <ForwardRef(render)
-    styles={[Function]}
-  />,
-  <Root>
-    <div
-      className="css-u96gbo-Root e1uo4w6s0"
+<Root>
+  <div
+    className="css-u96gbo-Root e1uo4w6s0"
+  >
+    <EmotionCssPropInternal
+      __EMOTION_LABEL_PLEASE_DO_NOT_USE__="AnchorTag"
+      __EMOTION_TYPE_PLEASE_DO_NOT_USE__={[Function]}
+      css={[Function]}
+      to="/some/test/path"
     >
-      <EmotionCssPropInternal
-        __EMOTION_LABEL_PLEASE_DO_NOT_USE__="AnchorTag"
-        __EMOTION_TYPE_PLEASE_DO_NOT_USE__={[Function]}
-        css={[Function]}
-        to="/some/test/path"
+      <a
+        className="css-1566xl0-STYLES-STYLES"
+        href="/some/test/path"
+        onClick={[Function]}
       >
-        <a
-          className="css-1566xl0-STYLES-STYLES"
-          href="/some/test/path"
-          onClick={[Function]}
-        >
-          test label
-        </a>
-      </EmotionCssPropInternal>
-    </div>
-  </Root>,
-]
+        test label
+      </a>
+    </EmotionCssPropInternal>
+  </div>
+</Root>
 `;

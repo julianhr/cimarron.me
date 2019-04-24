@@ -1,48 +1,38 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AnchorTag snapshots matches with all props 1`] = `
-Array [
-  <ForwardRef(render)
-    styles={[Function]}
-  />,
-  <EmotionCssPropInternal
-    __EMOTION_LABEL_PLEASE_DO_NOT_USE__="AnchorTag"
-    __EMOTION_TYPE_PLEASE_DO_NOT_USE__="a"
-    css={
-      Object {
-        "background": "#CBA",
-      }
+<EmotionCssPropInternal
+  __EMOTION_LABEL_PLEASE_DO_NOT_USE__="AnchorTag"
+  __EMOTION_TYPE_PLEASE_DO_NOT_USE__="a"
+  css={
+    Object {
+      "background": "#CBA",
     }
+  }
+  href="http://test.com"
+  rel="noopener noreferrer"
+  target={null}
+>
+  <a
+    className="css-10aldfz-AnchorTag"
     href="http://test.com"
     rel="noopener noreferrer"
     target={null}
-  >
-    <a
-      className="css-10aldfz-AnchorTag"
-      href="http://test.com"
-      rel="noopener noreferrer"
-      target={null}
-    />
-  </EmotionCssPropInternal>,
-]
+  />
+</EmotionCssPropInternal>
 `;
 
 exports[`AnchorTag snapshots matches with required props 1`] = `
-Array [
-  <ForwardRef(render)
-    styles={[Function]}
-  />,
-  <EmotionCssPropInternal
-    __EMOTION_LABEL_PLEASE_DO_NOT_USE__="AnchorTag"
-    __EMOTION_TYPE_PLEASE_DO_NOT_USE__={[Function]}
-    css={Object {}}
-    to="http://test.com"
-  >
-    <a
-      className="css-q7jxp9-AnchorTag"
-      href="/http://test.com"
-      onClick={[Function]}
-    />
-  </EmotionCssPropInternal>,
-]
+<EmotionCssPropInternal
+  __EMOTION_LABEL_PLEASE_DO_NOT_USE__="AnchorTag"
+  __EMOTION_TYPE_PLEASE_DO_NOT_USE__={[Function]}
+  css={Object {}}
+  to="http://test.com"
+>
+  <a
+    className="css-q7jxp9-AnchorTag"
+    href="/http://test.com"
+    onClick={[Function]}
+  />
+</EmotionCssPropInternal>
 `;
