@@ -140,9 +140,9 @@ module.exports = {
   // A list of paths to modules that run some code to configure or set up the testing framework before each test
   // setupFilesAfterEnv: [],
   setupFilesAfterEnv: [
-    '<rootDir>/configs/jestExtendConfig.js',
-    '<rootDir>/configs/enzymeConfig.js',
-    '<rootDir>/configs/enzymeSerializersConfig.js',
+    '<rootDir>/jest_configs/jestExtendConfig.js',
+    '<rootDir>/jest_configs/enzymeConfig.js',
+    '<rootDir>/jest_configs/enzymeSerializersConfig.js',
   ],
 
   // A list of paths to snapshot serializer modules Jest should use for snapshot testing
@@ -189,7 +189,7 @@ module.exports = {
   // transform: null
   transform: {
     // https://github.com/facebook/jest/issues/6229
-    "^.+\\.(js|jsx)$": "./configs/jestTransform.js"
+    "^.+\\.(js|jsx)$": "./jest_configs/jestTransform.js"
   },
 
   // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
