@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from '@emotion/styled'
 import { debounce } from 'lodash-es'
+import * as Sentry from '@sentry/browser'
 
 import { urlBuilder } from '~/utils'
 import EmailForm from './EmailForm'
@@ -53,7 +54,7 @@ class Contact extends React.PureComponent {
   }
 
   handleFieldOnChange({ target: { name, value } }) {
-    this.debFieldOnChange.call(this, name, value)
+    this.debFieldOnChange(name, value)
   }
 
   debFieldOnChange = debounce((name, value) => {
@@ -80,12 +81,16 @@ class Contact extends React.PureComponent {
   }, 150)
 
   async setCsrfToken() {
-    const urlCsrfToken = urlBuilder('/cimarron/generate-token')
-    const res = await fetch(urlCsrfToken)
+    try {
+      const urlCsrfToken = urlBuilder('/cimarron/generate-token')
+      const res = await fetch(urlCsrfToken)
 
-    if (res.ok) {
-      const json = await res.json()
-      this.setState({ fieldValues: { ...this.state.fieldValues, csrf_token: json.token } })
+      if (res.ok) {
+        const json = await res.json()
+        this.setState({ fieldValues: { ...this.state.fieldValues, csrf_token: json.token } })
+      }
+    } catch (error) {
+      Sentry.captureException(error)
     }
   }
 
@@ -103,6 +108,7 @@ class Contact extends React.PureComponent {
       await this.checkSendEmailRespErrors(resp)
       this.setState({ emailStatus: 'sent' })
     } catch (error) {
+      // exceptions handled inside each function within try
       null
     }
 
@@ -135,6 +141,7 @@ class Contact extends React.PureComponent {
       return resp
     } catch (error) {
       this.setState({ emailStatus: 'error', errorMessage: error.message })
+      Sentry.captureException(error)
       throw error
     }
   }
