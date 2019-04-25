@@ -1,5 +1,6 @@
 const path = require('path')
 const webpack = require('webpack')
+const Dotenv = require('dotenv-webpack')
 const CopyPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
@@ -15,7 +16,6 @@ mdRenderer.link = (href, title, text) => {
     const html = mdRendererLink.call(mdRenderer, href, title, text)
     return html.replace(/^<a /, '<a target="_blank" rel="noopener noreferrer" ')
 }
-
 
 module.exports = (env, argv) => {
   const isProd = argv.mode === 'production'
@@ -65,6 +65,8 @@ module.exports = (env, argv) => {
       ]
     },
     plugins: [
+      new Dotenv(),
+      new webpack.EnvironmentPlugin('SENTRY_DSN'.split(' ')),
       new webpack.HashedModuleIdsPlugin(), // consistent file hashes based on their content
       new LodashModuleReplacementPlugin,
       new CleanWebpackPlugin(),
