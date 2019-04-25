@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
 
+import ErrorBoundary from '~/library/ErrorBoundary'
 import AnchorTag from '~/library/AnchorTag'
 import ImageLoader from '~/library/ImageLoader'
 import linkedInBtnSrc from '~/assets/img/linkedin_btn.png'
@@ -32,7 +33,9 @@ function About() {
           imgSrc={linkedInBtnSrc}
         />
       </AnchorTag>
-      <Contact />
+      <ErrorBoundary>
+        <Contact />
+      </ErrorBoundary>
     </Root>
   )
 }
