@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
 import { connect } from 'react-redux'
+import * as Sentry from '@sentry/browser'
 
 import { urlBuilder } from '~/utils'
 import ScrollerStatus from './ScrollerStatus'
@@ -45,21 +46,35 @@ export class Scrollers extends React.PureComponent {
     scrollerType: PropTypes.string.isRequired,
   }
 
+  constructor() {
+    super()
+    this.fetchCards = this.fetchCards.bind(this)
+  }
+
   async fetchCards() {
     const path = '/labs/infinite-scroller'
     const query = { paragraphs: 1, entries: this.props.recordsPerFetch }
     const url = urlBuilder(path, query)
-    const res = await fetch(url)
-  
+    let isErrorReported = false
+
     try {
+      const res = await fetch(url)
+
       if (res.ok) {
         const json = await res.json()
         return json
       } else {
-        throw Error('There was an error with the fetch request.')
+        const errorMsg = await res.text()
+        const error = new Error(errorMsg)
+        Sentry.captureException(error)
+        isErrorReported = true
+        throw Error('There was an error fetching information.')
       }
     } catch (error) {
-      console.error('testing error', error)
+      if (!isErrorReported) {
+        Sentry.captureException(error)
+      }
+
       throw error
     }
   }
@@ -67,7 +82,7 @@ export class Scrollers extends React.PureComponent {
   renderChildren() {
     if (this.props.scrollerType in SCROLLERS) {
       const Element = SCROLLERS[this.props.scrollerType]
-      return <Element cardFetcher={this.fetchCards.bind(this)} />
+      return <Element cardFetcher={this.fetchCards} />
     }
   }
 
