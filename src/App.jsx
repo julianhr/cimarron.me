@@ -2,6 +2,7 @@ import React, { Suspense } from 'react'
 import styled from '@emotion/styled'
 import { Switch, Route } from 'react-router-dom'
 
+import ErrorBoundary from './library/ErrorBoundary'
 import LabShowcase from './components/LabShowcase/LabShowcase'
 import TopNav from '~/components/TopNav/TopNav'
 import Loading from './components/Loading/Loading'
@@ -51,12 +52,14 @@ function App() {
       <Main>
         <TopNav menuItems={MENU_ITEMS} />
         <Body>
-          <Suspense fallback={<Loading />}>
-            <Switch>
-              <Route exact path='/' component={LabShowcaseWithProps} />
-              <Route path='/about' component={About} />
-            </Switch>
-          </Suspense>
+          <ErrorBoundary>
+            <Suspense fallback={<Loading />}>
+              <Switch>
+                <Route exact path='/' component={LabShowcaseWithProps} />
+                <Route path='/about' component={About} />
+              </Switch>
+            </Suspense>
+          </ErrorBoundary>
         </Body>
         <Footer />
       </Main>
