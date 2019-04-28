@@ -26,6 +26,7 @@ function About() {
         url='https://www.linkedin.com/in/julianhr/'
         isLinkRouted={false}
         isTargetBlank
+        rootStyle={{ display: 'contents' }}
       >
         <ImageLoader
           maxWidth={200}
