@@ -14,7 +14,7 @@ const DATA = [
     title: 'Infinite Scroller',
     urlPath: '/labs/infinite-scroller',
     thumbnailSrc: require('../labs/001_InfiniteScroller/thumbnail.png'),
-    stack: 'React.js Javascript'.split(' '),
+    stack: 'React Flask AWS'.split(' '),
     createdAt: '2019-03',
   }
 ]
