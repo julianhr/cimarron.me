@@ -9,39 +9,45 @@ Array [
     <section
       className="css-1sjkg4e-Root e1iukibw0"
     >
-      <Root>
-        <div
-          className="css-47ru1c-Root exr8ng20"
-        />
-      </Root>
+      <ConnectFunction>
+        <Root>
+          <div
+            className="css-47ru1c-Root exr8ng20"
+          />
+        </Root>
+      </ConnectFunction>
       <Contour>
         <div
           className="css-1sfqwic-Contour e1iukibw1"
         >
-          <Root>
-            <div
-              className="css-11qniw9-Root e5woe9i0"
-            >
-              <Message>
-                <div
-                  className="css-quardp-Message ehwlun20"
-                >
-                  <div>
-                    <p>
-                      This browser doesn't support the Intersection Observer.
-                    </p>
-                    <a
-                      href="https://caniuse.com/#feat=intersectionobserver"
-                      rel="noopener noreferrer"
-                      target="_blank"
-                    >
-                      Check compatibility
-                    </a>
+          <ConnectFunction
+            cardFetcher={[Function]}
+          >
+            <Root>
+              <div
+                className="css-11qniw9-Root e5woe9i0"
+              >
+                <Message>
+                  <div
+                    className="css-quardp-Message ehwlun20"
+                  >
+                    <div>
+                      <p>
+                        This browser doesn't support the Intersection Observer.
+                      </p>
+                      <a
+                        href="https://caniuse.com/#feat=intersectionobserver"
+                        rel="noopener noreferrer"
+                        target="_blank"
+                      >
+                        Check compatibility
+                      </a>
+                    </div>
                   </div>
-                </div>
-              </Message>
-            </div>
-          </Root>
+                </Message>
+              </div>
+            </Root>
+          </ConnectFunction>
         </div>
       </Contour>
     </section>
