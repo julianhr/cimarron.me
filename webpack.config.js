@@ -20,6 +20,12 @@ mdRenderer.link = (href, title, text) => {
 module.exports = (env, argv) => {
   const isProd = argv.mode === 'production'
 
+  if (isProd) { process.env.COMMIT_HASH = process.env.COMMIT_REF.slice(0, 8) }
+  else {
+    process.env.COMMIT_HASH =
+      require('child_process').execSync('git rev-parse --short HEAD').toString().trim()
+  }
+
   return {
     entry: {
       main: './src/index.js',
@@ -66,7 +72,7 @@ module.exports = (env, argv) => {
     },
     plugins: [
       new Dotenv(),
-      new webpack.EnvironmentPlugin('SENTRY_DSN'.split(' ')),
+      new webpack.EnvironmentPlugin('SENTRY_DSN COMMIT_HASH'.split(' ')),
       new webpack.HashedModuleIdsPlugin(), // consistent file hashes based on their content
       new LodashModuleReplacementPlugin,
       new CleanWebpackPlugin(),
