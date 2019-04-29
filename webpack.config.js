@@ -20,7 +20,9 @@ mdRenderer.link = (href, title, text) => {
 module.exports = (env, argv) => {
   const isProd = argv.mode === 'production'
 
-  if (isProd) { process.env.COMMIT_HASH = process.env.COMMIT_REF.slice(0, 8) }
+  if (isProd) {
+    process.env.COMMIT_HASH = (process.env.COMMIT_REF || 'missing').slice(0, 8)
+  }
   else {
     process.env.COMMIT_HASH =
       require('child_process').execSync('git rev-parse --short HEAD').toString().trim()
@@ -76,11 +78,13 @@ module.exports = (env, argv) => {
       new webpack.HashedModuleIdsPlugin(), // consistent file hashes based on their content
       new LodashModuleReplacementPlugin,
       new CleanWebpackPlugin(),
+      // https://github.com/jantimon/html-webpack-plugin/issues/218#issuecomment-183066602
+      // https://github.com/jantimon/html-webpack-plugin/issues/218#issuecomment-372305762
       new HtmlWebpackPlugin({
         filename: 'index.html',
         template: './src/views/index.ejs',
         hash: true,
-        chunks: 'main vendors react redux commons'.split(' '),
+        excludeChunks: ['InfiniteScroller'],
         templateParameters: {
           title: 'Julian Hernandez - Personal Website'
         }
@@ -89,9 +93,9 @@ module.exports = (env, argv) => {
         filename: 'labs/infinite-scroller/index.html',
         template: './src/views/index.ejs',
         hash: true,
-        chunks: 'InfiniteScroller vendors react redux commons'.split(' '),
+        excludeChunks: ['main'],
         templateParameters: {
-          title: 'Infinite Scroller - Personal Website'
+          title: 'Infinite Scroller - Julian Hernandez'
         }
       }),
       new CopyPlugin([{ from: 'public', to: '.' }]),
@@ -103,36 +107,18 @@ module.exports = (env, argv) => {
         '~': path.resolve(__dirname, 'src')
       }
     },
-    // incorporates ideas from
-    // https://hackernoon.com/the-100-correct-way-to-split-your-chunks-with-webpack-f8a9df5b7758
     optimization: {
       runtimeChunk: false,
       splitChunks: {
-        minSize: 0,
         maxInitialRequests: Infinity,
         cacheGroups: {
           default: false,
-          vendors: false,
-          vendor: {
-            test: /node_modules\/(?!(react|redux|lodash))/,
+          vendors: {
+            test: /node_modules/,
             name: 'vendors',
             chunks: 'all',
+            maxSize: 300 * 1000, // 300 KB
           },
-          react: {
-            test: /node_modules\/react/,
-            name: 'react',
-            chunks: 'all',
-          },
-          redux: {
-            test: /node_modules\/redux/,
-            name: 'redux',
-            chunks: 'all',
-          },
-          commons: {
-            name: 'commons',
-            chunks: 'all',
-            minChunks: 2
-          }
         },
       },
     },
