@@ -7,19 +7,29 @@ import MockApp from '~/__tests__/__mocks__/MockApp'
 
 
 const testProps = {
+  isLinkRouted: false,
   menuItems: [
     { url: '/one/path', label: 'label 1', isLinkRouted: false },
-  ]
+    { url: '/two/path', label: 'label 2', isLinkRouted: true },
+  ],
 }
 
-const renderApp = (props) => create(<MockApp><TopNav {...props} /></MockApp>)
+const createApp = (props) => create(<MockApp><TopNav {...props} /></MockApp>)
 
 describe('TopNav', () => {
   describe('props', () => {
-    it('requires menuItems', () => {
+    test('menuItems is required', () => {
       const props = {...testProps}
       delete props.menuItems
-      expect(() => renderApp(props)).toThrow()
+      expect(() => createApp(props)).toThrow()
+    })
+
+    test('isLogoLinkRouted defaults to true', () => {
+      const props = {...testProps}
+      delete props.isLogoLinkRouted
+      const wrapper = createApp(props)
+      const topNav = wrapper.root.findByType(TopNav)
+      expect(topNav.props.isLogoLinkRouted).toBe(true)
     })
   })
 

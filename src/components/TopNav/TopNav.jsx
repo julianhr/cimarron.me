@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
 
-import LeftNav from './LeftNav'
+import Logo from './Logo'
 import RightNav from './RightNav'
 
 
@@ -14,10 +14,12 @@ const RootHeader = styled.header`
   width: 100%;
 `
 
-function TopNav({ menuItems }) {
+function TopNav({ menuItems, isLogoLinkRouted }) {
   return (
     <RootHeader>
-      <LeftNav />
+      <Logo
+        isLinkRouted={isLogoLinkRouted}
+      />
       <RightNav
         menuItems={menuItems}
       />
@@ -26,7 +28,12 @@ function TopNav({ menuItems }) {
 }
 
 TopNav.propTypes = {
+  isLogoLinkRouted: PropTypes.bool,
   menuItems: PropTypes.arrayOf(PropTypes.object).isRequired,
+}
+
+TopNav.defaultProps = {
+  isLogoLinkRouted: true,
 }
 
 export default TopNav

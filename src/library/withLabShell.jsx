@@ -15,9 +15,7 @@ const Main = styled.main`
   grid-area: main;
 `
 
-const MENU_ITEMS = [
-  { url: '/', label: 'Home', isLinkRouted: false },
-]
+const MENU_ITEMS = []
 
 function withLabShell(WrappedElement) {
   return class extends React.Component {
@@ -25,7 +23,10 @@ function withLabShell(WrappedElement) {
       return (
         <Container>
           <Main>
-            <TopNav menuItems={MENU_ITEMS} />
+            <TopNav
+              isLogoLinkRouted={false}
+              menuItems={MENU_ITEMS}
+            />
             <WrappedElement {...this.props} />
           </Main>
         </Container>

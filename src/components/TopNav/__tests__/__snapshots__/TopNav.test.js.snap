@@ -7,22 +7,39 @@ exports[`TopNav should match snapshot 1`] = `
   >
     <Root>
       <div
-        className="css-14jo2cv-Root e1r6iq2i0"
+        className="css-14jo2cv-Root e5kh90j0"
       >
-        <H3>
-          <h3
-            className="css-lf6xiw-H3 e1r6iq2i1"
+        <EmotionCssPropInternal
+          __EMOTION_LABEL_PLEASE_DO_NOT_USE__="AnchorTag"
+          __EMOTION_TYPE_PLEASE_DO_NOT_USE__={[Function]}
+          css={
+            Object {
+              "textDecoration": "none",
+            }
+          }
+          to="/"
+        >
+          <a
+            className="css-oiop68-AnchorTag"
+            href="/"
+            onClick={[Function]}
           >
-            Julian Hernandez
-          </h3>
-        </H3>
-        <H6>
-          <h6
-            className="css-4ffc7b-H6 e1r6iq2i2"
-          >
-            Full Stack Software Developer
-          </h6>
-        </H6>
+            <H3>
+              <h3
+                className="css-lf6xiw-H3 e5kh90j1"
+              >
+                Julian Hernandez
+              </h3>
+            </H3>
+            <H6>
+              <h6
+                className="css-d1qjtf-H6 e5kh90j2"
+              >
+                Full Stack Software Developer
+              </h6>
+            </H6>
+          </a>
+        </EmotionCssPropInternal>
       </div>
     </Root>
     <Root>
@@ -48,6 +65,26 @@ exports[`TopNav should match snapshot 1`] = `
                 target={null}
               >
                 label 1
+              </a>
+            </EmotionCssPropInternal>
+          </div>
+        </Root>
+        <Root>
+          <div
+            className="css-u96gbo-Root e1uo4w6s0"
+          >
+            <EmotionCssPropInternal
+              __EMOTION_LABEL_PLEASE_DO_NOT_USE__="AnchorTag"
+              __EMOTION_TYPE_PLEASE_DO_NOT_USE__={[Function]}
+              css={[Function]}
+              to="/two/path"
+            >
+              <a
+                className="css-d3pkg8-STYLES-STYLES"
+                href="/two/path"
+                onClick={[Function]}
+              >
+                label 2
               </a>
             </EmotionCssPropInternal>
           </div>

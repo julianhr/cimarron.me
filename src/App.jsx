@@ -40,7 +40,6 @@ const Footer = styled.footer`
 `
 
 const MENU_ITEMS = [
-  { url: '/', label: 'Home' },
   { url: '/about', label: 'About' },
 ]
 
@@ -50,7 +49,9 @@ function App() {
   return (
     <Container>
       <Main>
-        <TopNav menuItems={MENU_ITEMS} />
+        <TopNav
+          menuItems={MENU_ITEMS}
+        />
         <Body>
           <ErrorBoundary>
             <Suspense fallback={<Loading />}>
