@@ -11,7 +11,7 @@ exports[`Button snapshots with all props 1`] = `
   background: transparent;
   padding: 4px 16px;
   color: #9B1518;
-  font-size: 1.2em;
+  font-size: 1.3em;
   height: 44px;
   min-width: 140px;
   color: green;
@@ -48,7 +48,7 @@ exports[`Button snapshots with required props 1`] = `
   background: transparent;
   padding: 4px 16px;
   color: #9B1518;
-  font-size: 1.2em;
+  font-size: 1.3em;
   height: 44px;
   min-width: 140px;
 }

@@ -5,7 +5,7 @@ exports[`LabShowcase should match snapshot 1`] = `
   class="css-1lzrryp-Root e1uula6j0"
 >
   <a
-    class="css-4yofyo-baseArticle-link-link"
+    class="css-122br60-baseArticle-link-link"
     href="/path/1"
     rel="noopener noreferrer"
   >
@@ -13,18 +13,18 @@ exports[`LabShowcase should match snapshot 1`] = `
       class="css-1dt8rsn-Article-baseArticle e1lgusa60"
     >
       <figure
-        class="css-1t2crv9-Root-ImageLoader eeswxza0"
+        class="css-vr64am-Root-ImageLoader eeswxza0"
       >
         <img
           class="css-1k90mm3"
           src="http://image1.com"
         />
       </figure>
-      <h3
-        class="css-1brvuev-H3 e1lgusa63"
+      <h4
+        class="css-1df8xih-H4 e1lgusa63"
       >
         Title 1
-      </h3>
+      </h4>
     </article>
     <section
       class="css-1k4ntzt-TechRoot e1lgusa61"
@@ -42,7 +42,7 @@ exports[`LabShowcase should match snapshot 1`] = `
     </section>
   </a>
   <a
-    class="css-4yofyo-baseArticle-link-link"
+    class="css-122br60-baseArticle-link-link"
     href="/path/2"
     rel="noopener noreferrer"
   >
@@ -50,18 +50,18 @@ exports[`LabShowcase should match snapshot 1`] = `
       class="css-1dt8rsn-Article-baseArticle e1lgusa60"
     >
       <figure
-        class="css-1t2crv9-Root-ImageLoader eeswxza0"
+        class="css-vr64am-Root-ImageLoader eeswxza0"
       >
         <img
           class="css-1k90mm3"
           src="http://image2.com"
         />
       </figure>
-      <h3
-        class="css-1brvuev-H3 e1lgusa63"
+      <h4
+        class="css-1df8xih-H4 e1lgusa63"
       >
         Title 2
-      </h3>
+      </h4>
     </article>
     <section
       class="css-1k4ntzt-TechRoot e1lgusa61"

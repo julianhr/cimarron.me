@@ -16,8 +16,8 @@ const STYLES = {
   link: (props) => css`
     color: ${props.colors.text};
     text-decoration: none;
-    margin: 0 10px;
-    padding: 0 6px 4px;
+    margin: 0 8px;
+    padding: 0 4px 3px;
     border-bottom: 2px solid transparent;
     transition: border-bottom-color 75ms linear;
 

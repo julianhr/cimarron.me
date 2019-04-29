@@ -2,7 +2,7 @@
 
 exports[`Description snapshots with valid md file: valid md file 1`] = `
 <section
-  className="css-9l38gp-Root eyj91y30"
+  className="css-7q8dvp-Root eyj91y30"
 >
   <div
     dangerouslySetInnerHTML={
@@ -34,7 +34,7 @@ exports[`Description snapshots with valid md file: valid md file 1`] = `
 
 exports[`Description with invalid md file: invalid md file 1`] = `
 <section
-  className="css-9l38gp-Root eyj91y30"
+  className="css-7q8dvp-Root eyj91y30"
 >
   <div
     dangerouslySetInnerHTML={
@@ -66,7 +66,7 @@ exports[`Description with invalid md file: invalid md file 1`] = `
 
 exports[`Description with invalid md file: no md file 1`] = `
 <section
-  className="css-9l38gp-Root eyj91y30"
+  className="css-7q8dvp-Root eyj91y30"
 >
   <div
     dangerouslySetInnerHTML={

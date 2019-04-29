@@ -11,14 +11,14 @@ exports[`TopNav should match snapshot 1`] = `
       >
         <H3>
           <h3
-            className="css-16ij0sm-H3 e1r6iq2i1"
+            className="css-lf6xiw-H3 e1r6iq2i1"
           >
             Julian Hernandez
           </h3>
         </H3>
         <H6>
           <h6
-            className="css-mz7w21-H6 e1r6iq2i2"
+            className="css-4ffc7b-H6 e1r6iq2i2"
           >
             Full Stack Software Developer
           </h6>
@@ -42,7 +42,7 @@ exports[`TopNav should match snapshot 1`] = `
               target={null}
             >
               <a
-                className="css-1566xl0-STYLES-STYLES"
+                className="css-d3pkg8-STYLES-STYLES"
                 href="/one/path"
                 rel="noopener noreferrer"
                 target={null}

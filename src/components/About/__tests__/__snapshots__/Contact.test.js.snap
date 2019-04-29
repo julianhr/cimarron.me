@@ -2,7 +2,7 @@
 
 exports[`Contact #getEmailFormBtn returns submit button for form 1`] = `
 <button
-  className="css-1kledvh-Btn-Button exgske30"
+  className="css-1a928ww-Btn-Button exgske30"
   onClick={[Function]}
   type="submit"
 >
@@ -18,7 +18,7 @@ Array [
     Contact
   </h3>,
   <form
-    className="css-1gqr0i7-FormTag-EmailForm ehpgenw0"
+    className="css-1pge504-FormTag-EmailForm ehpgenw0"
     method="POST"
     onKeyPress={[Function]}
     onSubmit={[Function]}
@@ -92,7 +92,7 @@ Array [
       <span />
     </div>
     <button
-      className="css-1kledvh-Btn-Button exgske30"
+      className="css-1a928ww-Btn-Button exgske30"
       onClick={[Function]}
       type="submit"
     >
@@ -119,7 +119,7 @@ Array [
     Contact
   </h3>,
   <form
-    className="css-1gqr0i7-FormTag-EmailForm ehpgenw0"
+    className="css-1pge504-FormTag-EmailForm ehpgenw0"
     method="POST"
     onKeyPress={[Function]}
     onSubmit={[Function]}
@@ -196,7 +196,7 @@ Array [
       <span />
     </div>
     <button
-      className="css-1kledvh-Btn-Button exgske30"
+      className="css-1a928ww-Btn-Button exgske30"
       onClick={[Function]}
       type="submit"
     >
@@ -235,7 +235,7 @@ Array [
     Contact
   </h3>,
   <form
-    className="css-1gqr0i7-FormTag-EmailForm ehpgenw0"
+    className="css-1pge504-FormTag-EmailForm ehpgenw0"
     method="POST"
     onKeyPress={[Function]}
     onSubmit={[Function]}
@@ -309,7 +309,7 @@ Array [
       <span />
     </div>
     <button
-      className="css-1kledvh-Btn-Button exgske30"
+      className="css-1a928ww-Btn-Button exgske30"
       onClick={[Function]}
       type="submit"
     >
@@ -336,7 +336,7 @@ Array [
     Contact
   </h3>,
   <form
-    className="css-1gqr0i7-FormTag-EmailForm ehpgenw0"
+    className="css-1pge504-FormTag-EmailForm ehpgenw0"
     method="POST"
     onKeyPress={[Function]}
     onSubmit={[Function]}
@@ -416,7 +416,7 @@ Array [
       </span>
     </div>
     <button
-      className="css-1kledvh-Btn-Button exgske30"
+      className="css-1a928ww-Btn-Button exgske30"
       onClick={[Function]}
       type="submit"
     >
@@ -434,7 +434,7 @@ Array [
     Contact
   </h3>,
   <form
-    className="css-1gqr0i7-FormTag-EmailForm ehpgenw0"
+    className="css-1pge504-FormTag-EmailForm ehpgenw0"
     method="POST"
     onKeyPress={[Function]}
     onSubmit={[Function]}
@@ -508,7 +508,7 @@ Array [
       <span />
     </div>
     <button
-      className="css-1kledvh-Btn-Button exgske30"
+      className="css-1a928ww-Btn-Button exgske30"
       onClick={[Function]}
       type="submit"
     >

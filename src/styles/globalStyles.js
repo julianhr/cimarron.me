@@ -4,14 +4,14 @@ const globalStyles = (props) => css`
   body {
     color: ${props.colors.text},
     lineHeight 1.3em;
-    font-size: 18px;
+    font-size: 14px;
   }
 
   input, textarea {
     border: 2px solid ${props.colors.field.border};
     background: ${props.colors.field.background};
     border-radius: 5px;
-    font-size: 20px;
+    font-size: 18px;
   }
 
   p, h1, h2, h3, h4, h5, h6, figure {
@@ -24,30 +24,30 @@ const globalStyles = (props) => css`
 
   p {
     padding: .8em 0;
-    line-height: 1.4em;
+    line-height: 1em;
   }
 
   h1 {
-    font-size: 36px;
+    font-size: 42px;
     margin: 50px 0 40px;
   }
 
   h2 {
     line-height: 1.4em;
-    font-size: 30px;
+    font-size: 28px;
     font-weight: 600;
     margin: 40px 0 30px;
   }
 
   h3 {
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 600;
     margin: 30px 0 30px;
   }
 
   h4 {
     line-height: 1.3em;
-    font-size: 18px;
+    font-size: 16px;
   }
 
   h5 {

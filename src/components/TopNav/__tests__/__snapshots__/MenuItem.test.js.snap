@@ -14,7 +14,7 @@ exports[`MenuItem snapshots isLinkRouted == false 1`] = `
       target={null}
     >
       <a
-        className="css-1566xl0-STYLES-STYLES"
+        className="css-d3pkg8-STYLES-STYLES"
         href="/some/test/path"
         rel="noopener noreferrer"
         target={null}
@@ -38,7 +38,7 @@ exports[`MenuItem snapshots isLinkRouted == true 1`] = `
       to="/some/test/path"
     >
       <a
-        className="css-1566xl0-STYLES-STYLES"
+        className="css-d3pkg8-STYLES-STYLES"
         href="/some/test/path"
         onClick={[Function]}
       >

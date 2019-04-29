@@ -16,7 +16,7 @@ const baseArticle = css`
 const STYLES = {
   link: css`
     ${baseArticle}
-    max-width: 250px;
+    max-width: 220px;
     text-decoration: none;
     color: unset;
     background: #ededed;
@@ -49,8 +49,10 @@ const Tech = styled.div`
   padding: 2px 7px;
 `
 
-const H3 = styled.h3`
+const H4 = styled.h4`
   margin: 0;
+  font-size: 1.2em;
+  font-weight: 600;
 `
 
 function Lab({ title, stack, urlPath, thumbnailSrc, isLinkRouted }) {
@@ -81,11 +83,11 @@ function Lab({ title, stack, urlPath, thumbnailSrc, isLinkRouted }) {
       <Article>
         <ImageLoader
           imgSrc={thumbnailSrc}
-          maxWidth={200}
+          maxWidth={180}
           maxHeight={120}
           styles={{ root: { marginBottom: 20 } }}
         />
-        <H3>{title}</H3>
+        <H4>{title}</H4>
       </Article>
       <TechRoot>
         {renderTech(stack)}

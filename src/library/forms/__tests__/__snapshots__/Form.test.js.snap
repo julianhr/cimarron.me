@@ -30,7 +30,7 @@ exports[`Form props incorporates formStyle if passed 1`] = `
 .emotion-0 input,
 .emotion-0 textarea {
   width: 100%;
-  margin-bottom: 5px;
+  margin-bottom: 2px;
 }
 
 .emotion-0 input:focus,
@@ -48,8 +48,12 @@ exports[`Form props incorporates formStyle if passed 1`] = `
 
 .emotion-0 span {
   color: #d400ff;
-  font-size: 18px;
-  padding: 0 10px;
+  font-size: 14px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 16px;
 }
 
 .emotion-0 button[type=submit] {

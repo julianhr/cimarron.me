@@ -1,11 +1,11 @@
+const CleanWebpackPlugin = require('clean-webpack-plugin')
+const CopyPlugin = require('copy-webpack-plugin')
+const Dotenv = require('dotenv-webpack')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const LodashModuleReplacementPlugin = require('lodash-webpack-plugin')
 const path = require('path')
 const webpack = require('webpack')
-const Dotenv = require('dotenv-webpack')
-const CopyPlugin = require('copy-webpack-plugin')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const CleanWebpackPlugin = require('clean-webpack-plugin')
 const { DuplicatesPlugin } = require("inspectpack/plugin")
-const LodashModuleReplacementPlugin = require('lodash-webpack-plugin')
 
 // open Markdown links in new tab
 // https://github.com/markedjs/marked/issues/655
@@ -72,7 +72,7 @@ module.exports = (env, argv) => {
     },
     plugins: [
       new Dotenv(),
-      new webpack.EnvironmentPlugin('SENTRY_DSN COMMIT_HASH'.split(' ')),
+      new webpack.EnvironmentPlugin(['SENTRY_DSN', 'COMMIT_HASH']),
       new webpack.HashedModuleIdsPlugin(), // consistent file hashes based on their content
       new LodashModuleReplacementPlugin,
       new CleanWebpackPlugin(),
