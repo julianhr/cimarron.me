@@ -18,8 +18,8 @@ export const colors = {
 export const breaks = {
   xs: 0,
   sm: 420,
-  md: 900,
-  lg: 1200,
+  md: 800,
+  lg: 1024,
 }
 
 export const breakBump = {

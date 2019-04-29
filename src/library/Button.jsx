@@ -11,7 +11,7 @@ const Btn = styled.button`
   background: transparent;
   padding: 4px 16px;
   color: ${props => props.theme.colors.primary.dark};
-  font-size: 1.2em;
+  font-size: 1.3em;
   height: 44px;
   min-width: 140px;
 

@@ -12,14 +12,14 @@ const Root = styled.div`
 
 const H3 = styled.h3`
   color: ${props => props.theme.colors.text};
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 400;
   margin: 0;
 `
 
 const H6 = styled.h6`
   padding-top: 4px;
-  font-size: 14px;
+  font-size: 11px;
   font-weight: 300;
   margin: 0;
   color: #999;

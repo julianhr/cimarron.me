@@ -21,7 +21,7 @@ const FormTag = styled.form`
 
   input, textarea {
     width: 100%;
-    margin-bottom: 5px;
+    margin-bottom: 2px;
 
     :focus {
       outline: none;
@@ -38,8 +38,9 @@ const FormTag = styled.form`
 
   span {
     color: ${props => props.theme.colors.error};
-    font-size: 18px;
-    padding: 0 10px;
+    font-size: 16px;
+    display: flex;
+    height: 16px;
   }
 
   button[type=submit] {

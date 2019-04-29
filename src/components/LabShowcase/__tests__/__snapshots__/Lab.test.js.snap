@@ -2,7 +2,7 @@
 
 exports[`Lab should match snapshot with all props 1`] = `
 <a
-  class="css-4yofyo-baseArticle-link-link"
+  class="css-122br60-baseArticle-link-link"
   href="https://test.com"
   rel="noopener noreferrer"
 >
@@ -10,18 +10,18 @@ exports[`Lab should match snapshot with all props 1`] = `
     class="css-1dt8rsn-Article-baseArticle e1lgusa60"
   >
     <figure
-      class="css-1t2crv9-Root-ImageLoader eeswxza0"
+      class="css-vr64am-Root-ImageLoader eeswxza0"
     >
       <img
         class="css-1k90mm3"
         src="data:image/webp;base64,UklGRlQBAABXRUJQVlA4IEgBAABQCACdASoeABsAPtFco0yoJSMiMBgIAQAaCWwAuzlBfgGnO3BOALUBuQHUAbxt+2ZGxJRCYtBpYkvKE4agKG/XsXzkJxoCkLfy2JgA/v6UMx3P58mCrRxyi2inrTWQtl778n/xgSpf89/Y/+P6MxQ7ElzA7wlfu8XgcKi2XGDX7X/3TJ+Lc2FN9UflwEHsNaDGFm+cp3PSYB0z6nyEc0tkHRfee/M3RlRP686V8jhfSqeGU40Y9cP0betUGiyL6fX4UCGklWdvBvmBYV2/lpyWAvTXYmHBUTOgmRf4mZ8OSrwbxLSnL7H9xwwSzwHcz5vC2vjXJyn7j2hIrhfmENec/2zV6jbNPlXZFZofyE2n8lhCvjL/wDWARF1g0qxg4v8KzSYrKPR0mH4EXAsrO8U81v8+RaHKdg40DXgwNHEX3mNcn7aigAAA"
       />
     </figure>
-    <h3
-      class="css-1brvuev-H3 e1lgusa63"
+    <h4
+      class="css-1df8xih-H4 e1lgusa63"
     >
       Test Title
-    </h3>
+    </h4>
   </article>
   <section
     class="css-1k4ntzt-TechRoot e1lgusa61"
