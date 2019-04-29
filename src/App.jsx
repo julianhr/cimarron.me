@@ -10,7 +10,8 @@ import appStore from './reducers'
 import withAppRoot from './library/withAppRoot'
 import labs from './labs/labsData'
 // Lazy loaded
-const About = React.lazy(() => import(/* webpackChunkName: 'About' */ './components/About/About'))
+const About = React.lazy(() => import(
+  /* webpackChunkName: 'About', webpackPrefetch: true */ './components/About/About'))
 
 
 const Container = styled.div`
@@ -43,7 +44,6 @@ const MENU_ITEMS = [
   { url: '/about', label: 'About' },
 ]
 
-const LabShowcaseWithProps = () => <LabShowcase labs={labs} />
 
 function App() {
   return (
@@ -56,7 +56,7 @@ function App() {
           <ErrorBoundary>
             <Suspense fallback={<Loading />}>
               <Switch>
-                <Route exact path='/' component={LabShowcaseWithProps} />
+                <Route exact path='/' render={() => <LabShowcase labs={labs} />} />
                 <Route path='/about' component={About} />
               </Switch>
             </Suspense>
