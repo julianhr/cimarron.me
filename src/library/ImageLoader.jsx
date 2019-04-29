@@ -9,11 +9,6 @@ const Root = styled.figure`
   background: ${props => props.theme.colors.background};
 `
 
-const Img = styled.img`
-  opacity: 0;
-  transition: opacity 80ms linear;
-`
-
 class ImageLoader extends React.PureComponent {
   static propTypes = {
     imgSrc: PropTypes.string.isRequired,
@@ -37,8 +32,6 @@ class ImageLoader extends React.PureComponent {
     isImgLoaded: false,
   }
 
-  refImg = React.createRef()
-
   handleOnLoad() {
     this.setState({ isImgLoaded: true })
   }
@@ -55,8 +48,8 @@ class ImageLoader extends React.PureComponent {
         imgStyle = {
           transition: 'opacity 80ms linear',
           opacity: 1,
-          width: this.refImg.current.width,
-          height: this.refImg.current.height,
+          width: '100%',
+          height: 'auto',
         }
       }
 
@@ -77,7 +70,6 @@ class ImageLoader extends React.PureComponent {
         css={{ ...(styles.root || {}), width: maxWidth, height: maxHeight }}
       >
         <img
-          ref={this.refImg}
           src={imgSrc}
           {...this.getImgProps()}
         />

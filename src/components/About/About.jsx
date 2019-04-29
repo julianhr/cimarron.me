@@ -29,8 +29,8 @@ function About() {
         rootStyle={{ display: 'contents' }}
       >
         <ImageLoader
-          maxWidth={200}
-          maxHeight={37}
+          maxWidth={160}
+          maxHeight={29}
           imgSrc={linkedInBtnSrc}
         />
       </AnchorTag>

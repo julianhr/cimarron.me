@@ -92,8 +92,8 @@ exports[`ImageLoader on image load matches snapshot after image is loaded 1`] = 
   -webkit-transition: opacity 80ms linear;
   transition: opacity 80ms linear;
   opacity: 1;
-  width: 0;
-  height: 0;
+  width: 100%;
+  height: auto;
 }
 
 <Root
