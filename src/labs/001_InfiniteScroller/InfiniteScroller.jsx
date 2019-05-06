@@ -1,8 +1,6 @@
 import React from 'react'
-import { Provider } from 'react-redux'
 import styled from '@emotion/styled'
 
-import infiniteScollerStore from './reducers'
 import PageNav from './PageNav/PageNav'
 import Description from './Description/Description'
 import Scrollers from './Scrollers/Scrollers'
@@ -25,15 +23,13 @@ const Root = styled.section`
 
 export function InfiniteScroller() {
   return (
-    <Provider store={infiniteScollerStore}>
-      <Root>
-        <div>
-          <PageNav />
-          <Description />
-        </div>
-        <Scrollers />
-      </Root>
-    </Provider>
+    <Root>
+      <div>
+        <PageNav />
+        <Description />
+      </div>
+      <Scrollers />
+    </Root>
   )
 }
 
