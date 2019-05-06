@@ -5,9 +5,12 @@ import * as Sentry from '@sentry/browser'
 import App from './App'
 import ErrorBoundary from './library/ErrorBoundary'
 
+
+const isProduction = process.env.NODE_ENV === 'production'
+
 Sentry.init({
-  dsn: process.env.SENTRY_DSN,
-  debug: process.env.NODE_ENV !== 'production',
+  dsn: isProduction && process.env.SENTRY_DSN,
+  debug: !isProduction,
   environment: process.env.NODE_ENV,
   release: process.env.COMMIT_HASH,
 })
