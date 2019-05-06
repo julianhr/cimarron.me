@@ -5,6 +5,9 @@
 		},
 		{
 			"path": "/Users/julian/Repos/portfolio/flask_api"
+		},
+		{
+			"path": "/Users/julian/Repos/portfolio/aws_lambdas"
 		}
 	],
 	"settings": {
