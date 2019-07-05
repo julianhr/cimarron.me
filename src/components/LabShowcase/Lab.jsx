@@ -23,6 +23,7 @@ const STYLES = {
     padding: 5px 12px 12px;
     will-change: box-shadow;
     transition: box-shadow 30ms ease-in;
+    margin: 0 10px 10px;
 
     :hover {
       box-shadow: 1px 1px 4px #bbb;
