@@ -6,7 +6,13 @@ import Lab from './Lab'
 
 
 const Root = styled.section`
+  display: flex;
+  flex-wrap: wrap;
   padding: 80px 20px 20px;
+
+  @media (max-width: 540px) {
+    justify-content: center;
+  }
 `
 
 function LabShowcase({ labs }) {

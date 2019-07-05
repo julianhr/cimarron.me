@@ -2,10 +2,10 @@
 
 exports[`LabShowcase should match snapshot 1`] = `
 <section
-  class="css-1lzrryp-Root e1uula6j0"
+  class="css-idpn2m-Root e1uula6j0"
 >
   <a
-    class="css-122br60-baseArticle-link-link"
+    class="css-qa0w3r-baseArticle-link-link"
     href="/path/1"
     rel="noopener noreferrer"
   >
@@ -42,7 +42,7 @@ exports[`LabShowcase should match snapshot 1`] = `
     </section>
   </a>
   <a
-    class="css-122br60-baseArticle-link-link"
+    class="css-qa0w3r-baseArticle-link-link"
     href="/path/2"
     rel="noopener noreferrer"
   >

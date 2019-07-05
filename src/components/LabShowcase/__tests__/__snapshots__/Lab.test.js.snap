@@ -2,7 +2,7 @@
 
 exports[`Lab should match snapshot with all props 1`] = `
 <a
-  class="css-122br60-baseArticle-link-link"
+  class="css-qa0w3r-baseArticle-link-link"
   href="https://test.com"
   rel="noopener noreferrer"
 >
