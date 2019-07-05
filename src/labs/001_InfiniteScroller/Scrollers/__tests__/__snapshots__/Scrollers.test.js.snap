@@ -9,18 +9,18 @@ Array [
     <section
       className="css-ijfy5d-Root e1iukibw0"
     >
-      <ConnectFunction>
+      <Connect(ScrollerStatus)>
         <Root>
           <div
             className="css-47ru1c-Root exr8ng20"
           />
         </Root>
-      </ConnectFunction>
+      </Connect(ScrollerStatus)>
       <Contour>
         <div
           className="css-1sfqwic-Contour e1iukibw1"
         >
-          <ConnectFunction
+          <Connect(ScrollerSentinelIntObs)
             cardFetcher={[Function]}
           >
             <Root>
@@ -47,7 +47,7 @@ Array [
                 </Message>
               </div>
             </Root>
-          </ConnectFunction>
+          </Connect(ScrollerSentinelIntObs)>
         </div>
       </Contour>
     </section>

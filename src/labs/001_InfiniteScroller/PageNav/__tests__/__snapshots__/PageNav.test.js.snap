@@ -16,7 +16,7 @@ Array [
           Infinite Scroller
         </h2>
       </H2>
-      <ConnectFunction>
+      <Connect(ScrollerSelector)>
         <Root>
           <div
             className="css-1o7hb61-Root el5yv3l0"
@@ -52,7 +52,7 @@ Array [
             </select>
           </div>
         </Root>
-      </ConnectFunction>
+      </Connect(ScrollerSelector)>
     </nav>
   </Root>,
 ]
